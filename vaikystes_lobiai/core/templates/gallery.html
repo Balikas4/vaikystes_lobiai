@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Galerija - Kindergarten{% endblock %}
+
+{% block content %}
+<section class="gallery">
+    <h1>Mūsų akimirkos</h1>
+    <div class="gallery-images">
+        {% for image in our_moments %}
+            <div class="gallery-item">
+                <img src="{{ image.image.url }}" alt="{{ image.description }}">
+                <p>{{ image.description }}</p>
+            </div>
+        {% empty %}
+            <p>No images available for this category.</p>
+        {% endfor %}
+    </div>
+
+    <h1>Darželio aplinka</h1>
+    <div class="gallery-images">
+        {% for image in environment %}
+            <div class="gallery-item">
+                <img src="{{ image.image.url }}" alt="{{ image.description }}">
+                <p>{{ image.description }}</p>
+            </div>
+        {% empty %}
+            <p>No images available for this category.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

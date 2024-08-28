@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Kindergarten{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Add any additional CSS files or meta tags here -->
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">Apie Mus</a></li>
+                <li><a href="{% url 'education' %}">Ugdymas</a></li>
+                <li><a href="{% url 'nutrition' %}">Maitinimas</a></li>
+                <li><a href="{% url 'admissions' %}">Priemimo Tvarka</a></li>
+                <li><a href="{% url 'gallery' %}">Galerija</a></li>
+                <li><a href="{% url 'contact' %}">Kontaktai</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Main content will go here -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Kindergarten. All rights reserved.</p>
+    </footer>
+
+    <!-- Add any additional JavaScript files here -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
