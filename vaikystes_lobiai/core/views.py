@@ -1,37 +1,70 @@
 from django.shortcuts import render, redirect
 from .forms import EmailForm
 from django.contrib import messages
-from .models import GalleryCategory, Review
+from about_us.models import AboutUsPage, Grupe, Activity, TeamMember
+from gallery.models import GalleryCategory
+from main_page.models import MainReview, MainPage
+from nutrition.models import NutritionPage, WeeklyNutrition
 
 from django.shortcuts import render
 
 def home(request):
-    reviews = Review.objects.all()
-    return render(request, 'main.html', {'reviews': reviews})
+    reviews = MainReview.objects.all()
+    main_page = MainPage.objects.first()
+    return render(request, 'main.html', {'main_page': main_page, 'reviews': reviews})
 
 def about(request):
-    return render(request, 'about.html')
+    # Fetch the About Us page
+    about_us_page = AboutUsPage.objects.first()  # Adjust if you have multiple AboutUsPage instances
+    
+    # Fetch groups
+    groups = Grupe.objects.all()
+    
+    # Fetch activities
+    activities = Activity.objects.all()
+    
+    # Fetch team members
+    team_members = TeamMember.objects.all()
+    
+    context = {
+        'about_us_page': about_us_page,
+        'groups': groups,
+        'activities': activities,
+        'team_members': team_members,
+    }
+    
+    return render(request, 'about.html', context)
 
 def education(request):
     return render(request, 'education.html')
 
 def nutrition(request):
-    return render(request, 'nutrition.html')
+    # Fetch the NutritionPage
+    nutrition_page = NutritionPage.objects.first()  # Adjust as needed to get the specific NutritionPage
+    
+    # Fetch Weekly Nutrition data, grouped by week
+    weekly_nutrition_data = WeeklyNutrition.objects.order_by('week_number', 'day')
+    
+    # Prepare a dictionary to hold weekly nutrition data
+    weeks = {}
+    for week in range(1, 5):
+        weeks[week] = WeeklyNutrition.objects.filter(week_number=week).order_by('day')
+
+    context = {
+        'nutrition_page': nutrition_page,
+        'weeks': weeks,
+    }
+    return render(request, 'nutrition.html', context)
 
 def admissions(request):
     return render(request, 'admissions.html')
 
 def gallery(request):
-    our_moments = GalleryCategory.objects.get(name='Mūsų akimirkos').images.all()
-    environment = GalleryCategory.objects.get(name='Darželio aplinka').images.all()
-    
+    categories = GalleryCategory.objects.all()
     context = {
-        'our_moments': our_moments,
-        'environment': environment,
+        'categories': categories
     }
     return render(request, 'gallery.html', context)
-
-
 
 def contact(request):
     if request.method == 'POST':

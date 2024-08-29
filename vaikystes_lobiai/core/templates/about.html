@@ -1,8 +1,73 @@
 {% extends 'base.html' %}
 
-{% block title %}Apie Mus - Kindergarten{% endblock %}
+{% block title %}About Us{% endblock %}
 
 {% block content %}
-<h1>Apie Mus</h1>
-<p>Welcome to the About Us page of our Kindergarten!</p>
+    <header>
+        <h1>{{ about_us_page.about_us_title }}</h1>
+        <p>{{ about_us_page.about_us_description }}</p>
+    </header>
+
+    <section id="hero-about">
+        <div class="hero-image-about">
+            <img src="" alt="About Us Hero Image">
+        </div>
+        <div class="hero-text">
+            <h1>{{ about_us_page.hero_title }}</h1>
+            <p>{{ about_us_page.hero_description }}</p>
+        </div>
+        <div>
+            <div>
+                <h1>Misija</h1>
+                <p>eyasdasd</p>
+            </div>
+            <div>
+                <h1>Vizija</h1>
+                <p>asdfasdfas</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="groups">
+        <h2>Our Groups</h2>
+        {% for group in about_us_page.grupes.all %}
+            <div class="group">
+                <h3>{{ group.name }}</h3>
+                <p>{{ group.description }}</p>
+                <h4>Daily Routine:</h4>
+                <ul>
+                    {% for routine in group.routines.all %}
+                        <li>
+                            <strong>{{ routine.day }}:</strong>
+                            <ul>
+                                {% for activity in routine.activities.all %}
+                                    <li>
+                                        {{ activity.name }} 
+                                        {% if activity.icon %}
+                                            <img src="{{ activity.icon.url }}" alt="{{ activity.name }} icon">
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% empty %}
+            <p>No groups available.</p>
+        {% endfor %}
+    </section>
+
+    <section id="team">
+        <h2>Meet Our Team</h2>
+        <ul>
+            {% for member in about_us_page.team_members.all %}
+                <li>
+                    <strong>{{ member.name }}</strong> - {{ member.job_title }}
+                </li>
+            {% empty %}
+                <p>No team members available.</p>
+            {% endfor %}
+        </ul>
+    </section>
 {% endblock %}

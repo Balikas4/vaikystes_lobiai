@@ -4,10 +4,40 @@
 
 {% block content %}
 <section class="hero">
-    <h1>Džiaugsmingos dienos „Vaikystės lobiuose“</h1>
-    <p>Jaukus ir šiuolaikiškas darželis, kupinas draugystės bei atradimų. Laukiame Jūsų!</p>
-    <a href="{% url 'about' %}" class="btn-primary">Prisijunkite</a>
+    <h1>{{ main_page.hero.hero_title }}</h1>
+    <p>{{ main_page.hero.hero_description }}</p>
+    <a href="{{ main_page.hero.hero_button_url }}" class="btn-primary">{{ main_page.hero.hero_button_text }}</a>
 </section>
+
+<section class="main-gallery">
+    <h2>Our Gallery</h2>
+    <div class="gallery">
+        {% for image in main_page.gallery.all %}
+            <div class="gallery-item">
+                <img src="{{ image.image.url }}" alt="{{ image.image.url }}">
+                {% if image.image.description %}
+                <p>{{ image.image.description }}</p>
+                {% endif %}
+            </div>
+        {% empty %}
+            <p>No images available in the gallery.</p>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="testimonials">
+    <h2>What Parents Say</h2>
+    {% for review in main_page.reviews.all %}
+        <blockquote>
+            <p>"{{ review.text }}"</p>
+            <cite>- {{ review.name }}</cite>
+        </blockquote>
+    {% empty %}
+        <p>No reviews available.</p>
+    {% endfor %}
+</section>
+{% endblock %}
+
 {% comment %} POKOLKAS NEREIKIA {% endcomment %}
 {% comment %} <section class="features">
     <div class="feature-item">
@@ -35,23 +65,3 @@
         <a href="{% url 'community_engagement' %}" class="btn-primary">Learn More</a>
     </div>
 </section> {% endcomment %}
-<section class="testimonials">
-    <h2>What Parents Say</h2>
-    <div class="reviews-list">
-        {% for review in reviews %}
-            <div class="review-item">
-                <blockquote>
-                    <p>{{ review.text }}</p>
-                    <footer>- {{ review.name }}</footer>
-                </blockquote>
-            </div>
-        {% empty %}
-            <p>No reviews available at the moment.</p>
-        {% endfor %}
-    </div>
-</section>
-<section class="button">
-    <button>Registracija</button>
-    <p>Prisijunkite prie „Vaikystės lobių“!</p>
-</section>
-{% endblock %}

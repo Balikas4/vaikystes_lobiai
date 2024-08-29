@@ -10,8 +10,47 @@
         <p>Darželyje vaikai maitinami mūsų virtuvėje pagaminu, plataus asortimento šviežiu maistu. Maisto racionas subalansuotas ir alergiškiems vaikams. Vaikai turi galimybę pasirinkti ir pakartoti norimo maisto. Dalyvaujame „Vaisių ir daržovių bei pieno ir pieno produktų vartojimo skatinimo vaikų ugdymo įstaigose“ programoje, kasdien užkandžiaujame šviežiais vaisiais bei termiškai neapdorotomis daržovėmis.</p>
     </div>
     <div class="hero-photo">
-        <!-- Add a hero photo here -->
         <img src="" alt="Hero Photo">
     </div>
 </section>
+<!-- Nutrition Section -->
+{% for week_number, daily_nutrition in weeks.items %}
+    <section>
+        <h1>Savaitė {{ week_number }}</h1>
+        <div class="card-holder">
+            {% for day_nutrition in daily_nutrition %}
+                <div class="card">
+                    <h2>{{ day_nutrition.day }}</h2>
+                    <ul>
+                        {% for nutrient in day_nutrition.nutrients.all %}
+                            <li>
+                                {{ nutrient.name }}
+                                {% if nutrient.icon %}
+                                    <img src="{{ nutrient.icon.url }}" alt="{{ nutrient.name }} icon">
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% empty %}
+                <p>No nutrition data available for this week.</p>
+            {% endfor %}
+        </div>
+    </section>
+{% endfor %}
+<!-- Video  -->
+<section>
+    <h1>{{ video.title }}</h1>
+    <div class="video-container">
+        <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/{{ video.youtube_url|slice:':-11' }}"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
+</section>
 {% endblock %}
+

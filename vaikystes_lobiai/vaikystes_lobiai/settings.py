@@ -47,6 +47,10 @@ MEDIA_ROOT = BASE_DIR.joinpath(MEDIA_URL)
 
 INSTALLED_APPS = [
     'core',
+    'gallery',
+    'main_page',
+    'about_us',
+    'nutrition',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
