@@ -79,3 +79,6 @@ def contact(request):
         form = EmailForm()
     
     return render(request, 'contact.html', {'form': form})  # Pass form to the template
+
+def register(request):
+    return render(request, 'register.html')  # Ensure you have a 'register.html' template

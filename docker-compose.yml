@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  dev:
+    build: .
+    image: kindergarten:dev
+    container_name: kindergarten.dev
+    tty: true
+    stdin_open: true
+    restart: always
+    ports:
+      - 8000:8000
+    volumes:
+      - ./vaikystes_lobiai:/app
+      - ./vaikystes_lobiai/db.sqlite3:/app/vaikystes_lobiai/db.sqlite3
+    command: >
+      bash -c "python manage.py migrate &&
+               python manage.py collectstatic --noinput &&
+               gunicorn vaikystes_lobiai.wsgi:application --bind 0.0.0.0:8001"
+
+  nginx:
+    build: ./nginx/
+    image: nginx:kindergarten
+    container_name: kindergarten.nginx
+    restart: always
+    ports:
+      - 80:80
+      # - 443:443
+    links:
+      - dev:kindergarten
+    volumes:
+      - ./vaikystes_lobiai/media_root:/app/media
+      - ./vaikystes_lobiai/static_root:/app/static
+      # - /etc/letsencrypt:/etc/letsencrypt
+      # - /var/www/certbot:/var/www/certbot
+
+  # certbot:
+  #   image: certbot/certbot
+  #   volumes:
+  #     - /etc/letsencrypt:/etc/letsencrypt
+  #     - /var/www/certbot:/var/www/certbot
+  #   entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+  #   depends_on:
+  #     - nginx

@@ -9,4 +9,5 @@ urlpatterns = [
     path('admissions/', views.admissions, name='admissions'), # Priemimo Tvarka
     path('gallery/', views.gallery, name='gallery'),          # Galerija
     path('contact/', views.contact, name='contact'),          # Kontaktai
+    path('register/', views.register, name='register'),       # Registracija
 ]

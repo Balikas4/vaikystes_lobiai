@@ -13,6 +13,7 @@
     <header>
         <nav>
             <ul>
+                <li><a href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" alt="Kindergarten Logo" class="logo-icon"></a></li>
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'about' %}">Apie Mus</a></li>
                 <li><a href="{% url 'education' %}">Ugdymas</a></li>
@@ -20,6 +21,7 @@
                 <li><a href="{% url 'admissions' %}">Priemimo Tvarka</a></li>
                 <li><a href="{% url 'gallery' %}">Galerija</a></li>
                 <li><a href="{% url 'contact' %}">Kontaktai</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
             </ul>
         </nav>
     </header>
@@ -31,7 +33,36 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Kindergarten. All rights reserved.</p>
+        <div class="footer-section">
+            <a href="{% url 'home' %}"><img src="{% static 'images/footer-logo.png' %}" alt="Kindergarten Logo" class="footer-logo"></a>
+        </div>
+        <div class="footer-section">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">Apie Mus</a></li>
+                <li><a href="{% url 'education' %}">Ugdymas</a></li>
+                <li><a href="{% url 'nutrition' %}">Maitinimas</a></li>
+                <li><a href="{% url 'admissions' %}">Priemimo Tvarka</a></li>
+                <li><a href="{% url 'gallery' %}">Galerija</a></li>
+                <li><a href="{% url 'contact' %}">Kontaktai</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h2>Contact Us</h2>
+            <p>If you have any questions, feel free to reach out to us.</p>
+            <p>We are here to assist you with any inquiries you may have.</p>
+            <p>Contact us via email or phone.</p>
+            <a href="{% url 'register' %}" class="btn-register">Register Now</a>
+        </div>
+        <div class="footer-section">
+            <img src="{% static 'images/footer-image.png' %}" alt="Footer Image" class="footer-image">
+            <div class="social-media">
+                <a href="https://www.facebook.com/yourpage" target="_blank"><img src="{% static 'images/facebook-icon.png' %}" alt="Facebook"></a>
+            </div>
+            <p>&copy; 2024 Kindergarten. All rights reserved.</p>
+        </div>
     </footer>
 
     <!-- Add any additional JavaScript files here -->
