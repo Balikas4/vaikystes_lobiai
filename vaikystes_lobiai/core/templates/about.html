@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
 
+{% load custom_filters %}
+
 {% block title %}About Us{% endblock %}
 
 {% block content %}
-    <header>
+    <div>
         <h1>{{ about_us_page.about_us_title }}</h1>
         <p>{{ about_us_page.about_us_description }}</p>
-    </header>
-
+    </div>
+    
     <section id="hero-about">
         <div class="hero-image-about">
-            <img src="" alt="About Us Hero Image">
+            <img src="{{ about_us_page.hero_image.url }}" alt="About Us Hero Image">
         </div>
         <div class="hero-text">
             <h1>{{ about_us_page.hero_title }}</h1>
@@ -19,49 +21,70 @@
         <div>
             <div>
                 <h1>Misija</h1>
-                <p>eyasdasd</p>
+                <p>Modernioje, veikti ir pažinti skatinančioje aplinkoje, sukuriame emociškai saugų, pagarbų, bendradarbiaujant su vaiku ir jo šeima grįstą ryšį, taip užtikriname motyvuojančią vaiko socialinę- emocinę ir pažintinę ūgtį, teikdami aukščiausios kokybės švietimo paslaugas.</p>
             </div>
             <div>
                 <h1>Vizija</h1>
-                <p>asdfasdfas</p>
+                <p>Siekdami užtikrinti harmoningą vaikų asmenybės augimą, orientuojamės į šiuolaikinio ugdymo strategijas, inovatyvius vaikų ugdymo metodus, siekiame būti atviri naujovėms, mokomės konstruktyviai bendradarbiauti, nuolat atsinaujiname ir kuriame savitą, vertybėmis grįstą darželio ugdymo sistemą.</p>
             </div>
         </div>
     </section>
 
+    <!-- Groups Section -->
     <section id="groups">
         <h2>Our Groups</h2>
-        {% for group in about_us_page.grupes.all %}
+        {% for group in groups %}
             <div class="group">
                 <h3>{{ group.name }}</h3>
                 <p>{{ group.description }}</p>
-                <h4>Daily Routine:</h4>
-                <ul>
-                    {% for routine in group.routines.all %}
-                        <li>
-                            <strong>{{ routine.day }}:</strong>
-                            <ul>
-                                {% for activity in routine.activities.all %}
-                                    <li>
-                                        {{ activity.name }} 
-                                        {% if activity.icon %}
-                                            <img src="{{ activity.icon.url }}" alt="{{ activity.name }} icon">
-                                        {% endif %}
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </li>
-                    {% endfor %}
-                </ul>
             </div>
         {% empty %}
             <p>No groups available.</p>
         {% endfor %}
     </section>
 
+    <!-- Daily Routine Section -->
+    <section id="routines">
+        <h2>Daily Routines</h2>
+        {% for group in groups %}
+            <div class="group-routine">
+                <h3>{{ group.name }}</h3>
+                <div class="card-holder">
+                    {% for day in days_of_week %}
+                        {% with routine_data|get_item:group.id|get_item:day as routine %}
+                            <div class="card">
+                                <h4>{{ day }}</h4>
+                                {% if routine %}
+                                    <ul>
+                                        {% for activity in routine.activities.all %}
+                                            <li>
+                                                {{ activity.name }}
+                                                {% if activity.icon %}
+                                                    <img src="{{ activity.icon.url }}" alt="{{ activity.name }} icon">
+                                                {% endif %}
+                                            </li>
+                                        {% empty %}
+                                            <li>No activities scheduled.</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% else %}
+                                    <p>No routine for this day.</p>
+                                {% endif %}
+                            </div>
+                        {% endwith %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% empty %}
+            <p>No groups available.</p>
+        {% endfor %}
+    </section>
+
+    <!-- Team Section -->
     <section id="team">
         <h2>Meet Our Team</h2>
         <ul>
-            {% for member in about_us_page.team_members.all %}
+            {% for member in team_members %}
                 <li>
                     <strong>{{ member.name }}</strong> - {{ member.job_title }}
                 </li>

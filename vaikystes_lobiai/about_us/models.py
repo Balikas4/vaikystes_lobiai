@@ -40,14 +40,12 @@ class Activity(models.Model):
 
 class DailyRoutine(models.Model):
     group = models.ForeignKey(Grupe, on_delete=models.CASCADE, related_name='routines')
-    day = models.CharField(max_length=10, choices=[
-        ('Monday', 'Monday'),
-        ('Tuesday', 'Tuesday'),
-        ('Wednesday', 'Wednesday'),
-        ('Thursday', 'Thursday'),
-        ('Friday', 'Friday'),
-        ('Saturday', 'Saturday'),
-        ('Sunday', 'Sunday'),
+    day = models.CharField(max_length=14, choices=[
+        ('Pirmadienis', 'Pirmadienis'),
+        ('Antradienis', 'Antradienis'),
+        ('Trečiadienis', 'Trečiadienis'),
+        ('Ketvirtadienis', 'Ketvirtadienis'),
+        ('Penktadienis', 'Penktadienis'),
     ])
     activities = models.ManyToManyField(Activity, related_name='routines')
 

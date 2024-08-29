@@ -14,26 +14,30 @@ def home(request):
     return render(request, 'main.html', {'main_page': main_page, 'reviews': reviews})
 
 def about(request):
-    # Fetch the About Us page
-    about_us_page = AboutUsPage.objects.first()  # Adjust if you have multiple AboutUsPage instances
-    
-    # Fetch groups
-    groups = Grupe.objects.all()
-    
-    # Fetch activities
-    activities = Activity.objects.all()
-    
-    # Fetch team members
-    team_members = TeamMember.objects.all()
-    
+    about_us_page = AboutUsPage.objects.first()  # Assuming there's only one AboutUsPage
+    groups = Grupe.objects.filter(about_us_page=about_us_page)
+    team_members = TeamMember.objects.filter(about_us_page=about_us_page)
+
+    # Define days of the week in Lithuanian
+    days_of_week = ["Pirmadienis", "Antradienis", "Trečiadienis", "Ketvirtadienis", "Penktadienis"]
+
+    # Prepare routine data
+    routine_data = {}
+    for group in groups:
+        group_routines = {day: None for day in days_of_week}
+        for routine in group.routines.all():
+            group_routines[routine.day] = routine
+        routine_data[group.id] = group_routines
+
     context = {
         'about_us_page': about_us_page,
         'groups': groups,
-        'activities': activities,
+        'routine_data': routine_data,
+        'days_of_week': days_of_week,
         'team_members': team_members,
     }
-    
     return render(request, 'about.html', context)
+
 
 def education(request):
     return render(request, 'education.html')

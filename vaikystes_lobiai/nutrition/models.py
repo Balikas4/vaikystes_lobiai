@@ -18,8 +18,6 @@ class WeeklyNutrition(models.Model):
         ('Wednesday', 'Wednesday'),
         ('Thursday', 'Thursday'),
         ('Friday', 'Friday'),
-        ('Saturday', 'Saturday'),
-        ('Sunday', 'Sunday'),
     ])
     nutrients = models.ManyToManyField(Nutrient, related_name='weekly_nutrition')
 
