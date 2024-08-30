@@ -6,6 +6,7 @@ class HeroInline(admin.StackedInline):
     can_delete = False
     max_num = 1
     verbose_name_plural = 'Hero Section'
+    fields = ['hero_title', 'hero_description', 'hero_button_text', 'hero_button_url', 'hero_photo']  # Include the new field
 
 class MainGalleryInline(admin.StackedInline):
     model = MainGallery

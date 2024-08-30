@@ -3,6 +3,8 @@ from django.db import models
 class AboutUsPage(models.Model):
     about_us_title = models.CharField(max_length=255)
     about_us_description = models.TextField()
+    hero_photo = models.ImageField(upload_to='hero_photos/', blank=True, null=True)
+    team_photo = models.ImageField(upload_to='hero_photos/', blank=True, null=True)
 
     def __str__(self):
         return self.about_us_title

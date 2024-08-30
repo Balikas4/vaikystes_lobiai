@@ -7,6 +7,11 @@
     <h1>{{ main_page.hero.hero_title }}</h1>
     <p>{{ main_page.hero.hero_description }}</p>
     <a href="{{ main_page.hero.hero_button_url }}" class="btn-primary">{{ main_page.hero.hero_button_text }}</a>
+    {% if main_page.hero.hero_photo %}
+    <div class="hero-photo">
+        <img src="{{ main_page.hero.hero_photo.url }}" alt="Hero Photo">
+    </div>
+    {% endif %}
 </section>
 
 <section class="main-gallery">
@@ -37,31 +42,3 @@
     {% endfor %}
 </section>
 {% endblock %}
-
-{% comment %} POKOLKAS NEREIKIA {% endcomment %}
-{% comment %} <section class="features">
-    <div class="feature-item">
-        <img src="{% static 'images/play-based-learning.jpg' %}" alt="Play-Based Learning">
-        <h1>Play-Based Learning</h1>
-        <p>We believe in learning through play. Our curriculum is designed to make learning fun and engaging.</p>
-        <a href="{% url 'play_based_learning' %}" class="btn-primary">Learn More</a>
-    </div>
-    <div class="feature-item">
-        <img src="{% static 'images/safe-environment.jpg' %}" alt="Safe Environment">
-        <h1>Safe Environment</h1>
-        <p>Our kindergarten provides a safe and nurturing environment where your child can thrive.</p>
-        <a href="{% url 'safe_environment' %}" class="btn-primary">Learn More</a>
-    </div>
-    <div class="feature-item">
-        <img src="{% static 'images/experienced-staff.jpg' %}" alt="Experienced Staff">
-        <h1>Experienced Staff</h1>
-        <p>Our teachers are experienced and passionate about early childhood education.</p>
-        <a href="{% url 'experienced_staff' %}" class="btn-primary">Learn More</a>
-    </div>
-    <div class="feature-item">
-        <img src="{% static 'images/community-engagement.jpg' %}" alt="Community Engagement">
-        <h1>Community Engagement</h1>
-        <p>We actively involve families and the local community in our educational activities and events.</p>
-        <a href="{% url 'community_engagement' %}" class="btn-primary">Learn More</a>
-    </div>
-</section> {% endcomment %}

@@ -8,11 +8,15 @@
     <title>{% block title %}Kindergarten{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&family=Public+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <!-- Add any additional CSS files or meta tags here -->
 </head>
 <body>
     <header>
-        <a href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" alt="Kindergarten Logo" class="logo-icon"></a>
+        <a href="{% url 'home' %}"><img src="{% static 'images/logo400.png' %}" alt="Kindergarten Logo" class="header-logo"></a>
         <nav>
             <ul>
                 <li><a href="{% url 'about' %}">Apie Mus</a></li>
@@ -34,7 +38,7 @@
 
     <footer>
         <div class="footer-section">
-            <a href="{% url 'home' %}"><img src="{% static 'images/footer-logo.png' %}" alt="Kindergarten Logo" class="footer-logo"></a>
+            <a href="{% url 'home' %}"><img src="{% static 'images/logo_white400.png' %}" alt="Kindergarten Logo" class="footer-logo"></a>
         </div>
         <div class="footer-section">
             <h2>Menu</h2>
@@ -50,18 +54,20 @@
             </ul>
         </div>
         <div class="footer-section">
-            <h2>Contact Us</h2>
-            <p>If you have any questions, feel free to reach out to us.</p>
-            <p>We are here to assist you with any inquiries you may have.</p>
-            <p>Contact us via email or phone.</p>
-            <a href="{% url 'register' %}" class="btn-register">Register Now</a>
+            <h2>Susisiekite</h2>
+            <p><a href="tel:+37061154222">+370 611 54 222</a></p>
+            <p><a href="mailto:info@vaikysteslobiai.lt">info@vaikysteslobiai.lt</a></p>
+            <p>Darbo laikas:</p>
+            <p>Pirmadienis - Penktadienis</p>
+            <p>07.30-18.00</p>
+            <a href="{% url 'register' %}" class="btn-register">Registracija</a>
         </div>
         <div class="footer-section">
-            <img src="{% static 'images/footer-image.png' %}" alt="Footer Image" class="footer-image">
-            <div class="social-media">
-                <a href="https://www.facebook.com/yourpage" target="_blank"><img src="{% static 'images/facebook-icon.png' %}" alt="Facebook"></a>
-            </div>
-            <p>&copy; 2024 Kindergarten. All rights reserved.</p>
+            <img src="{% static 'images/kuriame_lietuvos_ateiti.png' %}" alt="Footer Image" class="footer-image">
+            <p><a href="https://www.facebook.com/vaikysteslobiai" target="_blank" class="social-link">
+                    <i class="fab fa-facebook-square social-icon"></i> Sekite naujienas Facebook
+            </a></p>
+            <p>&copy;Vaikystės lobiai 2024. Visos teises saugomos </p>
         </div>
     </footer>
 

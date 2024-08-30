@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'main_page',
     'about_us',
     'nutrition',
+    'admissions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

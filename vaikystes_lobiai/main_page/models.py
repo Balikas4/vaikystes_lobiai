@@ -10,6 +10,8 @@ class Hero(models.Model):
     hero_description = models.TextField()
     hero_button_text = models.CharField(max_length=50)
     hero_button_url = models.URLField()
+    hero_photo = models.ImageField(upload_to='hero_photos/', blank=True, null=True)
+
 
 class MainGallery(models.Model):
     main_page = models.ForeignKey(MainPage, on_delete=models.CASCADE, related_name='gallery')

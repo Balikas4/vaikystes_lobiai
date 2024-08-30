@@ -5,6 +5,7 @@ from about_us.models import AboutUsPage, Grupe, Activity, TeamMember
 from gallery.models import GalleryCategory
 from main_page.models import MainReview, MainPage
 from nutrition.models import NutritionPage, WeeklyNutrition
+from admissions.models import LankymoKaina, NuolaidosIrKompensacijos
 
 from django.shortcuts import render
 
@@ -61,7 +62,16 @@ def nutrition(request):
     return render(request, 'nutrition.html', context)
 
 def admissions(request):
-    return render(request, 'admissions.html')
+    lankymo_kaina = LankymoKaina.objects.first()  # Adjust if there are multiple instances
+    nuolaidos_ir_kompensacijos = NuolaidosIrKompensacijos.objects.first()  # Get the first instance
+
+    context = {
+        'lankymo_kaina': lankymo_kaina,
+        'nuolaidos_ir_kompensacijos': nuolaidos_ir_kompensacijos
+    }
+
+    return render(request, 'admissions.html', context)
+
 
 def gallery(request):
     categories = GalleryCategory.objects.all()

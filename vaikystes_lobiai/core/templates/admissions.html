@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Priemimo Tvarka - Kindergarten{% endblock %}
 
@@ -6,13 +7,13 @@
 <!-- Hero Section -->
 <section class="hero">
     <div class="hero-text">
-        <h1>Mūsų istorija</h1>
-        <p>„Vaikystės lobiai“ – privatus darželis Kauno rajone, kuriame augame kartu su laimingais vaikais!</p>
-        <p>2010 m. pradėjęs veikti meninio ugdymo centras ,,Smuiko raktelis“ 2014 m. užaugo iki darželio „Vaikystės lobiai“, kuriame vykdome ikimokyklinį ir priešmokyklinį ugdymą.</p>
+        <h1>Priėmimas į darželį</h1>
+        <p>Prašymas stojimui vykdomas internetu</p>
+        <a href="{% url 'register' %}" class="btn-register">Registracija</a>
     </div>
     <div class="hero-photo">
         <!-- Add a hero photo here -->
-        <img src="" alt="Hero Photo">
+        <img src="{% static 'images/Priėmimas_į_darželį.jpg' %}" alt="Hero Photo" class="main-round">
     </div>
 </section>
 
@@ -28,27 +29,97 @@
     </div>
 </section>
 
-<!-- Grid Section -->
-<section class="grid-grupes">
-    <div class="grid-wrapper-grupes">
-        <h1>Karoliukai ir Perliukai</h1>
-        <p>Mažylių nuo 1,5 metukų laukiame „Karoliukų“ ir „Perliukų“ grupėse. Kiekvienoje grupėje dirba po tris patyrusius pedagogus, kurie vaikučius apgaubia savo meile, šiluma ir dėmesiu. Per veiklas ir žaidimus mažyliai įsitraukia į nuostabią vaikystės kelionę darželio takais.</p>
-        <p>Mokomės būti savarankiški, išmokstame pasirūpinti savimi: plauname rankutes, patys valgome, atprantame nuo sauskelnių bei žinduko. Pradedame kalbėti ir mokomės atpažinti jausmus. Žaisdami išmokstame dalintis, surandame draugų. Kiekvieną dieną žengiame į priekį, augame ir tobulėjame. Daug dėmesio skiriame pagarbiam bendravimui ir bendradarbiavimui su tėvais, kad vaikučiai kuo lengviau ir greičiau įsilietų į „Vaikystės lobių“ šeimą. </p>
+<!-- Lankymo kaina -->
+<section>
+    {% if lankymo_kaina %}
+        <h1>{{ lankymo_kaina.title }}</h1>
+        <p>{{ lankymo_kaina.description }}</p>
+        <p>{{ lankymo_kaina.additional_info }}</p>
+    {% else %}
+        <p>No attendance cost information available.</p>
+    {% endif %}
+
+    {% if nuolaidos_ir_kompensacijos %}
+        <h1>{{ nuolaidos_ir_kompensacijos.title }}</h1>
+        <p>{{ nuolaidos_ir_kompensacijos.description }}</p>
+        {% if nuolaidos_ir_kompensacijos.image %}
+        <div class="hero-photo">
+            <img src="{{ nuolaidos_ir_kompensacijos.image.url }}" alt="{{ nuolaidos_ir_kompensacijos.title }}" class="main-round">
+        </div>
+        {% endif %}
+    {% else %}
+        <p>No discounts or compensations available.</p>
+    {% endif %}
+</section>
+
+<!-- Reikalingi dokumentai -->
+<section>
+<div>
+    <h1>Reikalingi dokumentai</h1>
+    <p>Šie dokumentai reikalingi pradėjus lankyti darželį pirmąją dieną.</p>
+</div>
+<div>
+    <img src="{% static '' %}" alt="Big Icon" class="big-icon">
+    <p>Vaiko gimimo įrašo kopija</p>
+</div>
+<div>
+    <img src="{% static '' %}" alt="Big Icon" class="big-icon">
+    <p>Gydytojo pažyma (elektroninė)</p>
+</div>
+<div>
+    <img src="{% static '' %}" alt="Big Icon" class="big-icon">
+    <p>Sutartis (pasirašoma pradėjus lankyti darželį)</p>
+</div>
+</section>
+
+<!-- Adaptacija -->
+<section>
+    <div class="hero-photo">
+        <img src="{% static 'images/Adaptacija.JPG' %}" alt="Hero Photo" class="main-round">
     </div>
-    <div class="grid-wrapper-grupes">
-        <h1>Kristaliukai</h1>
-        <p>Grupėje dirba trys, vaikus ir savo darbą mylinčios pedagogės. Šiame amžiaus tarpsnyje skleidžiasi kiekvieno vaiko savarankiškumas. Nuo paralelinio žaidimo pereinama prie kolektyvinių veiklų, stipriai plečiasi vaiko žodynas, todėl mokytojos siekia sukurti tyrinėjimus bei savarankiškumą skatinančią aplinką, žaidimų metu skatina vaikų bendradarbiavimą. </p>
-        <p>Ypač reikšmingi yra ryto ratai, į kuriuos įtraukti smagūs logopediniai beismulkiąją motoriką lavinantys pirštukų žaidimai. Taip stimuliuojami vaiko kalbiniai gebėjimai. Smagios žaidimų popietės žadina pozityvias emocijas, skatina pažintinę veiklą, padeda susidraugauti, išmoko bendradarbiauti. Vaikai su džiaugsmu dalyvauja muzikos, dailės, šokių, sporto, pasakų terapijos, dėmesingumo ugdymo, anglų kalbos užsiėmimuose. Ugdymo(si) metu sukuriami ypatingi emociniai ryšiai, kurie stiprina pasitikėjimą savimi ir skatina savarankiškai pažintinei veiklai. </p>
+    <h1>Adaptacija</h1>
+    <p>Kiekvienas vaikas yra skirtingas ir unikalus, todėl ir adaptacija darželyje skirtinga. Vieniems lengvesnė ir trunka trumpiau, jautresniems ji gali užtrukti ilgiau. Rekomendacijos pirmai adaptacijos savaitei:</p>
+    <p><b>Pirmoji diena.</b> Rekomenduojame kartu su vaiku praleisti maždaug 1 val., kad su teigiama emocija išeitumėte iš darželio.</p>
+    <p><b>Antroji diena.</b> Rekomenduojame kartu atėjus, pabūti apie 30 min ir vaikui įsitraukus į žaidimą, palikti jį mokytojų priežiūrai dar 30 min.</p>
+    <p><b>Trečioji diena.</b> Mokytojoms įvertinus, kaip sekasi, rekomenduojama vaiką palikti vieną iki 1valandos. Ypatingai svarbus trumpas atsisveikinimas. Ašarėlės yra natūrali adaptacijos dalis.</p>
+    <p><b>Ketvirtoji diena.</b> Mokytojoms rekomendavus, mažylis paliekamas apie 2 valandas.</p>
+    <p><b>Penktoji diena.</b> Mokytojos įvertina , kaip sekasi ir mažylio emocinei būklei leidus, vaikas lieka iki 3 valandų ir jau valgo pietus. Susitariama dėl tolimesnės adaptacijos eigos.</p>
+    <p>Jeigu Jūsų vaikas jau lankė kitą ugdymo įstaigą, tuomet galite pradėti pirmą dieną nuo pusdienio, sekančią dieną jau su pietų miegeliu. Atkreipiame dėmesį, kad buvimas kartu su vaiku darželyje, ilgi atsisveikinimai paliekant, tik prailgina ir apsunkina vaiko adaptaciją. Kilus emociniams sunkumams, išbandę visus nuraminimo būdus, nedelsdami skambiname tėveliams. Kviečiame pasitikėti mūsų ilgamete patirtimi ir profesionalumu.</p>
+</section>
+
+<!-- Adaptacija -->
+<section>
+    <div>
+        <div>
+            <h1>Prisiminkite</h1>
+            <p>Mažylio ašarėlės – normali reakcija į atsiskyrimą.
+                Teigiamos tėvų emocijos rytais, puiki dovana vaikui įveikti adaptacinius sunkumus.
+                Maži ir trumpi atsisveikinimo ritualai padeda lengviau išsiskirti ryte.
+                Svarbu leisti vaikui ir sau išgyventi įvairius kylančius nemalonius jausmus bent kelis mėnesius, pasitelkti kantrybę ir pasitikėjimą ugdymo įstaiga, nedarant skubotų sprendimų.
+                Tėvų nuostatos, jausmai, emocijos betarpiškai susiję su vaiko jausmais, emocijomis ir lengvina arba apsunkina adaptaciją.
+            </p>
+            <p><b>Padėkime vaikui įveikti adaptaciją kartu bendradarbiaudami :)</b></p>
+        </div>
+        <div>
+            <h1>Svarbu</h1>
+            <p>Užtikrinti vaiko fiziologinius ir psichologinius poreikius.
+                Mokyti vaiką pasakyti „Stop“, „Man nepatinka“.
+                Vaikui girdint apie ugdymo įstaigą ir mokytojus kalbėti pozityviai.
+                Kasdien vaikui pasakyti, kad tikite, kad jo diena bus sėkminga ir įdomi.
+                Iš vakaro aptarti, kas laukia rytoj.
+                Kokybiškas bendras laikas su vaiku kasdien bent 20 minučių: žaidimai, pokalbiai, kita maloni veikla.
+                Su vaiku kalbėtis apie jo jausmus.
+                Ugdyti vaiko savarankiškumą, savitvarkos įgūdžius.
+                Susipažinti su grupės mokytojomis, kitais tėvais, skirti laiko pokalbiams, drąsiai klausti. Prireikus, kreiptis pagalbos.
+                Sėkmingos adaptacijos paslaptis – pasitikėjimas ir bendradarbiavimas.</p>
+        </div>
     </div>
-    <div class="grid-wrapper-grupes">
-        <h1>Gintarėliai</h1>
-        <p>Ikimokyklinio ugdymo draugystės ir bendrystės grupė. Labiausiai mėgstame žaisti žaidimus, nes žaidimai yra svarbiausia ugdymo(si) forma, lemianti jausmų bei vaizduotės vystymąsi. Kasdien žaisdami, net nepajuntame, kaip sužinome vis naujų įdomių dalykų apie save ir mus supantį pasaulį. Išmokstame stebėti, lyginti, įžvelgti skirtumus, muzikuojame, šokame, sportuojame, klausomės daug pasakų. Kasdien laviname kalbą, klausą, regėjimą, skonio pojūčius, pastabumą, kūrybiškumą, atmintį. Pamokėlių metu mokomės ilgiau būti susikaupę, išklausyti ir girdėti, pasakyti ką galvojame. </p>
-        <p>Grupėje ypač didelis dėmesys skiriamas edukaciniams kampeliams, čia jauku ir saugu, čia kiekvienas randame ką veikti, susigalvojame linksmų žaidimų, vaidiname, skaičiuojame, piešiame. Taip pat smagiai leidžiame laiką lauke, labai mėgstame sportuoti. Grupės pedagogai remiasi vaiko pasiekimų žingsneliais, siekdami, kad vaikas augtų sveikas, orus, bendraujantis, smalsus, kuriantis ir patirtų ugdymosi sėkmę.</p>
-    </div>
-    <div class="grid-wrapper-grupes">
-        <h1>Deimančiukai</h1>
-        <p>Mišri priešmokyklinio ugdymo klasė, nedidelė draugiška šeima, kurią darželyje vadina „dičkiais“. Mes jau ruošiamės keliauti į mokyklą, todėl žaidžiame „Zuikių mokyklėlę“. Joje mokomės pažinti raides ir skaičius, laviname rankytę rašymui. Daugelis čia išmokstame gražiai skaityti, pasakoti ir skaičiuoti. Mokytojų sudaryta unikali individualaus ugdymo programa sudaro galimybes metus arba du ruoštis mokyklai. Mokomės būti draugiški: pažinti savo jausmus, dalintis žaisliukais, užjausti, atsiprašyti, išklausyti ir gerbti draugų nuomonę. Klasėje turime savo ritualus: gražius pasisveikinimus, padėkos maldelių, šiltus apsikabinimus, pasakėlę ir lopšinę prieš miegelį, gimtadienio šventimą. Mėgstame žaisti ir sportuoti kieme. </p>
-        <p>Neturime laiko liūdėti, nes lankome daug papildomų užsiėmimų: anglų kalbos, sportinių ir gatvės šokių, dainavimo, dziudo, robotikos, keramikos, dailės, klausomės nuostabių pasakų su Pasakų Teta ir ugdome sąmoningą dėmesingumą. Penktadieniais dažniausiai pramogaujame: važiuojame į ekskursijas, keliaujame į žygius,  šeimininkaujame: kepame pyragus ir sausainėlius arba šiaip smagiai leidžiame laiką.</p>
+</section>
+<!-- Hero Button -->
+<section class="hero-button">
+    <div class="button-text">
+        <button>Registracija</button>
+        <p>Prisijunkite prie „Vaikystės lobių“!</p>
     </div>
 </section>
 {% endblock %}

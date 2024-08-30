@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Maitinimas{% endblock %}
 
@@ -10,7 +11,7 @@
         <p>Darželyje vaikai maitinami mūsų virtuvėje pagaminu, plataus asortimento šviežiu maistu. Maisto racionas subalansuotas ir alergiškiems vaikams. Vaikai turi galimybę pasirinkti ir pakartoti norimo maisto. Dalyvaujame „Vaisių ir daržovių bei pieno ir pieno produktų vartojimo skatinimo vaikų ugdymo įstaigose“ programoje, kasdien užkandžiaujame šviežiais vaisiais bei termiškai neapdorotomis daržovėmis.</p>
     </div>
     <div class="hero-photo">
-        <img src="" alt="Hero Photo">
+        <img src="{% static 'images/Sveikas_maistas.jpg' %}" alt="Hero Photo">
     </div>
 </section>
 <!-- Nutrition Section -->
@@ -50,6 +51,13 @@
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
         </iframe>
+    </div>
+</section>
+<!-- Hero Button -->
+<section class="hero-button">
+    <div class="button-text">
+        <button>Registracija</button>
+        <p>Prisijunkite prie „Vaikystės lobių“!</p>
     </div>
 </section>
 {% endblock %}

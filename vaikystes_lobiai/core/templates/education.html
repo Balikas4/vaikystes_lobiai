@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Ugdymas - Kindergarten{% endblock %}
 
@@ -10,7 +11,7 @@
         <p>Į ugdymo sistemą integravome profesionalių ir kompetentingų specialistų vedamus užsiėmimus: rytinį sportą, muziką, dailę, šokius, anglų kalbą, sąmoningą dėmesingumą, socialinių-emocinių įgūdžių programą „Ella“. Vaikams suteikiamos laisvės: tobulėti, siekti, pasitikėti, išdrįsti, suprasti, užjausti, sužinoti ir veikti.</p>
     </div>
     <div class="hero-photo">
-        <img src="" alt="Hero Photo">
+        <img src="{% static 'images/Žaisliukai.jpg' %}" alt="Hero Photo">
     </div>
 </section>
 
@@ -19,7 +20,7 @@
     <div class="grid-wrapper-education">
         <h1>Socialinio-emocinio ugdymo programa „Ella“</h1>
         <p>Tai įrodymais pagrįsta pirminės prevencijos pedagoginė programa, skirta ikimokyklinio ir priešmokyklinio amžiaus vaikų emocinėms ir socialinėms kompetencijoms ugdyti. „Ella“ pamokėlių metu vaikai gauna žinių apie emocijas, jausmus, įgyja empatijos, savireguliacijos ir socialinių kompetencijų.</p>
-        <p>Žirafa Ella visos programos metu gyvens grupėje,  kad būtų bet kada pasiekiama vaikams, ir kad susitikimų metu suformuotos kompetencijos būtų perkeltos į vaikų kasdienybę. Užsiėmimus veda darželio psichologė.</p>
+        <p>Žirafa Ella visos programos metu gyvens grupėje, kad būtų bet kada pasiekiama vaikams, ir kad susitikimų metu suformuotos kompetencijos būtų perkeltos į vaikų kasdienybę. Užsiėmimus veda darželio psichologė.</p>
     </div>
     <div class="grid-wrapper-education">
         <h1>Sąmoningo dėmesingumo užsiėmimai</h1>
@@ -42,7 +43,7 @@
         <p>Du kartus vaikai sportuoja kartu su mokytojomis. Veikia dziudo būrelis. Vasaros pradžioje, darželio sporto aikštyne, rengiame tradicinę sporto šventę. Fizinį aktyvumą skatiname ir šokių užsiėmimuose. Vaikai mokosi pažinti savo kūną, stiprina koordinaciją, lavina judesius ir mokosi valso, čia čia čia bei kitų linksmų šokių.</p>
     </div>
     <div class="hero-photo">
-        <img src="" alt="Hero Photo">
+        <img src="{% static 'images/Sportas.jpg' %}" alt="Hero Photo">
     </div>
 </section>
 <!-- Dobule Hero Section -->
@@ -58,8 +59,8 @@
         <p>Žaidimų erdvė darželyje tampa mini pasauliu, kuriame malonu kūrybiškai leisti laiką ir mokytis vieniems iš kitų.. Ikimokykliniame ir priešmokykliniame amžiuje svarbus aiškus pasikartojantis veiklų ritmas ir ritualai: pasisveikinimas, valgis, darbo, miego vieta, atsisveikinimas, sisteminė struktūruota veikla. Veiklose naudojami ritualai suteikia vaikams saugumo, žinojimo pojūtį, padeda suvokti jį supančią aplinką.</p>
     </div>
     <div class="hero-photo">
-        <img src="" alt="Hero Photo">
-        <img src="" alt="Hero Photo 2">
+        <img src="{% static 'images/Menas.jpg' %}" alt="Hero Photo">
+        <img src="{% static 'images/Pramogos.JPG' %}" alt="Hero Photo">
     </div>
 </section>
 <!-- Hero Section -->
@@ -69,7 +70,7 @@
         <p>Pažinimo džiaugsmas arba kognityvinių-pažintinių kompetencijų ugdymas. Vaiko domėjimasis viskuo, kas yra aplink, gebėjimas sutelkti dėmesį, suvokti, įsiminti, samprotauti, spręsti problemas, kritiškai mąstyti, gebėjimas taikyti įvairius pasaulio pažinimo būdus: stebėti, klausinėti, eksperimentuoti, prognozuoti, ieškoti informacijos formuoja pažinimo kompetencijai būtinus įgūdžius.</p>
     </div>
     <div class="hero-photo">
-        <img src="" alt="Hero Photo">
+        <img src="{% static 'images/Žaidimai.JPG' %}" alt="Hero Photo">
     </div>
 </section>
 <!-- Quad text Section -->
@@ -95,8 +96,9 @@
 </section>
 <!-- Hero Button -->
 <section class="hero-button">
-    <div class="hero-text">
+    <div class="button-text">
         <button>Registracija</button>
         <p>Prisijunkite prie „Vaikystės lobių“!</p>
-    </section>
+    </div>
+</section>
 {% endblock %}
