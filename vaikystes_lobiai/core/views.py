@@ -10,8 +10,8 @@ from admissions.models import LankymoKaina, NuolaidosIrKompensacijos
 from django.shortcuts import render
 
 def home(request):
-    reviews = MainReview.objects.all()
     main_page = MainPage.objects.first()
+    reviews = MainReview.objects.filter(main_page=main_page)
     return render(request, 'main.html', {'main_page': main_page, 'reviews': reviews})
 
 def about(request):

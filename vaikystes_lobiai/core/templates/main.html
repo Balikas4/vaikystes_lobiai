@@ -16,29 +16,137 @@
 
 <section class="main-gallery">
     <h2>Our Gallery</h2>
-    <div class="gallery">
-        {% for image in main_page.gallery.all %}
-            <div class="gallery-item">
-                <img src="{{ image.image.url }}" alt="{{ image.image.url }}">
-                {% if image.image.description %}
-                <p>{{ image.image.description }}</p>
-                {% endif %}
-            </div>
-        {% empty %}
-            <p>No images available in the gallery.</p>
-        {% endfor %}
+    <div class="gallery-container-main">
+        <div class="gallery-main">
+            {% for image in main_page.gallery.all %}
+                <div class="gallery-item">
+                    <img src="{{ image.image.url }}" alt="Gallery Image">
+                </div>
+            {% empty %}
+                <p>No images available in the gallery.</p>
+            {% endfor %}
+        </div>
+        <div class="navigation">
+            <span class="bubble active" data-index="0"></span>
+            <span class="bubble" data-index="1"></span>
+            <span class="bubble" data-index="2"></span>
+        </div>
     </div>
+    <a href="{% url 'gallery' %}" class="btn-gallery">Daugiau nuotraukų ></a>
 </section>
 
 <section class="testimonials">
     <h2>What Parents Say</h2>
-    {% for review in main_page.reviews.all %}
-        <blockquote>
-            <p>"{{ review.text }}"</p>
-            <cite>- {{ review.name }}</cite>
-        </blockquote>
-    {% empty %}
-        <p>No reviews available.</p>
-    {% endfor %}
+    <div class="testimonials-container">
+        <div class="testimonials-wrapper">
+            {% for review in main_page.reviews.all %}
+                <div class="testimonial-item">
+                    <blockquote>
+                        <p>"{{ review.text }}"</p>
+                        <cite>- {{ review.name }}</cite>
+                    </blockquote>
+                </div>
+            {% empty %}
+                <p>No reviews available.</p>
+            {% endfor %}
+        </div>
+        <div class="testimonials-navigation">
+            <button class="nav-button prev">&lt;</button>
+            <button class="nav-button next">&gt;</button>
+        </div>
+    </div>
 </section>
+<!-- Hero Button -->
+<section class="hero-button">
+    <div class="button-text">
+        <button>Registracija</button>
+        <p>Prisijunkite prie „Vaikystės lobių“!</p>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const gallery = document.querySelector('.gallery');
+        const bubbles = document.querySelectorAll('.bubble');
+        const itemsPerView = 2; // Number of images shown per slide
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const totalSlides = Math.ceil(galleryItems.length / itemsPerView);
+        let currentIndex = 0;
+
+        // Set the gallery width based on the number of slides
+        gallery.style.width = `${totalSlides * 100}%`;
+
+        // Set width of each gallery item to ensure two images per slide
+        galleryItems.forEach(item => {
+            item.style.width = `${100 / itemsPerView}%`;
+        });
+
+        function updateGallery() {
+            const translatePercentage = (currentIndex * (100 / totalSlides));
+            gallery.style.transform = `translateX(-${translatePercentage}%)`;
+
+            // Update active bubble
+            bubbles.forEach(bubble => bubble.classList.remove('active'));
+            if (bubbles[currentIndex]) {
+                bubbles[currentIndex].classList.add('active');
+            }
+        }
+
+        bubbles.forEach((bubble, index) => {
+            bubble.addEventListener('click', () => {
+                currentIndex = index;
+                updateGallery();
+            });
+        });
+
+        // Initialize the carousel
+        updateGallery();
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const wrapper = document.querySelector('.testimonials-wrapper');
+        const items = document.querySelectorAll('.testimonial-item');
+        const prevButton = document.querySelector('.nav-button.prev');
+        const nextButton = document.querySelector('.nav-button.next');
+        const totalItems = items.length;
+        let currentIndex = 0;
+
+        // Calculate the total width needed for the wrapper
+        const itemWidth = 300; // Width of each item
+        const containerWidth = itemWidth; // Width of the container matches the item width
+        wrapper.style.width = `${totalItems * itemWidth}px`;
+
+        // Set each item's width
+        items.forEach(item => {
+            item.style.width = `${itemWidth}px`;
+        });
+
+        function updateCarousel() {
+            const translateX = -currentIndex * itemWidth;
+            wrapper.style.transform = `translateX(${translateX}px)`;
+        }
+
+        nextButton.addEventListener('click', () => {
+            if (currentIndex < totalItems - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0; // Loop back to the first item
+            }
+            updateCarousel();
+        });
+
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = totalItems - 1; // Loop back to the last item
+            }
+            updateCarousel();
+        });
+
+        // Initialize carousel
+        updateCarousel();
+    });
+</script>
 {% endblock %}

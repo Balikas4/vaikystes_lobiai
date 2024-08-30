@@ -15,42 +15,49 @@
     </div>
 </section>
 <!-- Nutrition Section -->
-{% for week_number, daily_nutrition in weeks.items %}
-    <section>
-        <h1>Savaitė {{ week_number }}</h1>
-        <div class="card-holder">
-            {% for day_nutrition in daily_nutrition %}
-                <div class="card">
-                    <h2>{{ day_nutrition.day }}</h2>
-                    <ul>
-                        {% for nutrient in day_nutrition.nutrients.all %}
-                            <li>
-                                {{ nutrient.name }}
-                                {% if nutrient.icon %}
-                                    <img src="{{ nutrient.icon.url }}" alt="{{ nutrient.name }} icon">
-                                {% endif %}
-                            </li>
+<section id="nutrition">
+    <h2>Weekly Nutrition</h2>
+    <div class="nutrition-container">
+        <div class="nutrition-wrapper">
+            {% for week_number, daily_nutrition in weeks.items %}
+                <div class="nutrition-item">
+                    <h3>Savaitė {{ week_number }}</h3>
+                    <div class="card-holder">
+                        {% for day_nutrition in daily_nutrition %}
+                            <div class="card">
+                                <h4>{{ day_nutrition.day }}</h4>
+                                {% for nutrient in day_nutrition.nutrients.all %}
+                                    <li>
+                                        {{ nutrient.name }}
+                                        {% if nutrient.icon %}
+                                            <img src="{{ nutrient.icon.url }}" alt="{{ nutrient.name }} icon">
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </div>
+                        {% empty %}
+                            <p>No nutrition data available for this week.</p>
                         {% endfor %}
-                    </ul>
+                    </div>
                 </div>
-            {% empty %}
-                <p>No nutrition data available for this week.</p>
             {% endfor %}
         </div>
-    </section>
-{% endfor %}
+        <div class="nutrition-navigation">
+            <button class="nav-button prev">&lt;</button>
+            <button class="nav-button next">&gt;</button>
+        </div>
+    </div>
+</section>
 <!-- Video  -->
 <section>
     <h1>{{ video.title }}</h1>
     <div class="video-container">
-        <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/{{ video.youtube_url|slice:':-11' }}"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-        </iframe>
+        <div style="position: relative; overflow: hidden; padding-top: 56.25%;">
+            <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+                    src="https://www.lrt.lt/mediateka/irasas/1013682460/stilius-2018-01-06?embed&time_start=1968"
+                    frameborder="0" scrolling="no" allowfullscreen>
+            </iframe>
+        </div>
     </div>
 </section>
 <!-- Hero Button -->
@@ -60,5 +67,41 @@
         <p>Prisijunkite prie „Vaikystės lobių“!</p>
     </div>
 </section>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const wrapper = document.querySelector('.nutrition-wrapper');
+        const items = document.querySelectorAll('.nutrition-item');
+        const prevButton = document.querySelector('.nav-button.prev');
+        const nextButton = document.querySelector('.nav-button.next');
+        const totalItems = items.length;
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const translateX = -currentIndex * 100; // Move to the correct week
+            wrapper.style.transform = `translateX(${translateX}%)`;
+        }
+
+        nextButton.addEventListener('click', () => {
+            if (currentIndex < totalItems - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0; // Loop back to the first item
+            }
+            updateCarousel();
+        });
+
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = totalItems - 1; // Loop back to the last item
+            }
+            updateCarousel();
+        });
+
+        // Initialize carousel
+        updateCarousel();
+    });
+</script>
 {% endblock %}
 
