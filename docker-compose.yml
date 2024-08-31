@@ -15,8 +15,7 @@ services:
       - ./vaikystes_lobiai/db.sqlite3:/app/db.sqlite3
 
     command: >
-      bash -c "cd /app/vaikystes_lobiai &&
-               python manage.py migrate &&
+      bash -c "python manage.py migrate &&
                python manage.py collectstatic --noinput &&
                gunicorn vaikystes_lobiai.wsgi:application --bind 0.0.0.0:8000"
 
