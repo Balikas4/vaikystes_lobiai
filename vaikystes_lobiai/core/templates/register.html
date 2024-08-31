@@ -3,7 +3,19 @@
 {% block title %}Register{% endblock %}
 
 {% block content %}
-    <h1>Register</h1>
-    <p>Registration form will go here.</p>
-    <!-- Include your registration form or relevant content -->
+<h1>Register Here</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}  <!-- This will render all fields with paragraph tags -->
+    <button type="submit">Submit</button>
+</form>
+
+<!-- Display success messages -->
+{% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
 {% endblock %}

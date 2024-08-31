@@ -1,29 +1,28 @@
 {% extends 'base.html' %}
 
 {% load custom_filters %}
+{% load static %}
 
 {% block title %}About Us{% endblock %}
 
 {% block content %}
-<div>
-    <h1>{{ about_us_page.about_us_title }}</h1>
-    <p>{{ about_us_page.about_us_description }}</p>
-</div>
 
-<section id="hero-about">
-    <div class="hero-image-about">
+<section class="hero">
+    <div class="hero-photo">
         <img src="{{ about_us_page.hero_photo.url }}" alt="About Us Hero Image">
     </div>
     <div class="hero-text">
-        <h1>{{ about_us_page.hero_title }}</h1>
-        <p>{{ about_us_page.hero_description }}</p>
+        <h1>{{ about_us_page.about_us_title }}</h1>
+        <p>{{ about_us_page.about_us_description }}</p>
     </div>
-    <div>
-        <div>
+</section>
+<section>
+    <div class="misija-vizija">
+        <div class="vizija">
             <h1>Misija</h1>
             <p>Modernioje, veikti ir pažinti skatinančioje aplinkoje, sukuriame emociškai saugų, pagarbų, bendradarbiaujant su vaiku ir jo šeima grįstą ryšį, taip užtikriname motyvuojančią vaiko socialinę- emocinę ir pažintinę ūgtį, teikdami aukščiausios kokybės švietimo paslaugas.</p>
         </div>
-        <div>
+        <div class="vizija">
             <h1>Vizija</h1>
             <p>Siekdami užtikrinti harmoningą vaikų asmenybės augimą, orientuojamės į šiuolaikinio ugdymo strategijas, inovatyvius vaikų ugdymo metodus, siekiame būti atviri naujovėms, mokomės konstruktyviai bendradarbiauti, nuolat atsinaujiname ir kuriame savitą, vertybėmis grįstą darželio ugdymo sistemą.</p>
         </div>
@@ -33,8 +32,9 @@
 <!-- Groups Section -->
 <section id="groups">
     <h2>Our Groups</h2>
+    <div class="grupes">
     {% for group in groups %}
-        <div class="group">
+        <div class="grupe">
             <h3>{{ group.name }}</h3>
             <p>{{ group.description }}</p>
         </div>
@@ -91,17 +91,21 @@
 <!-- Team Section -->
 <section id="team">
     <h2>Meet Our Team</h2>
-    <ul>
-        {% for member in team_members %}
-            <li>
-                <strong>{{ member.name }}</strong> - {{ member.job_title }}
-            </li>
-        {% empty %}
-            <p>No team members available.</p>
-        {% endfor %}
-    </ul>
-    <div class="hero-photo">
-        <img src="{{ about_us_page.team_photo.url }}" alt="Team Photo" class="team-photo">
+    <div class="team-container">
+        <div class="hero-text">
+            <ul>
+                {% for member in team_members %}
+                    <li>
+                        <strong>{{ member.name }}</strong> - {{ member.job_title }}
+                    </li>
+                {% empty %}
+                    <p>No team members available.</p>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="hero-photo">
+            <img src="{{ about_us_page.team_photo.url }}" alt="Team Photo" class="team-photo">
+        </div>
     </div>
 </section>
 

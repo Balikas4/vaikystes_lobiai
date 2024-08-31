@@ -35,7 +35,7 @@ SECRET_KEY = SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['176.118.198.148', 'localhost']
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR.joinpath(STATIC_URL)
@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'about_us',
     'nutrition',
     'admissions',
+    'register',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

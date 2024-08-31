@@ -6,8 +6,9 @@ from gallery.models import GalleryCategory
 from main_page.models import MainReview, MainPage
 from nutrition.models import NutritionPage, WeeklyNutrition
 from admissions.models import LankymoKaina, NuolaidosIrKompensacijos
+from register.models import Registration
+from register.forms import RegistrationForm
 
-from django.shortcuts import render
 
 def home(request):
     main_page = MainPage.objects.first()
@@ -95,4 +96,32 @@ def contact(request):
     return render(request, 'contact.html', {'form': form})  # Pass form to the template
 
 def register(request):
-    return render(request, 'register.html')  # Ensure you have a 'register.html' template
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            # Save form data to the Registration model
+            Registration.objects.create(
+                first_name=form.cleaned_data['first_name'],
+                last_name=form.cleaned_data['last_name'],
+                contact_phone=form.cleaned_data['contact_phone'],
+                email=form.cleaned_data['email'],
+                home_address=form.cleaned_data['home_address'],
+                document_date=form.cleaned_data['document_date'],
+                admission_date=form.cleaned_data['admission_date'],
+                child_first_name=form.cleaned_data['child_first_name'],
+                child_last_name=form.cleaned_data['child_last_name'],
+                child_personal_code=form.cleaned_data['child_personal_code'],
+                child_home_address=form.cleaned_data['child_home_address'],
+                father_info=form.cleaned_data['father_info'],
+                mother_info=form.cleaned_data['mother_info'],
+                child_health_info=form.cleaned_data['child_health_info'],
+                child_talents=form.cleaned_data['child_talents'],
+            )
+
+            # Display success message and redirect
+            messages.success(request, 'Registration form submitted successfully.')
+            return redirect('register')
+    else:
+        form = RegistrationForm()
+
+    return render(request, 'register.html', {'form': form})

@@ -4,9 +4,11 @@
 
 {% block content %}
 <section class="hero">
-    <h1>{{ main_page.hero.hero_title }}</h1>
-    <p>{{ main_page.hero.hero_description }}</p>
-    <a href="{{ main_page.hero.hero_button_url }}" class="btn-primary">{{ main_page.hero.hero_button_text }}</a>
+    <div class="hero-text">
+        <h1>{{ main_page.hero.hero_title }}</h1>
+        <p>{{ main_page.hero.hero_description }}</p>
+        <a href="{{ main_page.hero.hero_button_url }}" class="btn-primary">{{ main_page.hero.hero_button_text }}</a>
+    </div>
     {% if main_page.hero.hero_photo %}
     <div class="hero-photo">
         <img src="{{ main_page.hero.hero_photo.url }}" alt="Hero Photo">
@@ -66,42 +68,43 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const gallery = document.querySelector('.gallery');
+        // Select the correct class .gallery-main instead of .gallery
+        const gallery = document.querySelector('.gallery-main');
         const bubbles = document.querySelectorAll('.bubble');
         const itemsPerView = 2; // Number of images shown per slide
         const galleryItems = document.querySelectorAll('.gallery-item');
         const totalSlides = Math.ceil(galleryItems.length / itemsPerView);
         let currentIndex = 0;
-
+    
         // Set the gallery width based on the number of slides
         gallery.style.width = `${totalSlides * 100}%`;
-
+    
         // Set width of each gallery item to ensure two images per slide
         galleryItems.forEach(item => {
             item.style.width = `${100 / itemsPerView}%`;
         });
-
+    
         function updateGallery() {
             const translatePercentage = (currentIndex * (100 / totalSlides));
             gallery.style.transform = `translateX(-${translatePercentage}%)`;
-
+    
             // Update active bubble
             bubbles.forEach(bubble => bubble.classList.remove('active'));
             if (bubbles[currentIndex]) {
                 bubbles[currentIndex].classList.add('active');
             }
         }
-
+    
         bubbles.forEach((bubble, index) => {
             bubble.addEventListener('click', () => {
                 currentIndex = index;
                 updateGallery();
             });
         });
-
+    
         // Initialize the carousel
         updateGallery();
-    });
+    });    
 </script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
