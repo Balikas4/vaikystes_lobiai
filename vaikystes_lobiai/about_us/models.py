@@ -35,7 +35,6 @@ class TeamMember(models.Model):
 
 class Activity(models.Model):
     name = models.CharField(max_length=100)
-    icon = models.ImageField(upload_to='activities/icons/', blank=True, null=True)
 
     def __str__(self):
         return self.name

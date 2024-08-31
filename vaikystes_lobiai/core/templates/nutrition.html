@@ -29,9 +29,6 @@
                                 {% for nutrient in day_nutrition.nutrients.all %}
                                     <li>
                                         {{ nutrient.name }}
-                                        {% if nutrient.icon %}
-                                            <img src="{{ nutrient.icon.url }}" alt="{{ nutrient.name }} icon">
-                                        {% endif %}
                                     </li>
                                 {% endfor %}
                             </div>

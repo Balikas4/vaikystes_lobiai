@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Nutrient, WeeklyNutrition, NutritionPage
 
 class NutrientAdmin(admin.ModelAdmin):
-    list_display = ('name', 'icon')
+    list_display = ('name',)
 
 class WeeklyNutritionAdmin(admin.ModelAdmin):
     list_display = ('week_number', 'day')

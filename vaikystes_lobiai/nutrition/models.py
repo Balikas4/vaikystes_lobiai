@@ -1,8 +1,7 @@
 from django.db import models
 
 class Nutrient(models.Model):
-    name = models.CharField(max_length=100)
-    icon = models.ImageField(upload_to='nutrients/icons/', blank=True, null=True)
+    name = models.CharField(max_length=300)
 
     def __str__(self):
         return self.name
