@@ -1,3 +1,3 @@
 # syntax=docker/dockerfile:1
 FROM nginx:latest
-COPY nginx.conf /etc/nginx/nginx3.conf
+COPY nginx3.conf /etc/nginx/nginx.conf
