@@ -20,10 +20,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static_root'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media_root'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'core/static',
+    BASE_DIR / 'core' / 'static',
 ]
 
 # Quick-start development settings - unsuitable for production
@@ -36,11 +36,6 @@ SECRET_KEY = SECRET_KEY
 DEBUG = True
 
 ALLOWED_HOSTS = ['176.118.198.148', 'localhost']
-
-STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR.joinpath(STATIC_URL)
-MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR.joinpath(MEDIA_URL)
 
 
 # Application definition

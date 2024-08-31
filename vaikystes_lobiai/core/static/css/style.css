@@ -1,0 +1,344 @@
+/* Default styling */
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: 'Work Sans', sans-serif;
+}
+
+/* Header styling */
+header {
+    background-color: #FAE0F5; /* Light pink background */
+    height: 112px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+nav {
+    height: 100%;
+    align-content: center;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-right: 20px; /* Space between items */
+}
+
+.logo-icon {
+    max-height: 40px; /* Adjust based on your logo size */
+    margin-right: 15px; /* Space between logo and navigation */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #F04B32; /* Red color */
+    font-weight: bold; /* Bold text */
+}
+
+nav ul li a:hover {
+    color: #c0392b; /* Slightly darker red on hover */
+}
+
+.header-logo {
+    width: 150px;
+    height: 150px;
+}
+
+/* Footer styling */
+footer {
+    background-color: #F04B32; /* Footer color */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.footer-logo {
+    width: 200px;
+    height: 200px;
+}
+
+/* MAIN PAGE */
+.hero-photo img, .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-photo img {
+    width: 704px;
+    height: 525px;
+    border-radius: 16px;
+}
+
+/* MAIN PAGE */
+.hero {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Align items vertically centered */
+    justify-content: space-between; /* Space between text and image */
+    padding: 20px; /* Add some padding around the section */
+    gap: 20px; /* Space between text and image */
+}
+
+.hero-text {
+    flex: 1; /* Text takes up 1 part of the available space */
+    max-width: 50%; /* Optional: Limits text section to 50% of the width */
+}
+
+.hero-photo {
+    flex: 1; /* Image takes up 1 part of the available space */
+    max-width: 50%; /* Optional: Limits image section to 50% of the width */
+}
+
+.hero-photo img {
+    width: 100%;
+    height: auto; /* Keeps aspect ratio */
+    object-fit: cover; /* Ensures the image covers the container */
+    border-radius: 16px;
+}
+
+/* Main Gallery Container */
+.main-gallery {
+    padding: 20px;
+    background-color: #f9f9f9; /* Example background */
+}
+
+/* Gallery Container */
+.gallery-container-main {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Gallery Main Flexbox */
+.gallery-main {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform; /* Helps with performance */
+}
+
+/* Gallery Items */
+.gallery-item {
+    flex: 0 0 50%; /* Each item takes up 50% of the container width, showing 2 items per slide */
+    box-sizing: border-box;
+    padding: 10px; /* Add padding for spacing */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow effect */
+}
+
+/* Navigation Bubbles */
+.navigation {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.navigation .bubble {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background 0.3s; /* Smooth transition on active state */
+}
+
+.navigation .bubble.active {
+    background: #333; /* Darker color for the active bubble */
+}
+
+
+/* REVIEW */
+/* Container for testimonials */
+.testimonials-container {
+    position: relative;
+    width: 100%;
+    max-width: 300px; /* Ensure container width matches the item width */
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* Wrapper for testimonial items */
+.testimonials-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: auto; /* Let the width be determined by the number of items */
+}
+
+/* Each testimonial item */
+.testimonial-item {
+    flex: 0 0 300px; /* Fixed width for each item */
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ddd; /* Optional border */
+}
+
+/* Navigation buttons */
+.testimonials-navigation, .routines-navigation {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.nav-button {
+    background: #F04B32; /* Button background color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 0 5px;
+}
+
+.nav-button:hover {
+    background: #c0392b; /* Darker color on hover */
+}
+
+/*ABOUT US ROUTINES */
+/* Container for routines */
+.routines-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Wrapper for routine groups */
+.routines-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Each group routine */
+.group-routine {
+    box-sizing: border-box;
+    padding: 20px;
+    /* Optional border or background */
+    border: 1px solid #ddd;
+}
+
+/* NUTRITION NUTRITION NUTRITION NUTRITION NUTRITION NUTRITION NUTRITION NUTRITION */
+/* NUTRITION */
+.nutrition-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.nutrition-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: auto; /* Width adjusts based on number of items */
+}
+
+.nutrition-item {
+    flex: 0 0 100%; /* Each week takes up 100% of the container width */
+    box-sizing: border-box;
+    padding: 20px;
+    /* Optional border or background */
+    border: 1px solid #ddd;
+    margin-right: 10px; /* Space between items, adjust if needed */
+}
+
+.card-holder {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.card {
+    width: 200px;
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.card img {
+    max-height: 20px; /* Adjust icon size */
+    vertical-align: middle;
+}
+
+.nutrition-navigation {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.nav-button {
+    background: #F04B32; /* Button background color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 0 5px;
+}
+
+.nav-button:hover {
+    background: #c0392b; /* Darker color on hover */
+}
+
+/* Gallery Container */
+.gallery {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Gallery Images Flex Container */
+.gallery-images {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap onto multiple lines if needed */
+    gap: 10px; /* Adjusts the space between gallery items */
+}
+
+/* Gallery Item Styling */
+.gallery-item {
+    flex: 1 1 30%; /* Flex-grow, flex-shrink, and flex-basis */
+    box-sizing: border-box;
+    max-width: 30%; /* Ensures each item takes up a maximum of 30% of the row */
+}
+
+/* Image Styling */
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block; /* Ensures images don't have extra space below them */
+}
+
+/* Description Styling */
+.gallery-item p {
+    text-align: center;
+    margin-top: 8px; /* Space between image and description */
+}
+
+.misija-vizija , .grupes, .team-container, .quad, .grid-vizija , .lankymo-kaina, .nuolaidos-container , .adaptacija{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.vizija , .grupe , .quad-text , .grid-wrapper-vizija , .kaina, .adaptacija-content{
+    width: 50%;
+}
