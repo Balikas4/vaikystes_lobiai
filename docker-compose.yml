@@ -12,7 +12,7 @@ services:
       - 8000:8000
     volumes:
       - ./vaikystes_lobiai:/app
-      - ./vaikystes_lobiai/db.sqlite3:/app/db.sqlite3
+      - ./vaikystes_lobiai/db.sqlite3:/app/vaikystes_lobiai/db.sqlite3
 
     command: >
       bash -c "python manage.py migrate &&
