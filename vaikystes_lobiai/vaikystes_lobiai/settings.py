@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static_root'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = BASE_DIR / 'media_root'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'core' / 'static',
@@ -93,7 +93,7 @@ WSGI_APPLICATION = 'vaikystes_lobiai.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'vaikystes_lobiai/db.sqlite3',
     }
 }
 
