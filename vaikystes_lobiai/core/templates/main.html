@@ -3,21 +3,21 @@
 {% block title %}Welcome to Our Kindergarten{% endblock %}
 
 {% block content %}
-<section class="hero">
-    <div class="hero-text">
+<section class="hero-main">
+    <div class="hero-text-main">
         <h1>{{ main_page.hero.hero_title }}</h1>
         <p>{{ main_page.hero.hero_description }}</p>
         <a href="{{ main_page.hero.hero_button_url }}" class="btn-primary">{{ main_page.hero.hero_button_text }}</a>
     </div>
     {% if main_page.hero.hero_photo %}
-    <div class="hero-photo">
+    <div class="hero-photo-main">
         <img src="{{ main_page.hero.hero_photo.url }}" alt="Hero Photo">
     </div>
     {% endif %}
 </section>
 
 <section class="main-gallery">
-    <h2>Our Gallery</h2>
+    <h2>Musų akimirkos</h2>
     <div class="gallery-container-main">
         <div class="gallery-main">
             {% for image in main_page.gallery.all %}
@@ -38,7 +38,7 @@
 </section>
 
 <section class="testimonials">
-    <h2>What Parents Say</h2>
+    <h2>Atsiliepimai</h2>
     <div class="testimonials-container">
         <div class="testimonials-wrapper">
             {% for review in main_page.reviews.all %}
@@ -49,7 +49,7 @@
                     </blockquote>
                 </div>
             {% empty %}
-                <p>No reviews available.</p>
+                <p>Atsiliepimų nera</p>
             {% endfor %}
         </div>
         <div class="testimonials-navigation">
@@ -116,7 +116,7 @@
         let currentIndex = 0;
 
         // Calculate the total width needed for the wrapper
-        const itemWidth = 300; // Width of each item
+        const itemWidth = 600; // Width of each item
         const containerWidth = itemWidth; // Width of the container matches the item width
         wrapper.style.width = `${totalItems * itemWidth}px`;
 

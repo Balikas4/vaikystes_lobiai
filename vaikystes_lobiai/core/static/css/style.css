@@ -67,38 +67,64 @@ footer {
     height: 200px;
 }
 
-/* MAIN PAGE */
-.hero-photo img, .gallery-item img {
+.hero-button {
+    background-color: #FAE0F5;
+    text-align: center;
+    padding: 54px;
+}
+
+.hero-photo img, .gallery-item img{
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
 }
 
-.hero-photo img {
+.hero-photo-main img {
     width: 704px;
     height: 525px;
     border-radius: 16px;
+    object-fit: cover;
+    object-position: center;
 }
 
-/* MAIN PAGE */
-.hero {
-    display: flex;
-    flex-direction: row;
-    align-items: center; /* Align items vertically centered */
-    justify-content: space-between; /* Space between text and image */
-    padding: 20px; /* Add some padding around the section */
-    gap: 20px; /* Space between text and image */
+.hero-text h1 , .hero-text-main h1, .lankymo-kaina-section h1, .adaptacija-content h1, .vizija h1, .vizija2 h1, .groups h1 , .main-gallery h2, .testimonials h2{
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 800;
+    font-size: 48px;
+    color: #F04B32;
+}
+
+.grid-wrapper-education h1 , .grid-wrapper-education p, .quad-text h1, .quad-text p, .grid-wrapper-vizija h1, .grid-wrapper-vizija p,
+ .lankymo-kaina p, .adaptacija-content p, .vizija p, .vizija2 p, .grupe p, .grupe h3
+{
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #F04B32;
+}
+
+.grid-wrapper-education p, .quad-text p , .grid-wrapper-vizija p, .lankymo-kaina p, .adaptacija-content p, .vizija p, .vizija2 p, .grupe p, .hero-text-main p{
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.hero-text p {
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    color: #F04B32;
 }
 
 .hero-text {
     flex: 1; /* Text takes up 1 part of the available space */
-    max-width: 50%; /* Optional: Limits text section to 50% of the width */
+    width: 50%; /* Optional: Limits text section to 50% of the width */
 }
 
 .hero-photo {
     flex: 1; /* Image takes up 1 part of the available space */
     max-width: 50%; /* Optional: Limits image section to 50% of the width */
+    align-content: center;
 }
 
 .hero-photo img {
@@ -107,11 +133,42 @@ footer {
     object-fit: cover; /* Ensures the image covers the container */
     border-radius: 16px;
 }
+.hero {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Align items vertically centered */
+    justify-content: space-between; /* Space between text and image */
+    background-color: #FAF0FA;
+    padding: 104px 52px;
+}
+/* MAIN PAGE */
+.hero-photo-main img{
+    width: 100%;
+}
+.hero-photo-main {
+    width: 50%;
+    height: 525px;
+}
 
+.hero-main {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Align items vertically centered */
+    justify-content: space-between; /* Space between text and image */
+    background-color: #F04B32;
+    padding-right: 16px;
+    padding-left: 52px;
+    padding-top: 42px;
+    padding-bottom: 42px;
+}
+
+.hero-text-main h1, .hero-text-main p {
+    color: #fff;
+}
 /* Main Gallery Container */
 .main-gallery {
-    padding: 20px;
-    background-color: #f9f9f9; /* Example background */
+    padding: 52px;
+    background-color: #FAE0F5; /* Example background */
 }
 
 /* Gallery Container */
@@ -163,13 +220,31 @@ footer {
     background: #333; /* Darker color for the active bubble */
 }
 
-
-/* REVIEW */
 /* Container for testimonials */
+
+blockquote p ,blockquote cite{
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    color: #F04B32;
+    text-align: left;
+}
+
+blockquote cite {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.testimonials {
+    padding: 54px;
+    text-align: center;
+    background-color: #FAF0FA;
+}
+
 .testimonials-container {
     position: relative;
     width: 100%;
-    max-width: 300px; /* Ensure container width matches the item width */
+    max-width: 600px; /* Updated to match the width of each testimonial item */
     margin: 0 auto;
     overflow: hidden;
 }
@@ -183,11 +258,13 @@ footer {
 
 /* Each testimonial item */
 .testimonial-item {
-    flex: 0 0 300px; /* Fixed width for each item */
+    flex: 0 0 600px; /* Updated to a fixed width of 600px for each item */
     box-sizing: border-box;
     padding: 20px;
     text-align: center;
-    border: 1px solid #ddd; /* Optional border */
+    border: 1px solid #F04B32; /* Optional border */
+    background-color: #FFFFFF;
+    border-radius: 12px;
 }
 
 /* Navigation buttons */
@@ -209,6 +286,19 @@ footer {
 
 .nav-button:hover {
     background: #c0392b; /* Darker color on hover */
+}
+/* ABOUT US */
+.vizija2 , .vizija {
+    padding: 160px 52px;
+    box-sizing: border-box; /* Include padding and border in width calculation */
+
+}
+.vizija p , .vizija2 p{
+    margin-right: 52px;
+}
+
+.vizija2 {
+    background-color: #FAE0F5;
 }
 
 /*ABOUT US ROUTINES */
@@ -333,12 +423,32 @@ footer {
     margin-top: 8px; /* Space between image and description */
 }
 
-.misija-vizija , .grupes, .team-container, .quad, .grid-vizija , .lankymo-kaina, .nuolaidos-container , .adaptacija{
+.misija-vizija , .grupes, .team-container, .quad, .grid-vizija , .lankymo-kaina, .nuolaidos-container , .adaptacija, .grid-education, .admissions-icons{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.vizija , .grupe , .quad-text , .grid-wrapper-vizija , .kaina, .adaptacija-content{
+.vizija , .vizija2 , .grupe , .quad-text , .grid-wrapper-vizija , .kaina, .adaptacija-content, .grid-wrapper-education{
     width: 50%;
+}
+
+/* EDUCATION */
+
+/* ADMISSION */
+.quad , .grid-education, .grid-vizija{
+    padding: 52px;
+}
+
+.big-icon {
+    height: 254px;
+    width: 184px;
+}
+
+.admissions-icons{
+    justify-content: center;
+}
+.admissions-icon {
+    width: 350px;
+    text-align: center;
 }
