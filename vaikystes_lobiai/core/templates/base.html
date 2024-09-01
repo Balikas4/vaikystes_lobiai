@@ -27,7 +27,7 @@
                 <li><a href="{% url 'contact' %}">Kontaktai</a></li>
             </ul>
         </nav>
-        <a href="{% url 'register' %}">Register</a>
+        <a href="{% url 'register' %}" class="register-red-header">Registracija</a>
     </header>
 
     <main>
@@ -41,16 +41,13 @@
             <a href="{% url 'home' %}"><img src="{% static 'images/logo_white400.png' %}" alt="Kindergarten Logo" class="footer-logo"></a>
         </div>
         <div class="footer-section">
-            <h2>Menu</h2>
             <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'about' %}">Apie Mus</a></li>
                 <li><a href="{% url 'education' %}">Ugdymas</a></li>
                 <li><a href="{% url 'nutrition' %}">Maitinimas</a></li>
                 <li><a href="{% url 'admissions' %}">Priemimo Tvarka</a></li>
                 <li><a href="{% url 'gallery' %}">Galerija</a></li>
                 <li><a href="{% url 'contact' %}">Kontaktai</a></li>
-                <li><a href="{% url 'register' %}">Register</a></li>
             </ul>
         </div>
         <div class="footer-section">
@@ -60,7 +57,7 @@
             <p>Darbo laikas:</p>
             <p>Pirmadienis - Penktadienis</p>
             <p>07.30-18.00</p>
-            <a href="{% url 'register' %}" class="btn-register">Registracija</a>
+            <a href="{% url 'register' %}" class="registracija-button">Registracija ></a>
         </div>
         <div class="footer-section">
             <img src="{% static 'images/kuriame_lietuvos_ateiti.png' %}" alt="Footer Image" class="footer-image">

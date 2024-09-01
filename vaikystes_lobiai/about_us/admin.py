@@ -24,14 +24,8 @@ class TeamMemberInline(admin.StackedInline):
     extra = 1
 
 class ActivityAdmin(admin.ModelAdmin):
-    list_display = ('name', 'icon_display')
+    list_display = ('name',)
     
-    def icon_display(self, obj):
-        if obj.icon:
-            return f"<img src='{obj.icon.url}' width='50' height='50' />"
-        return "No icon"
-    icon_display.allow_tags = True
-    icon_display.short_description = "Icon"
 
 class GrupeAdmin(admin.ModelAdmin):
     list_display = ('name', 'description')

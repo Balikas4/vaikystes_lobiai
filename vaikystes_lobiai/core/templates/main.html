@@ -7,7 +7,7 @@
     <div class="hero-text-main">
         <h1>{{ main_page.hero.hero_title }}</h1>
         <p>{{ main_page.hero.hero_description }}</p>
-        <a href="{{ main_page.hero.hero_button_url }}" class="btn-primary">{{ main_page.hero.hero_button_text }}</a>
+        <a href="{{ main_page.hero.hero_button_url }}" class="white-register-link">{{ main_page.hero.hero_button_text }}</a>
     </div>
     {% if main_page.hero.hero_photo %}
     <div class="hero-photo-main">
@@ -34,7 +34,9 @@
             <span class="bubble" data-index="2"></span>
         </div>
     </div>
-    <a href="{% url 'gallery' %}" class="btn-gallery">Daugiau nuotraukų ></a>
+    <div class="daugiau-nuotrauku">
+        <a href="{% url 'gallery' %}" class="see-trough-link">Daugiau nuotraukų ></a>
+    </div>
 </section>
 
 <section class="testimonials">
@@ -61,7 +63,7 @@
 <!-- Hero Button -->
 <section class="hero-button">
     <div class="button-text">
-        <button>Registracija</button>
+        <a href="/register" class="registracija-button">Registracija</a>
         <p>Prisijunkite prie „Vaikystės lobių“!</p>
     </div>
 </section>

@@ -6,6 +6,17 @@ body {
     font-family: 'Work Sans', sans-serif;
 }
 
+a, a:visited, a:link {
+    text-decoration: none;
+}
+
+/* Remove list bullets */
+ul, li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
 /* Header styling */
 header {
     background-color: #FAE0F5; /* Light pink background */
@@ -52,6 +63,16 @@ nav ul li a:hover {
     height: 150px;
 }
 
+.register-red-header, .register-red {
+    background-color: #F04B32;
+    color: #FAF0FA;
+    padding: 14px 12px;
+    border-radius: 8px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+}
+
 /* Footer styling */
 footer {
     background-color: #F04B32; /* Footer color */
@@ -73,6 +94,17 @@ footer {
     padding: 54px;
 }
 
+.registracija-button {
+    background-color: #F04B32;
+    color: #FAF0FA;
+    padding: 12px 40px;
+    border-radius: 16px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 800;
+    font-size: 32px;
+    border: 0px;
+}
+
 .hero-photo img, .gallery-item img{
     width: 100%;
     height: 100%;
@@ -88,7 +120,8 @@ footer {
     object-position: center;
 }
 
-.hero-text h1 , .hero-text-main h1, .lankymo-kaina-section h1, .adaptacija-content h1, .vizija h1, .vizija2 h1, .groups h1 , .main-gallery h2, .testimonials h2{
+.hero-text h1 , .hero-text-main h1, .lankymo-kaina-section h1, .adaptacija-content h1, .vizija h1, .vizija2 h1, .groups h1 , .main-gallery h2,
+ .testimonials h2, .team h2, .hero-text li, .map h2{
     font-family: 'Work Sans', sans-serif;
     font-weight: 800;
     font-size: 48px;
@@ -96,24 +129,37 @@ footer {
 }
 
 .grid-wrapper-education h1 , .grid-wrapper-education p, .quad-text h1, .quad-text p, .grid-wrapper-vizija h1, .grid-wrapper-vizija p,
- .lankymo-kaina p, .adaptacija-content p, .vizija p, .vizija2 p, .grupe p, .grupe h3
-{
+ .lankymo-kaina p, .adaptacija-content p, .vizija p, .vizija2 p, .grupe p, .grupe h3 , .map p {
     font-family: 'Public Sans', sans-serif;
     font-weight: 700;
     font-size: 24px;
     color: #F04B32;
 }
 
-.grid-wrapper-education p, .quad-text p , .grid-wrapper-vizija p, .lankymo-kaina p, .adaptacija-content p, .vizija p, .vizija2 p, .grupe p, .hero-text-main p{
+.grid-wrapper-education p, .quad-text p , .grid-wrapper-vizija p, .lankymo-kaina p, .adaptacija-content p, .vizija p, .vizija2 p,
+ .grupe p, .hero-text-main p, .hero-text li,  .map p  {
     font-weight: 500;
     font-size: 17px;
 }
 
-.hero-text p {
+.hero-text p , .button-text p{
     font-family: 'Public Sans', sans-serif;
     font-weight: 500;
     font-size: 17px;
     color: #F04B32;
+}
+
+.hero-text p , .grid-wrapper-education p, .grupe p, .quad-text p, .lankymo-kaina-section p, .nuolaidos-container p, .prisiminkite p{
+    padding-right: 80px;
+}
+
+.adaptacija p , .adaptacija h1 {
+    padding-right: 0px;
+    padding-left: 80px;
+}
+
+.lankymo-kaina-section, .nuolaidos-container, .reikalingi-dokumentai, .adaptacija, .prisiminkite, .map{
+    padding: 52px;
 }
 
 .hero-text {
@@ -165,7 +211,33 @@ footer {
 .hero-text-main h1, .hero-text-main p {
     color: #fff;
 }
+
+.white-register-link {
+    background-color: #FAF0FA;
+    color: #F04B32;
+    padding: 12px 40px;
+    border-radius: 16px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.see-trough-link {
+    background-color: transparent;
+    color: #F04B32;
+    padding: 14px 25px;
+    border-radius: 8px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    border: 1px solid #F04B32;
+}
 /* Main Gallery Container */
+.daugiau-nuotrauku {
+    padding-top: 80px;
+    text-align: center;
+}
+
 .main-gallery {
     padding: 52px;
     background-color: #FAE0F5; /* Example background */
@@ -301,8 +373,16 @@ blockquote cite {
     background-color: #FAE0F5;
 }
 
+.groups {
+    padding: 52px;
+    background-color: #FAF0FA;
+}
+
+.grupe h3 {
+    font-size: 32px;
+}
+
 /*ABOUT US ROUTINES */
-/* Container for routines */
 .routines-container {
     position: relative;
     width: 100%;
@@ -321,6 +401,12 @@ blockquote cite {
     padding: 20px;
     /* Optional border or background */
     border: 1px solid #ddd;
+}
+
+/* ABOUT US TEAMS */
+
+.team {
+    padding: 52px;
 }
 
 /* NUTRITION NUTRITION NUTRITION NUTRITION NUTRITION NUTRITION NUTRITION NUTRITION */
@@ -423,7 +509,8 @@ blockquote cite {
     margin-top: 8px; /* Space between image and description */
 }
 
-.misija-vizija , .grupes, .team-container, .quad, .grid-vizija , .lankymo-kaina, .nuolaidos-container , .adaptacija, .grid-education, .admissions-icons{
+.misija-vizija , .grupes, .team-container, .quad, .grid-vizija , .lankymo-kaina, .nuolaidos-container , .adaptacija, .grid-education, .admissions-icons,
+.prisiminkite   {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -451,4 +538,44 @@ blockquote cite {
 .admissions-icon {
     width: 350px;
     text-align: center;
+}
+
+/* FOOTER */
+footer {
+    padding: 84px 52px;
+}
+
+footer h1,footer h2 ,footer a ,footer p {
+    color: #FFFFFF;
+}
+
+footer .registracija-button {
+    background-color: transparent;
+    color: #FAF0FA;
+    padding: 0px;
+    border-radius: 0px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    border: 0px;
+}
+
+.nuolaidos-container {
+    background-color: #FAE0F5;
+}
+
+.reikalingi-dokumentai {
+    background-color: #FAF0FA;
+}
+
+.adaptacija , .map {
+    background-color: #FAE0F5;
+}
+
+.gallery {
+    background-color: #FAF0FA;
+}
+
+iframe {
+    border-radius: 16px;
 }

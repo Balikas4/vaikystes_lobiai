@@ -9,7 +9,7 @@
     <div class="hero-text">
         <h1>Priėmimas į darželį</h1>
         <p>Prašymas stojimui vykdomas internetu</p>
-        <a href="{% url 'register' %}" class="btn-register">Registracija</a>
+        <a href="{% url 'register' %}" class="register-red">Registracija</a>
     </div>
     <div class="hero-photo">
         <!-- Add a hero photo here -->
@@ -53,25 +53,25 @@
 </section>
 
 <!-- Reikalingi dokumentai -->
-<section>
-<div class="hero-text">
-    <h1>Reikalingi dokumentai</h1>
-    <p>Šie dokumentai reikalingi pradėjus lankyti darželį pirmąją dieną.</p>
-</div>
-<div class="admissions-icons">
-    <div class="admissions-icon">
-        <img src="{% static 'images/Gimimo_liudijimas.svg' %}" alt="Big Icon" class="big-icon">
-        <p>Vaiko gimimo įrašo kopija</p>
+<section class="reikalingi-dokumentai">
+    <div class="hero-text">
+        <h1>Reikalingi dokumentai</h1>
+        <p>Šie dokumentai reikalingi pradėjus lankyti darželį pirmąją dieną.</p>
     </div>
-    <div class="admissions-icon">
-        <img src="{% static 'images/Gydytojo_israsas.svg' %}" alt="Big Icon" class="big-icon">
-        <p>Gydytojo pažyma (elektroninė)</p>
+    <div class="admissions-icons">
+        <div class="admissions-icon">
+            <img src="{% static 'images/Gimimo_liudijimas.svg' %}" alt="Big Icon" class="big-icon">
+            <p>Vaiko gimimo įrašo kopija</p>
+        </div>
+        <div class="admissions-icon">
+            <img src="{% static 'images/Gydytojo_israsas.svg' %}" alt="Big Icon" class="big-icon">
+            <p>Gydytojo pažyma (elektroninė)</p>
+        </div>
+        <div class="admissions-icon">
+            <img src="{% static 'images/Sutartis.svg' %}" alt="Big Icon" class="big-icon">
+            <p>Sutartis (pasirašoma pradėjus lankyti darželį)</p>
+        </div>
     </div>
-    <div class="admissions-icon">
-        <img src="{% static 'images/Sutartis.svg' %}" alt="Big Icon" class="big-icon">
-        <p>Sutartis (pasirašoma pradėjus lankyti darželį)</p>
-    </div>
-</div>
 </section>
 
 <!-- Adaptacija -->
@@ -93,9 +93,9 @@
     </div>
     </section>
 
-<!-- Adaptacija -->
+<!-- Prisiminkite -->
 <section>
-    <div class="adaptacija">
+    <div class="prisiminkite">
         <div class="adaptacija-content">
             <h1>Prisiminkite</h1>
             <p>Mažylio ašarėlės – normali reakcija į atsiskyrimą.
@@ -124,7 +124,7 @@
 <!-- Hero Button -->
 <section class="hero-button">
     <div class="button-text">
-        <button>Registracija</button>
+        <a href="/register" class="registracija-button">Registracija</a>
         <p>Prisijunkite prie „Vaikystės lobių“!</p>
     </div>
 </section>

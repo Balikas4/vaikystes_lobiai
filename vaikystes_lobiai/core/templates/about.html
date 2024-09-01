@@ -31,7 +31,7 @@
 
 <!-- Groups Section -->
 <section class="groups">
-    <h1>Our Groups</h1>
+    <h1>Grupės</h1>
     <div class="grupes">
     {% for group in groups %}
         <div class="grupe">
@@ -45,8 +45,7 @@
 
 <!-- Daily Routine Section -->
 <!-- Daily Routine Section -->
-<section id="routines">
-    <h2>Daily Routines</h2>
+<section class="routines">
     <div class="routines-container">
         <div class="routines-wrapper">
             {% for group in groups %}
@@ -89,14 +88,14 @@
 
 
 <!-- Team Section -->
-<section id="team">
-    <h2>Meet Our Team</h2>
+<section class="team">
     <div class="team-container">
         <div class="hero-text">
+            <h2>Meet Our Team</h2>
             <ul>
                 {% for member in team_members %}
                     <li>
-                        <strong>{{ member.name }}</strong> - {{ member.job_title }}
+                        {{ member.job_title }} <span><strong>{{ member.name }}</strong></span>
                     </li>
                 {% empty %}
                     <p>No team members available.</p>
@@ -112,7 +111,7 @@
 <!-- Hero Button -->
 <section class="hero-button">
     <div class="button-text">
-        <button>Registracija</button>
+        <a href="/register" class="registracija-button">Registracija</a>
         <p>Prisijunkite prie „Vaikystės lobių“!</p>
     </div>
 </section>
