@@ -50,7 +50,7 @@ def nutrition(request):
     nutrition_page = NutritionPage.objects.first()  # Adjust as needed to get the specific NutritionPage
     
     # Define the correct order of days
-    days_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+    days_order = ['Pirmadienis', 'Antradienis', 'Trečiadienis', 'Ketvirtadienis', 'Penktadienis']
     
     # Fetch Weekly Nutrition data, grouped by week and sorted by day order
     weeks = {}
