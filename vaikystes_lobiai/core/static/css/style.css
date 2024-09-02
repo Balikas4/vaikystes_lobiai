@@ -121,7 +121,7 @@ footer {
 }
 
 .hero-text h1 , .hero-text-main h1, .lankymo-kaina-section h1, .adaptacija-content h1, .vizija h1, .vizija2 h1, .groups h1 , .main-gallery h2,
- .testimonials h2, .team h2, .hero-text li, .map h2{
+ .testimonials h2, .team h2, .hero-text li, .map h2, .group-name, .card-routines h4, .nutrition-navigation h3{
     font-family: 'Work Sans', sans-serif;
     font-weight: 800;
     font-size: 48px;
@@ -129,7 +129,7 @@ footer {
 }
 
 .grid-wrapper-education h1 , .grid-wrapper-education p, .quad-text h1, .quad-text p, .grid-wrapper-vizija h1, .grid-wrapper-vizija p,
- .lankymo-kaina p, .adaptacija-content p, .vizija p, .vizija2 p, .grupe p, .grupe h3 , .map p {
+ .lankymo-kaina p, .adaptacija-content p, .vizija p, .vizija2 p, .grupe p, .grupe h3 , .map p, .admissions-icons p, .card-routines li, .card li, .card p{
     font-family: 'Public Sans', sans-serif;
     font-weight: 700;
     font-size: 24px;
@@ -137,9 +137,13 @@ footer {
 }
 
 .grid-wrapper-education p, .quad-text p , .grid-wrapper-vizija p, .lankymo-kaina p, .adaptacija-content p, .vizija p, .vizija2 p,
- .grupe p, .hero-text-main p, .hero-text li,  .map p  {
+ .grupe p, .hero-text-main p, .hero-text li,  .map p  , .admissions-icons p, .card-routines li, .card li, .card p{
     font-weight: 500;
     font-size: 17px;
+}
+
+.admissions-icons p {
+    font-family: 'Work Sans', sans-serif;
 }
 
 .hero-text p , .button-text p{
@@ -396,9 +400,9 @@ blockquote cite {
 
 .group-routine {
     flex: 1 0 100%;
-    box-sizing: border-box;
     padding: 20px;
-    border: 1px solid #ddd;
+    background-color: #FAF0FA;
+    
     overflow-x: auto; /* Horizontal scrolling */
 }
 
@@ -407,6 +411,7 @@ blockquote cite {
     flex-direction: row;
     align-items: center;
     margin-bottom: 20px;
+    justify-content: center;
 }
 
 .card-holder-routines {
@@ -418,7 +423,22 @@ blockquote cite {
     flex: 0 0 auto; /* Prevent cards from shrinking */
     width: 260px; /* Fixed width for cards */
     padding: 20px;
-    border: 1px solid #ddd;
+    border-radius: 16px;
+    background-color: #FAE0F5;
+}
+
+.card-routines h4{
+    font-size: 32px;
+    background-color: #F04B32;
+    color: white;
+    border-radius: 16px 16px 0 0;
+    margin: -20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.card-routines li {
+    padding-bottom: 6px;
 }
 /* ABOUT US TEAMS */
 
@@ -445,7 +465,6 @@ blockquote cite {
     box-sizing: border-box;
     padding: 20px;
     border: 1px solid #ddd;
-    margin-right: 10px; /* Space between items, adjust if needed */
     overflow-x: auto; /* Enable horizontal scrolling */
 }
 
@@ -472,9 +491,23 @@ blockquote cite {
     flex: 0 0 auto; /* Prevent flex items from shrinking */
     box-sizing: border-box;
     padding: 20px;
-    border: 1px solid #ddd;
+    background-color: #FAE0F5;
     margin-right: 10px; /* Space between cards */
     width: 240px; /* Fixed width for cards */
+}
+
+.card h4{
+    font-size: 32px;
+    background-color: #F04B32;
+    color: white;
+    border-radius: 16px 16px 0 0;
+    margin: -20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.card li {
+    padding-bottom: 6px;
 }
 
 .card img {
@@ -584,6 +617,25 @@ footer .registracija-button {
     font-weight: 800;
     font-size: 28px;
     border: 0px;
+}
+
+footer li {
+    padding: 6px;
+}
+
+.footer-section-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align all content to the right */
+    text-align: right; /* Align text to the right */
+}
+
+.footer-section-right p {
+    margin: 2px;
+}
+
+.footer-image {
+    padding: 52px 0px;
 }
 
 .nuolaidos-container {

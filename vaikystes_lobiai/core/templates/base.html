@@ -42,6 +42,7 @@
         </div>
         <div class="footer-section">
             <ul>
+                <li><a href="{% url 'home' %}">Pagrindinis</a></li>
                 <li><a href="{% url 'about' %}">Apie Mus</a></li>
                 <li><a href="{% url 'education' %}">Ugdymas</a></li>
                 <li><a href="{% url 'nutrition' %}">Maitinimas</a></li>
@@ -59,7 +60,7 @@
             <p>07.30-18.00</p>
             <a href="{% url 'register' %}" class="registracija-button">Registracija ></a>
         </div>
-        <div class="footer-section">
+        <div class="footer-section footer-section-right">
             <img src="{% static 'images/kuriame_lietuvos_ateiti.png' %}" alt="Footer Image" class="footer-image">
             <p><a href="https://www.facebook.com/vaikysteslobiai" target="_blank" class="social-link">
                     <i class="fab fa-facebook-square social-icon"></i> Sekite naujienas Facebook
