@@ -11,12 +11,12 @@ class WeeklyNutrition(models.Model):
         choices=[(1, 'Week 1'), (2, 'Week 2'), (3, 'Week 3'), (4, 'Week 4')],
         default=1  # Temporary default value
     )
-    day = models.CharField(max_length=10, choices=[
-        ('Monday', 'Monday'),
-        ('Tuesday', 'Tuesday'),
-        ('Wednesday', 'Wednesday'),
-        ('Thursday', 'Thursday'),
-        ('Friday', 'Friday'),
+    day = models.CharField(max_length=16, choices=[
+        ('Pirmadienis', 'Pirmadienis'),
+        ('Antradienis', 'Antradienis'),
+        ('Treciadienis', 'Trečiadienis'),
+        ('Ketvirtadienis', 'Ketvirtadienis'),
+        ('Penktadienis', 'Penktadienis'),
     ])
     nutrients = models.ManyToManyField(Nutrient, related_name='weekly_nutrition')
 

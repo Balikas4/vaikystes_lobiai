@@ -420,32 +420,33 @@ blockquote cite {
 .nutrition-wrapper {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    width: auto; /* Width adjusts based on number of items */
+    width: 100%; /* Width adjusts based on number of items */
 }
 
 .nutrition-item {
     flex: 0 0 100%; /* Each week takes up 100% of the container width */
     box-sizing: border-box;
     padding: 20px;
-    /* Optional border or background */
     border: 1px solid #ddd;
     margin-right: 10px; /* Space between items, adjust if needed */
+    overflow-x: auto; /* Enable horizontal scrolling */
 }
 
 .card-holder {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
 }
 
 .card {
     width: 200px;
+    min-width: 200px;
     box-sizing: border-box;
     padding: 20px;
     margin: 10px;
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #f9f9f9;
+    text-align: center;
 }
 
 .card img {
@@ -454,6 +455,8 @@ blockquote cite {
 }
 
 .nutrition-navigation {
+    display: flex;
+    flex-direction: row;
     text-align: center;
     margin-top: 10px;
 }

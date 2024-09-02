@@ -8,6 +8,7 @@ from nutrition.models import NutritionPage, WeeklyNutrition
 from admissions.models import LankymoKaina, NuolaidosIrKompensacijos
 from register.models import Registration
 from register.forms import RegistrationForm
+from django.db.models import Case, When, Value, IntegerField
 
 
 def home(request):
@@ -48,19 +49,27 @@ def nutrition(request):
     # Fetch the NutritionPage
     nutrition_page = NutritionPage.objects.first()  # Adjust as needed to get the specific NutritionPage
     
-    # Fetch Weekly Nutrition data, grouped by week
-    weekly_nutrition_data = WeeklyNutrition.objects.order_by('week_number', 'day')
+    # Define the correct order of days
+    days_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
     
-    # Prepare a dictionary to hold weekly nutrition data
+    # Fetch Weekly Nutrition data, grouped by week and sorted by day order
     weeks = {}
     for week in range(1, 5):
-        weeks[week] = WeeklyNutrition.objects.filter(week_number=week).order_by('day')
+        weeks[week] = WeeklyNutrition.objects.filter(
+            week_number=week
+        ).order_by(
+            Case(
+                *[When(day=day, then=Value(index)) for index, day in enumerate(days_order)],
+                output_field=IntegerField()
+            )
+        )
 
     context = {
         'nutrition_page': nutrition_page,
         'weeks': weeks,
     }
     return render(request, 'nutrition.html', context)
+
 
 def admissions(request):
     lankymo_kaina = LankymoKaina.objects.first()  # Adjust if there are multiple instances
