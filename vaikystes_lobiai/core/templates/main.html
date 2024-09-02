@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Welcome to Our Kindergarten{% endblock %}
+{% block title %}Vaikystės lobiai{% endblock %}
 
 {% block content %}
 <section class="hero-main">
@@ -17,7 +17,7 @@
 </section>
 
 <section class="main-gallery">
-    <h2>Musų akimirkos</h2>
+    <h2>Mūsų akimirkos</h2>
     <div class="gallery-container-main">
         <div class="gallery-main">
             {% for image in main_page.gallery.all %}
@@ -63,7 +63,7 @@
 <!-- Hero Button -->
 <section class="hero-button">
     <div class="button-text">
-        <a href="/register" class="registracija-button">Registracija</a>
+        <a href="{% url 'register'%}" class="registracija-button">Registracija</a>
         <p>Prisijunkite prie „Vaikystės lobių“!</p>
     </div>
 </section>

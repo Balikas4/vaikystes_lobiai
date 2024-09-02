@@ -17,6 +17,28 @@ ul, li {
     margin: 0;
 }
 
+h1 {
+    margin: 0px 0px 20px 0px;
+}
+
+h3 {
+    margin: 0px 0px 20px 0px;
+}
+
+p , h2{
+    margin: 0px 0px 20px 0px;
+    padding: 0; /* Resets all padding */
+    margin-block-start: 0; /* Removes block start margin */
+    margin-block-end: 0; /* Removes block end margin */
+    margin-inline-start: 0; /* Removes inline start margin */
+    margin-inline-end: 0; /* Removes inline end margin */
+}
+
+
+.grouped-paras {
+    padding-bottom: 20px;
+}
+
 /* Header styling */
 header {
     background-color: #FAE0F5; /* Light pink background */
@@ -24,7 +46,8 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0px 52px;
 }
 nav {
     height: 100%;
@@ -51,16 +74,35 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: #F04B32; /* Red color */
-    font-weight: bold; /* Bold text */
+    font-weight: 500;
 }
 
-nav ul li a:hover {
-    color: #c0392b; /* Slightly darker red on hover */
+nav ul li a {
+    color: #F04B32; /* Default color */
+    text-decoration: none; /* Remove default underline */
+    position: relative; /* Establish positioning context */
+}
+
+nav ul li a::after {
+    content: ''; /* Required to create the pseudo-element */
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* Adjust based on your design */
+    width: 100%;
+    height: 2px; /* Thickness of the underline */
+    background-color: #F04B32; /* Underline color */
+    transform: scaleX(0); /* Initially hidden */
+    transform-origin: bottom right; /* Animation origin point */
+    transition: transform 0.3s ease; /* Animation duration and easing */
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1); /* Show underline on hover */
+    transform-origin: bottom left; /* Change origin point on hover */
 }
 
 .header-logo {
-    width: 150px;
-    height: 150px;
+    height: 80px;
 }
 
 .register-red-header, .register-red {
@@ -71,6 +113,16 @@ nav ul li a:hover {
     font-family: 'Work Sans', sans-serif;
     font-weight: 700;
     font-size: 18px;
+    transition: transform 0.3s ease; /* Add transition for smooth effect */
+}
+
+.register-red-header:hover, .register-red:hover {
+    transform: scale(1.05); /* Scale up by 5% on hover */
+}
+
+.register-red-header:active, .register-red:active {
+    background-color: #d73b28; /* Slightly darker shade on click */
+    transform: scale(1); /* Optionally reset scale to prevent jump on click */
 }
 
 /* Footer styling */
@@ -79,25 +131,32 @@ footer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
+    gap: 80px;
+    justify-content: center;
+}
+
+.footer-section h2 {
+    padding-bottom: 12px;
 }
 
 .footer-logo {
-    width: 200px;
-    height: 200px;
+    width: 136px;
+    height: 80px;
 }
 
 .hero-button {
     background-color: #FAE0F5;
-    text-align: center;
-    padding: 54px;
+    text-align: -webkit-center;
+    align-content: center;
+    padding: 52px;
+    height: 216px;
 }
 
 .registracija-button {
     background-color: #F04B32;
     color: #FAF0FA;
     padding: 12px 40px;
+    margin: 0px 54px;
     border-radius: 16px;
     font-family: 'Work Sans', sans-serif;
     font-weight: 800;
@@ -144,6 +203,7 @@ footer {
 
 .admissions-icons p {
     font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
 }
 
 .hero-text p , .button-text p{
@@ -230,7 +290,7 @@ footer {
     background-color: transparent;
     color: #F04B32;
     padding: 14px 25px;
-    border-radius: 8px;
+    border-radius: 12px;
     font-family: 'Work Sans', sans-serif;
     font-weight: 700;
     font-size: 18px;
@@ -238,13 +298,18 @@ footer {
 }
 /* Main Gallery Container */
 .daugiau-nuotrauku {
-    padding-top: 80px;
+    padding-top: 34px;
     text-align: center;
 }
 
 .main-gallery {
     padding: 52px;
     background-color: #FAE0F5; /* Example background */
+}
+
+.main-gallery h2 {
+    margin-bottom: 20px;
+    margin-top: 0px;
 }
 
 /* Gallery Container */
@@ -259,13 +324,13 @@ footer {
     display: flex;
     transition: transform 0.5s ease-in-out;
     will-change: transform; /* Helps with performance */
+    gap: 12px;
 }
 
 /* Gallery Items */
 .gallery-item {
     flex: 0 0 50%; /* Each item takes up 50% of the container width, showing 2 items per slide */
     box-sizing: border-box;
-    padding: 10px; /* Add padding for spacing */
 }
 
 .gallery-item img {
@@ -278,14 +343,14 @@ footer {
 /* Navigation Bubbles */
 .navigation {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 32px;
 }
 
 .navigation .bubble {
     display: inline-block;
     width: 10px;
     height: 10px;
-    background: #ccc;
+    background: #FAF0FA;
     border-radius: 50%;
     margin: 0 5px;
     cursor: pointer;
@@ -293,7 +358,7 @@ footer {
 }
 
 .navigation .bubble.active {
-    background: #333; /* Darker color for the active bubble */
+    background: #F04B32; /* Darker color for the active bubble */
 }
 
 /* Container for testimonials */
@@ -377,6 +442,10 @@ blockquote cite {
 .groups {
     padding: 52px;
     background-color: #FAF0FA;
+}
+
+.groups h1 {
+    margin: 0px 0px 20px 0px;
 }
 
 .grupe h3 {
@@ -610,16 +679,18 @@ footer h1,footer h2 ,footer a ,footer p {
     color: #FFFFFF;
 }
 
-footer .registracija-button {
+.registracija-button-footer {
     background-color: transparent;
     color: #FAF0FA;
     padding: 0px;
+    margin-top: 20px;
     border-radius: 0px;
     font-family: 'Work Sans', sans-serif;
     font-weight: 800;
     font-size: 28px;
     border: 0px;
 }
+
 
 footer li {
     padding: 6px;
@@ -636,8 +707,13 @@ footer li {
     margin: 2px;
 }
 
+.footer-section-left {
+    display: flex;
+    flex-direction: column;
+}
+
 .footer-image {
-    padding: 52px 0px;
+    padding-bottom: 85px;
 }
 
 .nuolaidos-container {
@@ -659,3 +735,10 @@ footer li {
 iframe {
     border-radius: 16px;
 }
+/* MAIN REGISTER */
+.button-text {
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+}
+/* REGISTER */

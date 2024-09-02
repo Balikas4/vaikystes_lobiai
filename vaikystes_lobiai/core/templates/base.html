@@ -12,11 +12,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
     <link rel="manifest" href="{% static 'images/site.webmanifest' %}">
     <!-- Add any additional CSS files or meta tags here -->
-    <title>{% block title %}Kindergarten{% endblock %}</title>
+    <title>{% block title %}Vaikystės lobiai{% endblock %}</title>
 </head>
 <body>
     <header>
-        <a href="{% url 'home' %}"><img src="{% static 'images/logo400.png' %}" alt="Kindergarten Logo" class="header-logo"></a>
+        <a href="{% url 'home' %}"><img src="{% static 'images/logo-header.png' %}" alt="Kindergarten Logo" class="header-logo"></a>
         <nav>
             <ul>
                 <li><a href="{% url 'about' %}">Apie Mus</a></li>
@@ -25,9 +25,9 @@
                 <li><a href="{% url 'admissions' %}">Priemimo Tvarka</a></li>
                 <li><a href="{% url 'gallery' %}">Galerija</a></li>
                 <li><a href="{% url 'contact' %}">Kontaktai</a></li>
+                <a href="{% url 'register' %}" class="register-red-header">Registracija</a>
             </ul>
         </nav>
-        <a href="{% url 'register' %}" class="register-red-header">Registracija</a>
     </header>
 
     <main>
@@ -37,8 +37,8 @@
     </main>
 
     <footer>
-        <div class="footer-section">
-            <a href="{% url 'home' %}"><img src="{% static 'images/logo_white400.png' %}" alt="Kindergarten Logo" class="footer-logo"></a>
+        <div class="footer-section footer-section-left">
+            <a href="{% url 'home' %}"><img src="{% static 'images/logo-footer.png' %}" alt="Kindergarten Logo" class="footer-logo"></a>
         </div>
         <div class="footer-section">
             <ul>
@@ -53,12 +53,16 @@
         </div>
         <div class="footer-section">
             <h2>Susisiekite</h2>
-            <p><a href="tel:+37061154222">+370 611 54 222</a></p>
-            <p><a href="mailto:info@vaikysteslobiai.lt">info@vaikysteslobiai.lt</a></p>
-            <p>Darbo laikas:</p>
-            <p>Pirmadienis - Penktadienis</p>
-            <p>07.30-18.00</p>
-            <a href="{% url 'register' %}" class="registracija-button">Registracija ></a>
+            <div class="grouped-paras">
+                <p><a href="tel:+37061154222">+370 611 54 222</a></p>
+                <p><a href="mailto:info@vaikysteslobiai.lt">info@vaikysteslobiai.lt</a></p>
+            </div>
+            <div class="grouped-paras">
+                <p>Darbo laikas:</p>
+                <p>Pirmadienis - Penktadienis</p>
+                <p>07.30-18.00</p>
+            </div>
+            <a href="{% url 'register' %}" class="registracija-button-footer">Registracija ></a>
         </div>
         <div class="footer-section footer-section-right">
             <img src="{% static 'images/kuriame_lietuvos_ateiti.png' %}" alt="Footer Image" class="footer-image">
@@ -68,8 +72,5 @@
             <p>&copy;Vaikystės lobiai 2024. Visos teises saugomos </p>
         </div>
     </footer>
-
-    <!-- Add any additional JavaScript files here -->
-    <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
