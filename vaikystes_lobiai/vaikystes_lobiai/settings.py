@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'nutrition',
     'admissions',
     'register',
+    'contact',
     'ckeditor',
     'django.contrib.admin',
     'django.contrib.auth',

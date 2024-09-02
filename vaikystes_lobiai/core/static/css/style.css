@@ -759,3 +759,9 @@ iframe {
     gap: 54px;
     align-items: center;
 }
+
+.conact-desc-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 31px;
+}

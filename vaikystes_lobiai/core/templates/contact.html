@@ -6,43 +6,28 @@
 {% block content %}
 <!-- Hero Section -->
 <section class="hero">
-    <div class="hero-text">
-        <h1>Susipažinkime!</h1>
-        <div>
-            <p><b>El. paštas:</b></p>
-            <p>info@vaikysteslobiai.lt</p>
+    <div class="contact-desc">
+        <div class="hero-text">
+            <h1>Susipažinkime!</h1>
         </div>
-        <div>
-            <p><b>Direktorė</b></p>
-            <p>Gitana Gelžinienė</p>
-            <p>El. paštas: <a href="mailto:gelzinienegitana@gmail.com">gelzinienegitana@gmail.com</a></p>
-            <p>Tel. <a href="tel:+37061154222">+370 611 54 222</a></p>
-        </div>
-        <div>
-            <p><b>Direkt. pavaduotoja</b></p>
-            <p>Aušra Stauskienė</p>
-            <p>El. paštas: <a href="mailto:ausra.stauskiene@gmail.com">ausra.stauskiene@gmail.com</a></p>
-            <p>Tel. <a href="tel:+37069873546">+370 698 73 546</a></p>
-        </div>
-        <div>
-            <p><b>Elektroninio dienyno konsultantė</b></p>
-            <p>Aušrinė</p>
-            <p>Tel. <a href="tel:+37060772346">8 607 72 346</a></p>
-        </div>
-        <div>
-            <p><b>Darbo laikas</b></p>
-            <p>08.00-18.00</p>
-        </div>
-        <div>
-            <p>UAB „Vaikystės lobiai“</p>
-            <p>Įmonės kodas: 302690414</p>
+        <div class="conact-desc-wrapper">
+            <div>
+                {{ contact.description|safe }}
+            </div>
+            <div>
+                {{ contact.additional_info|safe }}
+            </div>
         </div>
     </div>
     <div class="hero-photo">
-        <!-- Add a hero photo here -->
-        <img src="{% static "images/Lauko_žaidimai.jpg" %}" alt="Hero Photo">
+        {% if contact.hero_photo %}
+        <img src="{{ contact.hero_photo.url }}" alt="Hero Photo">
+    {% else %}
+        <p>No hero photo available.</p>
+    {% endif %}
     </div>
 </section>
+
 
 <!-- Google Maps Section -->
 <section class="map">

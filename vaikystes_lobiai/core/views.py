@@ -9,6 +9,7 @@ from admissions.models import LankymoKaina, NuolaidosIrKompensacijos
 from register.models import Registration
 from register.forms import RegistrationForm
 from django.db.models import Case, When, Value, IntegerField
+from contact.models import Contact
 
 
 def home(request):
@@ -89,18 +90,10 @@ def gallery(request):
     return render(request, 'gallery.html', context)
 
 def contact(request):
-    if request.method == 'POST':
-        form = EmailForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Your message has been sent successfully!')
-            return redirect('contact')  # Redirect to avoid form resubmission
-        else:
-            messages.error(request, 'There was an error submitting your form. Please try again.')
-    else:
-        form = EmailForm()
-    
-    return render(request, 'contact.html', {'form': form})  # Pass form to the template
+    context = {
+        'contact': Contact.objects.first(),  # Example, adjust according to your context
+    }
+    return render(request, 'contact.html', context)
 
 def register(request):
     if request.method == 'POST':
