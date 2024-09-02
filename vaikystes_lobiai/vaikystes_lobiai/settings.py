@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static_root'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media_root'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'core' / 'static',

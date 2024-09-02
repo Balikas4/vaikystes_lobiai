@@ -201,6 +201,12 @@ footer {
     font-size: 17px;
 }
 
+.conact-desc-wrapper   p {
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    color: #F04B32;}
+
 .admissions-icons p {
     font-family: 'Work Sans', sans-serif;
     font-weight: 500;
@@ -736,6 +742,14 @@ footer li {
 
 .adaptacija , .map {
     background-color: #FAE0F5;
+}
+
+.map h2 {
+    padding-bottom: 12px;
+}
+
+.map iframe {
+    padding-top: 40px;
 }
 
 .gallery {
