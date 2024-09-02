@@ -220,6 +220,11 @@ footer {
 .adaptacija p , .adaptacija h1 {
     padding-right: 0px;
     padding-left: 80px;
+    padding-bottom: 20px;
+}
+
+.prisiminkite p {
+    padding-bottom: 20px;
 }
 
 .lankymo-kaina-section, .nuolaidos-container, .reikalingi-dokumentai, .adaptacija, .prisiminkite, .map{
@@ -274,6 +279,10 @@ footer {
 
 .hero-text-main h1, .hero-text-main p {
     color: #fff;
+}
+
+.hero-text-main {
+    width: 536px;
 }
 
 .white-register-link {
@@ -659,10 +668,11 @@ blockquote cite {
 
 .big-icon {
     height: 254px;
-    width: 184px;
+    width: 254px;
 }
 
 .admissions-icons{
+    padding-top: 80px;
     justify-content: center;
 }
 .admissions-icon {
@@ -742,3 +752,10 @@ iframe {
     width: 380px;
 }
 /* REGISTER */
+
+.main-text-button {
+    display: flex;
+    flex-direction: row;
+    gap: 54px;
+    align-items: center;
+}

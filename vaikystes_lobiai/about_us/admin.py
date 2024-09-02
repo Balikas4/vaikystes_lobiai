@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import DailyRoutine, Grupe, TeamMember, Activity, AboutUsPage
+from .models import DailyRoutine, Grupe, Activity, AboutUsPage
 
 class ActivityInline(admin.TabularInline):
     model = DailyRoutine.activities.through
@@ -19,10 +19,6 @@ class GrupeInline(admin.StackedInline):
     extra = 1
     inlines = [DailyRoutineInline]
 
-class TeamMemberInline(admin.StackedInline):
-    model = TeamMember
-    extra = 1
-
 class ActivityAdmin(admin.ModelAdmin):
     list_display = ('name',)
     
@@ -32,8 +28,8 @@ class GrupeAdmin(admin.ModelAdmin):
     inlines = [DailyRoutineInline]  # If you want to include routines here
 
 class AboutUsPageAdmin(admin.ModelAdmin):
-    list_display = ('about_us_title', 'about_us_description', 'hero_photo_display', 'team_photo_display')
-    inlines = [GrupeInline, TeamMemberInline]
+    list_display = ('about_us_title', 'about_us_description', 'hero_photo_display', 'team_photo_display', 'team_description')
+    inlines = [GrupeInline]
 
     def hero_photo_display(self, obj):
         if obj.hero_photo:
@@ -51,6 +47,5 @@ class AboutUsPageAdmin(admin.ModelAdmin):
 
 admin.site.register(Activity, ActivityAdmin)
 admin.site.register(Grupe, GrupeAdmin)
-admin.site.register(TeamMember)
 admin.site.register(DailyRoutine, DailyRoutineAdmin)  # Ensure DailyRoutineAdmin is registered
 admin.site.register(AboutUsPage, AboutUsPageAdmin)

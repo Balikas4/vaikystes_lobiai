@@ -10,7 +10,7 @@
 <section class="hero">
     <div class="hero-text">
         <h1>{{ about_us_page.about_us_title }}</h1>
-        <p>{{ about_us_page.about_us_description }}</p>
+        {{ about_us_page.about_us_description|safe }}
     </div>
     <div class="hero-photo">
         <img src="{{ about_us_page.hero_photo.url }}" alt="About Us Hero Image">
@@ -94,16 +94,11 @@
 <section class="team">
     <div class="team-container">
         <div class="hero-text">
-            <h2>Meet Our Team</h2>
-            <ul>
-                {% for member in team_members %}
-                    <li>
-                        {{ member.job_title }} <span><strong>{{ member.name }}</strong></span>
-                    </li>
-                {% empty %}
-                    <p>No team members available.</p>
-                {% endfor %}
-            </ul>
+            <h2>Mūsų komanda</h2>
+            <!-- Replace the <ul> list with the rich text field -->
+            <div class="team-description">
+                {{ about_us_page.team_description|safe }}
+            </div>
         </div>
         <div class="hero-photo">
             <img src="{{ about_us_page.team_photo.url }}" alt="Team Photo" class="team-photo">

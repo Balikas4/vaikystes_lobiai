@@ -21,30 +21,33 @@
 <section class="lankymo-kaina-section">
     <h1>{{ lankymo_kaina.title }}</h1>
     <div class="lankymo-kaina">
-    {% if lankymo_kaina %}
-        <div class="kaina">
-            <p>{{ lankymo_kaina.description }}</p>
-        </div>
-        <div class="kaina">
-            <p>{{ lankymo_kaina.additional_info }}</p>
-        </div>
-    {% else %}
-        <p>No attendance cost information available.</p>
-    {% endif %}
+        {% if lankymo_kaina %}
+            <div class="kaina">
+                <!-- Use |safe to render HTML content -->
+                {{ lankymo_kaina.description|safe }}
+            </div>
+            <div class="kaina">
+                <!-- Use |safe to render HTML content -->
+                {{ lankymo_kaina.additional_info|safe }}
+            </div>
+        {% else %}
+            <p>No attendance cost information available.</p>
+        {% endif %}
     </div>
 </section>
 <!-- Nuolaidos ir kompensacijos -->
-<section class-"nuolaidos-section">
+<section class="nuolaidos-section">
     <div class="nuolaidos-container">
         {% if nuolaidos_ir_kompensacijos %}
-        <div class="hero-text">
-            <h1>{{ nuolaidos_ir_kompensacijos.title }}</h1>
-            <p>{{ nuolaidos_ir_kompensacijos.description }}</p>
-        </div>
-        {% if nuolaidos_ir_kompensacijos.image %}
-        <div class="hero-photo">
-            <img src="{{ nuolaidos_ir_kompensacijos.image.url }}" alt="{{ nuolaidos_ir_kompensacijos.title }}" class="main-round">
-        </div>
+            <div class="hero-text">
+                <h1>{{ nuolaidos_ir_kompensacijos.title }}</h1>
+                <!-- Use |safe to render HTML content -->
+                <p>{{ nuolaidos_ir_kompensacijos.description|safe }}</p>
+            </div>
+            {% if nuolaidos_ir_kompensacijos.image %}
+                <div class="hero-photo">
+                    <img src="{{ nuolaidos_ir_kompensacijos.image.url }}" alt="{{ nuolaidos_ir_kompensacijos.title }}" class="main-round">
+                </div>
             {% endif %}
         {% else %}
             <p>No discounts or compensations available.</p>
@@ -60,15 +63,15 @@
     </div>
     <div class="admissions-icons">
         <div class="admissions-icon">
-            <img src="{% static 'images/Gimimo_liudijimas.svg' %}" alt="Big Icon" class="big-icon">
+            <img src="{% static 'images/Gimimo_liudijimas.png' %}" alt="Big Icon" class="big-icon">
             <p>Vaiko gimimo įrašo kopija</p>
         </div>
         <div class="admissions-icon">
-            <img src="{% static 'images/Gydytojo_israsas.svg' %}" alt="Big Icon" class="big-icon">
+            <img src="{% static 'images/Gydytojo_israsas.png' %}" alt="Big Icon" class="big-icon">
             <p>Gydytojo pažyma (elektroninė)</p>
         </div>
         <div class="admissions-icon">
-            <img src="{% static 'images/Sutartis.svg' %}" alt="Big Icon" class="big-icon">
+            <img src="{% static 'images/Sutartis.png' %}" alt="Big Icon" class="big-icon">
             <p>Sutartis (pasirašoma pradėjus lankyti darželį)</p>
         </div>
     </div>

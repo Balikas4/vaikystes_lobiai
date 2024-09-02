@@ -26,6 +26,8 @@ STATICFILES_DIRS = [
     BASE_DIR / 'core' / 'static',
 ]
 
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -48,6 +50,7 @@ INSTALLED_APPS = [
     'nutrition',
     'admissions',
     'register',
+    'ckeditor',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

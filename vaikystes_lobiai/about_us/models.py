@@ -1,10 +1,14 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 class AboutUsPage(models.Model):
     about_us_title = models.CharField(max_length=255)
     about_us_description = models.TextField()
     hero_photo = models.ImageField(upload_to='hero_photos/', blank=True, null=True)
     team_photo = models.ImageField(upload_to='hero_photos/', blank=True, null=True)
+    about_us_description = RichTextField()  # Changed from TextField to RichTextField
+    team_description = RichTextField()  # Add this field for team members description
+
 
     def __str__(self):
         return self.about_us_title
@@ -20,18 +24,6 @@ class Grupe(models.Model):
 
     def __str__(self):
         return self.name
-
-class TeamMember(models.Model):
-    about_us_page = models.ForeignKey(
-        AboutUsPage,
-        on_delete=models.CASCADE,
-        related_name='team_members'
-    )
-    job_title = models.CharField(max_length=100)
-    name = models.CharField(max_length=100)
-
-    def __str__(self):
-        return f"{self.name} - {self.job_title}"
 
 class Activity(models.Model):
     name = models.CharField(max_length=100)

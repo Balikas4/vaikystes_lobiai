@@ -18,6 +18,7 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
+from ckeditor_uploader import urls as ckeditor_urls
 
 urlpatterns = [
     path('', include('core.urls')),    
@@ -26,3 +27,7 @@ urlpatterns = [
 
 urlpatterns.extend(static(settings.STATIC_URL, document_root=settings.STATIC_ROOT))
 urlpatterns.extend(static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))
+# Add CKEditor URL patterns
+urlpatterns += [
+    path('ckeditor/', include(ckeditor_urls)),
+]

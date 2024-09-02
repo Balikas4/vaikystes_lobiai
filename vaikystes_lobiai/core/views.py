@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import EmailForm
 from django.contrib import messages
-from about_us.models import AboutUsPage, Grupe, Activity, TeamMember
+from about_us.models import AboutUsPage, Grupe, Activity
 from gallery.models import GalleryCategory
 from main_page.models import MainReview, MainPage
 from nutrition.models import NutritionPage, WeeklyNutrition
@@ -19,7 +19,6 @@ def home(request):
 def about(request):
     about_us_page = AboutUsPage.objects.first()  # Assuming there's only one AboutUsPage
     groups = Grupe.objects.filter(about_us_page=about_us_page)
-    team_members = TeamMember.objects.filter(about_us_page=about_us_page)
 
     # Define days of the week in Lithuanian
     days_of_week = ["Pirmadienis", "Antradienis", "Trečiadienis", "Ketvirtadienis", "Penktadienis"]
@@ -37,7 +36,6 @@ def about(request):
         'groups': groups,
         'routine_data': routine_data,
         'days_of_week': days_of_week,
-        'team_members': team_members,
     }
     return render(request, 'about.html', context)
 
