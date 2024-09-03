@@ -43,8 +43,8 @@
         </div>
 
         <h5>UAB „Vaikystės lobiai“</h5>
-        <h5>Direktorei Gitanai Gelžinienei</h5>
-        <h5>PRAŠYMAS-ANKETA</h5>
+        <h5 class="form-padder">Direktorei Gitanai Gelžinienei</h5>
+        <h5 class="form-padder">PRAŠYMAS-ANKETA</h5>
         <h5>DĖL VAIKO PRIĖMIMO Į UAB „VAIKYSTĖS LOBIAI“</h5>
         <div class="form-group">
             <label for="id_document_date">{{ form.document_date.label_tag }}</label>
@@ -53,10 +53,11 @@
         </div>
         <h5>Kaunas</h5>
         <p>Prašau mano (dukrą/sūnų)</p>
-        <div class="form-group">
+        <div class="form-group half-form">
             <label for="id_child_first_last_name">{{ form.child_first_last_name.label_tag }}</label>
             {{ form.child_first_last_name }}
             {{ form.child_first_last_name.errors }}
+            <p class="asdasd">priimti į darželį „Vaikystės lobiai“</p>
         </div>
         <div class="form-group nuo-group">
             <p>nuo</p>
@@ -66,8 +67,9 @@
         </div>
         <p>PRIDEDAMA:</p>
         <p>1. Vaiko duomenų anketa, 1 lapas</p>
+        <div class="breaker"></div>
         <h4>Vaiko duomenys</h4>
-        <p>VAIKO DUOMENYS -ANKETA</p>
+        <p class="form-padder"><b>VAIKO DUOMENYS -ANKETA</b></p>
         <!-- Child Information -->
         <p>*Vaiko vardas</p>
         <div class="form-group">
@@ -147,8 +149,8 @@
             </p>
             <p class="orange-para">          Informacija, pažymėta žvaigždute, yra būtina. Neturėdama šių būtinų duomenų, įstaiga
                 negali vaiko priregistruoti. </p>
-            <p>Gavę užpildytą prašymą-anketą, laikome, kad sutinkate mums perduoti
-                savo ir savo vaiko asmens duomenis bei leidžiate juos naudoti išvardintais tikslais.</p>
+            <p><b>Gavę užpildytą prašymą-anketą, laikome, kad sutinkate mums perduoti
+                savo ir savo vaiko asmens duomenis bei leidžiate juos naudoti išvardintais tikslais.</b></p>
         </div>
         <button type="submit" class="register-red-form">PATEIKTI</button>
     </form>

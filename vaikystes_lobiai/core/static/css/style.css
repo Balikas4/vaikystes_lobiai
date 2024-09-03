@@ -45,6 +45,9 @@ p , h2{
 
 /* Header styling */
 header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     background-color: #FAE0F5; /* Light pink background */
     height: 112px;
     display: flex;
@@ -127,6 +130,10 @@ nav ul li a:hover::after {
 .register-red-header:active, .register-red:active {
     background-color: #d73b28; /* Slightly darker shade on click */
     transform: scale(1); /* Optionally reset scale to prevent jump on click */
+}
+
+.grid-item1, .grid-item3 {
+    background-color: #FAF0FA;
 }
 
 /* Footer styling */
@@ -373,7 +380,7 @@ blockquote {
 /* Navigation Bubbles */
 .navigation {
     text-align: center;
-    margin-top: 32px;
+    margin-top: 22px;
 }
 
 .navigation .bubble {
@@ -422,6 +429,7 @@ blockquote cite {
 
 /* Wrapper for testimonial items */
 .testimonials-wrapper {
+    gap: 20px;
     display: flex;
     transition: transform 0.5s ease-in-out;
     width: auto; /* Let the width be determined by the number of items */
@@ -517,7 +525,7 @@ blockquote cite {
 
 .card-holder-routines {
     display: flex;
-    gap: 10px; /* Space between cards */
+    gap: 8px; /* Space between cards */
 }
 
 .card-routines {
@@ -528,14 +536,21 @@ blockquote cite {
     background-color: #FAE0F5;
 }
 
-.card-routines h4{
+.card-routines h4, .card-holder h4{
     font-size: 32px;
     background-color: #F04B32;
     color: white;
     border-radius: 16px 16px 0 0;
+    padding: 16px 36px;
     margin: -20px;
     margin-bottom: 20px;
     text-align: center;
+    font-weight: 800;
+}
+
+.card-holder p {
+    margin-top: 16px;
+    margin-bottom: 16px;
 }
 
 .card-routines li {
@@ -545,6 +560,34 @@ blockquote cite {
 
 .team {
     padding: 52px;
+}
+
+.video-section {
+    padding: 54px;
+    background-color: #FAF0FA;
+}
+
+form h5 {
+    margin: 0px;
+}
+
+.form-padder {
+    margin-bottom: 16px;
+}
+
+.half-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.half-form input {
+    width: 50% !important;
+}
+
+.breaker {
+    border: 2px solid #FAE0F5;
+    margin: 20px 0px;
 }
 
 /* NUTRITION NUTRITION NUTRITION NUTRITION NUTRITION NUTRITION NUTRITION NUTRITION */
@@ -629,8 +672,17 @@ blockquote cite {
     background: transparent; /* Button background color */
     color: #F04B32;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 28px;
     margin: 0 5px;
+}
+
+.routines-navigation h3{
+    margin: 0px;
+}
+
+.footer-block1 {
+    display: flex;
+    flex-direction: row;
 }
 
 /* Gallery Container */
@@ -774,7 +826,10 @@ footer li {
 }
 
 .map iframe {
-    padding-top: 40px;
+    margin-top: 40px;
+}
+.fiznis-background {
+    background-color: #FAE0F5;
 }
 
 .gallery {
@@ -809,7 +864,7 @@ iframe {
 .register-form {
     display: flex;
     flex-direction: column;
-    padding: 112px 404px;
+    padding: 31px 404px 100px 404px;
     background-color: #FAF0FA;
 }
 
@@ -907,13 +962,17 @@ form input {
 
 .register-red-form , .django-message{
     padding: 12px 28px;
-    font-family: 'Work Sans', sans-serif; 
+    font-family: 'Inter', sans-serif;
     font-size: 14px; 
-    font-weight: 400; 
+    font-weight: 700; 
     color: #fff; 
     border: 0px;
     background-color: #F04B32;
     border-radius: 6px;
+}
+
+.django-message {
+    border-radius: 0px;
 }
 
 .orange-para {
@@ -925,6 +984,7 @@ form input {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     place-items: center;
+    padding: 0px !important;
 }
 
 /* Grid items */
@@ -933,14 +993,17 @@ form input {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 46px 70px;
+    width: 100%;
+    height: 480px;
+    justify-content: center;
     gap: 20px;
 }
 
 /* Grid images */
 .grid-image {
     width: 130px;
-    height: auto;
+    height: 160px;
+    padding-bottom: 20px;
 }
 
 /* Grid text */
@@ -948,6 +1011,7 @@ form input {
     margin: 15px 0;
     font-size: 16px;
     color: #F04B32;
+    font-weight: 500;
 }
 
 .grid-item h3 {
@@ -955,6 +1019,11 @@ form input {
     font-size: 48px;
     font-weight: 800;
     font-family: 'Work Sans', sans-serif; 
+    margin: 0px;
+}
+
+.grid-item p {
+    margin: 0px;
 }
 
 
@@ -964,7 +1033,7 @@ form input {
 
 
 .header-logo {
-    height: 50px; /* Adjust as needed */
+    height: 80px; /* Adjust as needed */
 }
 
 nav {
@@ -997,6 +1066,16 @@ nav {
 
 /* Responsive styles */
 @media (max-width: 1400px) {
+    .grid-text  {
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .grid-item4 {
+        background-color: #FAF0FA;
+    }
+    .grid-item3 {
+        background-color: #FFFFFF;
+    }
     nav {
         position: static;
         align-items: stretch;
@@ -1031,7 +1110,6 @@ nav {
     }
     .grid-container {
         display: grid;
-        gap: 20px; /* Adjust gap between grid items as needed */
         grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
     }
     .hero-text-main {
@@ -1039,6 +1117,9 @@ nav {
     }
     header {
         height: 80px;
+    }
+    .header-logo {
+        height: 60px;
     }
     #nav-menu {
         display: none;

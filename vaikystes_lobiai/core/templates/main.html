@@ -20,7 +20,7 @@
 </section>
 
 <section class="grid-container">
-    <div class="grid-item">
+    <div class="grid-item grid-item1">
         <img src="{% static 'images/Apie_mus.png' %}" alt="Image 1" class="grid-image">
         <h3>Apie mus</h3>
         <p class="grid-text">Vaikų grupės, mūsų vertybės, komanda bei darželio istorija</p>
@@ -32,13 +32,13 @@
         <p class="grid-text">Mūsų stiprybės, ugydymo programos, pažinimas ir kompetencijos</p>
         <a href="{% url 'education' %}" class="grid-link see-trough-link">Daugiau</a>
     </div>
-    <div class="grid-item">
+    <div class="grid-item grid-item3">
         <img src="{% static 'images/Kaina.png' %}" alt="Image 3" class="grid-image">
         <h3>Kaina</h3>
         <p class="grid-text">Priėmimas, lankymo kaina, planai ir nuolaidos</p>
         <a href="{% url 'admissions' %}" class="grid-link see-trough-link">Daugiau</a>
     </div>
-    <div class="grid-item">
+    <div class="grid-item grid-item4">
         <img src="{% static 'images/Kur_mes.png' %}" alt="Image 4" class="grid-image">
         <h3>Kur mes?</h3>
         <p class="grid-text">Darželio lokacija ir nuorodos</p>
@@ -146,10 +146,11 @@
         const nextButton = document.querySelector('.nav-button.next');
         const totalItems = items.length;
         let currentIndex = 0;
+        let autoSlideInterval; // Variable to store the interval for auto-sliding
     
         // Function to get the correct item width based on screen size
         function getItemWidth() {
-            return window.innerWidth <= 600 ? 300 : 600; // 300px for mobile, 600px for desktop
+            return window.innerWidth <= 600 ? 320 : 620; // 300px for mobile, 600px for desktop
         }
     
         // Set the wrapper and items' widths based on screen size
@@ -169,28 +170,57 @@
         }
     
         nextButton.addEventListener('click', () => {
+            goToNext();
+        });
+    
+        prevButton.addEventListener('click', () => {
+            goToPrev();
+        });
+
+        // Function to go to the next slide
+        function goToNext() {
             if (currentIndex < totalItems - 1) {
                 currentIndex++;
             } else {
                 currentIndex = 0; // Loop back to the first item
             }
             updateCarousel();
-        });
-    
-        prevButton.addEventListener('click', () => {
+        }
+
+        // Function to go to the previous slide
+        function goToPrev() {
             if (currentIndex > 0) {
                 currentIndex--;
             } else {
                 currentIndex = totalItems - 1; // Loop back to the last item
             }
             updateCarousel();
-        });
+        }
     
+        // Function to start auto-slide
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(goToNext, 3000); // Change every 3 seconds
+        }
+    
+        // Function to stop auto-slide
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+
         // Initialize carousel
         setCarouselWidths();
     
         // Adjust carousel on window resize
         window.addEventListener('resize', setCarouselWidths);
+
+        // Start auto-slide
+        startAutoSlide();
+
+        // Stop auto-slide on user interaction (clicks) and restart after some time
+        nextButton.addEventListener('click', stopAutoSlide);
+        prevButton.addEventListener('click', stopAutoSlide);
+        wrapper.addEventListener('mouseover', stopAutoSlide);
+        wrapper.addEventListener('mouseleave', startAutoSlide);
     });
 </script>
 {% endblock %}
