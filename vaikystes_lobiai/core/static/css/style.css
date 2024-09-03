@@ -990,6 +990,11 @@ nav {
     height: auto;
 }
 
+.footer-block2 {
+    display: flex;
+    flex-direction: row;
+}
+
 /* Responsive styles */
 @media (max-width: 1400px) {
     nav {
@@ -1065,11 +1070,25 @@ nav {
     .menu-toggle {
         display: block;
     }
+    footer .footer-block1{
+        display: flex;
+        flex-direction: column;
+    }
+    footer .footer-block2{
+        display: flex;
+        flex-direction: row;
+    }
+    .footer-section-middleleft, .footer-section-middleright {
+        padding-right: 0px;
+    }
 }
 
 
 /* Mobile styles (up to 600px) */
 @media (max-width: 600px) {
+    header {
+        padding: 0px 24px;
+    }
     .hero-main , .main-text-button, footer, .hero, .misija-vizija, .grupes, .team-container, .grid-education, .quad, .lankymo-kaina
     , .nuolaidos-container, .adaptacija, .prisiminkite, .gallery-images , .conact-desc-wrapper{
         display: flex;
@@ -1104,6 +1123,9 @@ nav {
     .footer-section {
         padding-right: 0px;
         text-align: center;
+    }
+    footer .footer-block2{
+        flex-direction: column;
     }
     h1 , h2 , h3{
         font-size: 32px !important;
