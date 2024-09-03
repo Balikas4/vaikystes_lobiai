@@ -918,3 +918,115 @@ form input {
 .orange-para {
     color: #F04B32;
 }
+
+/* Grid container */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    place-items: center;
+}
+
+/* Grid items */
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 46px 70px;
+    gap: 20px;
+}
+
+/* Grid images */
+.grid-image {
+    width: 130px;
+    height: auto;
+}
+
+/* Grid text */
+.grid-text {
+    margin: 15px 0;
+    font-size: 16px;
+    color: #F04B32;
+}
+
+.grid-item h3 {
+    color: #F04B32;
+    font-size: 48px;
+    font-weight: 800;
+    font-family: 'Work Sans', sans-serif; 
+}
+
+
+.grid-link:hover {
+    text-decoration: underline;
+}
+
+
+.header-logo {
+    height: 50px; /* Adjust as needed */
+}
+
+nav {
+    position: relative;
+}
+
+/* Hide menu by default on mobile */
+#nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+/* Style the hamburger icon */
+.menu-toggle img {
+    width: 30px; /* Adjust size of hamburger icon */
+    height: auto;
+}
+
+/* Responsive styles */
+@media (max-width: 800px) {
+    #nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Adjust based on your header height */
+        right: 0;
+        background-color: white; /* Adjust based on your design */
+        width: 100%;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    #nav-menu.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Mobile styles (up to 600px) */
+@media (max-width: 600px) {
+    .hero-main , .main-text-button{
+        display: flex;
+        flex-direction: column;
+    }
+    .hero-photo-main {
+        width: 100%;
+    }
+    
+    .hero-main {
+        padding: 16px;
+    }
+}
+
+/* Very small devices (up to 360px) */
+@media (max-width: 360px) {
+
+}

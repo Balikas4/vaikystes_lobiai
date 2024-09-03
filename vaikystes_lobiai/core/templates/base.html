@@ -18,14 +18,17 @@
     <header>
         <a href="{% url 'home' %}"><img src="{% static 'images/logo-header.png' %}" alt="Kindergarten Logo" class="header-logo"></a>
         <nav>
-            <ul>
+            <div class="menu-toggle" id="menu-toggle">
+                <img src="{% static 'images/hamburger.png' %}" alt="Menu Toggle">
+            </div>
+            <ul id="nav-menu">
                 <li><a href="{% url 'about' %}">Apie Mus</a></li>
                 <li><a href="{% url 'education' %}">Ugdymas</a></li>
                 <li><a href="{% url 'nutrition' %}">Maitinimas</a></li>
                 <li><a href="{% url 'admissions' %}">Priemimo Tvarka</a></li>
                 <li><a href="{% url 'gallery' %}">Galerija</a></li>
                 <li><a href="{% url 'contact' %}">Kontaktai</a></li>
-                <a href="{% url 'register' %}" class="register-red-header">Registracija</a>
+                <li><a href="{% url 'register' %}" class="register-red-header">Registracija</a></li>
             </ul>
         </nav>
     </header>
@@ -72,5 +75,15 @@
             <p>&copy;Vaikystės lobiai 2024. Visos teises saugomos </p>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const navMenu = document.getElementById('nav-menu');
+
+            menuToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>

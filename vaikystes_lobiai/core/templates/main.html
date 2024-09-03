@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Vaikystės lobiai{% endblock %}
 
@@ -16,6 +17,33 @@
         <img src="{{ main_page.hero.hero_photo.url }}" alt="Hero Photo">
     </div>
     {% endif %}
+</section>
+
+<section class="grid-container">
+    <div class="grid-item">
+        <img src="{% static 'images/Apie_mus.png' %}" alt="Image 1" class="grid-image">
+        <h3>Apie mus</h3>
+        <p class="grid-text">Vaikų grupės, mūsų vertybės, komanda bei darželio istorija</p>
+        <a href="{% url 'about' %}" class="grid-link see-trough-link" >Daugiau</a>
+    </div>
+    <div class="grid-item">
+        <img src="{% static 'images/Ugdymas.png' %}" alt="Image 2" class="grid-image">
+        <h3>Ugdymas</h3>
+        <p class="grid-text">Mūsų stiprybės, ugydymo programos, pažinimas ir kompetencijos</p>
+        <a href="{% url 'education' %}" class="grid-link see-trough-link">Daugiau</a>
+    </div>
+    <div class="grid-item">
+        <img src="{% static 'images/Kaina.png' %}" alt="Image 3" class="grid-image">
+        <h3>Kaina</h3>
+        <p class="grid-text">Priėmimas, lankymo kaina, planai ir nuolaidos</p>
+        <a href="{% url 'admissions' %}" class="grid-link see-trough-link">Daugiau</a>
+    </div>
+    <div class="grid-item">
+        <img src="{% static 'images/Kur_mes.png' %}" alt="Image 4" class="grid-image">
+        <h3>Kur mes?</h3>
+        <p class="grid-text">Darželio lokacija ir nuorodos</p>
+        <a href="{% url 'contact' %}" class="grid-link see-trough-link">Daugiau</a>
+    </div>
 </section>
 
 <section class="main-gallery">
