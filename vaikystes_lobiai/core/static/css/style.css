@@ -224,6 +224,10 @@ footer {
     padding-right: 80px;
 }
 
+.nuolaidos-container p , .nuolaidos-container h1{
+    padding-right: 52px;
+}
+
 .adaptacija p , .adaptacija h1 {
     padding-right: 0px;
     padding-left: 80px;
@@ -251,7 +255,7 @@ footer {
 
 .hero-photo img {
     width: 100%;
-    height: auto; /* Keeps aspect ratio */
+    height: 100%; /* Keeps aspect ratio */
     object-fit: cover; /* Ensures the image covers the container */
     border-radius: 16px;
 }
@@ -680,7 +684,7 @@ blockquote cite {
 
 .admissions-icons{
     padding-top: 80px;
-    justify-content: center;
+    justify-content: space-around;
 }
 .admissions-icon {
     width: 350px;
@@ -778,7 +782,7 @@ iframe {
 .conact-desc-wrapper {
     display: flex;
     flex-direction: row;
-    gap: 31px;
+    gap: 52px;
 }
 
 .register-form {
