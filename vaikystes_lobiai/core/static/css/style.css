@@ -182,7 +182,7 @@ footer {
 }
 
 .hero-text h1 , .hero-text-main h1, .lankymo-kaina-section h1, .adaptacija-content h1, .vizija h1, .vizija2 h1, .groups h1 , .main-gallery h2,
- .testimonials h2, .team h2, .hero-text li, .map h2, .group-name, .card-routines h4, .nutrition-navigation h3, .register-form h1{
+ .testimonials h2, .team h2, .hero-text li, .map h2, .group-name, .card-routines h4, .nutrition-navigation h3, .register-form h1, .gallery h1{
     font-family: 'Work Sans', sans-serif;
     font-weight: 800;
     font-size: 48px;
@@ -1013,19 +1013,95 @@ nav {
 
 /* Mobile styles (up to 600px) */
 @media (max-width: 600px) {
-    .hero-main , .main-text-button{
+    .hero-main , .main-text-button, footer, .hero, .misija-vizija, .grupes, .team-container, .grid-education, .quad, .lankymo-kaina
+    , .nuolaidos-container, .adaptacija, .prisiminkite, .gallery-images , .conact-desc-wrapper{
         display: flex;
         flex-direction: column;
     }
-    .hero-photo-main {
-        width: 100%;
-    }
-    
-    .hero-main {
-        padding: 16px;
-    }
-}
 
+    .hero-main , .hero, .adaptacija{
+        flex-direction: column-reverse;
+        gap: 40px;
+    }
+    .hero-photo-main , .hero-photo, .hero-text, .vizija, .vizija2, .grupe, .grid-wrapper-education, .quad-text, .kaina, .adaptacija-content
+    , .gallery-item{
+        width: 100%;
+        max-width: 100%;
+    }
+    .hero-education , .nutrition-hero, .rereverse{
+        flex-direction: column !important;
+    }
+    .grupes, .team-container , .grid-wrapper-education  , .quad , .lankymo-kaina, .nuolaidos-container, .admissions-icons{
+        gap: 40px;
+    }
+
+    section , .nuolaidos-container, .adaptacija{
+        padding: 16px !important;  /* Forces this padding to take precedence */
+    }
+    .button-text {
+        width: 250px;
+    }
+    .hero-text-main {
+        width: 323px;
+    }
+    .footer-section {
+        padding-right: 0px;
+        text-align: center;
+    }
+    h1 , h2 , h3{
+        font-size: 32px !important;
+    }
+    .registracija-button {
+        font-size: 20px !important;
+    }
+    p {
+        font-size: 15px !important;
+        padding-right: 10px !important;
+    }
+    .main-text-button {
+        gap: 20px;
+    }
+    .daugiau-nuotrauku {
+        padding-bottom: 40px;
+    }
+    .testimonials h2 {
+        padding-top: 32px;
+        padding-bottom: 20px;
+    }
+    .testimonial-item {
+        padding: 38px 16px;
+        flex: 0 0 300px;
+    }
+    footer {
+        padding: 28px 40px;
+        gap: 20px;
+    }
+    .footer-section-right {
+        align-items: center;
+    }
+    .vizija2, .vizija {
+        padding: 14px 24px;
+    }
+
+    .misviz {
+        padding: 0px !important;
+    }
+    .hero-text h2 {
+        padding-bottom: 20px;
+    }
+
+    .registracija-button {
+        margin: auto;
+    }
+    .adaptacija p {
+        padding-left: 0px;
+    }
+
+    .prisiminkite {
+        padding: 0px;
+    }
+
+}
 /* Very small devices (up to 360px) */
 @media (max-width: 360px) {
 

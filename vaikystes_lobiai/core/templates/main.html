@@ -146,22 +146,28 @@
         const nextButton = document.querySelector('.nav-button.next');
         const totalItems = items.length;
         let currentIndex = 0;
-
-        // Calculate the total width needed for the wrapper
-        const itemWidth = 600; // Width of each item
-        const containerWidth = itemWidth; // Width of the container matches the item width
-        wrapper.style.width = `${totalItems * itemWidth}px`;
-
-        // Set each item's width
-        items.forEach(item => {
-            item.style.width = `${itemWidth}px`;
-        });
-
+    
+        // Function to get the correct item width based on screen size
+        function getItemWidth() {
+            return window.innerWidth <= 600 ? 300 : 600; // 300px for mobile, 600px for desktop
+        }
+    
+        // Set the wrapper and items' widths based on screen size
+        function setCarouselWidths() {
+            const itemWidth = getItemWidth();
+            wrapper.style.width = `${totalItems * itemWidth}px`;
+            items.forEach(item => {
+                item.style.width = `${itemWidth}px`;
+            });
+            updateCarousel(); // Ensure the carousel is updated when widths change
+        }
+    
         function updateCarousel() {
+            const itemWidth = getItemWidth();
             const translateX = -currentIndex * itemWidth;
             wrapper.style.transform = `translateX(${translateX}px)`;
         }
-
+    
         nextButton.addEventListener('click', () => {
             if (currentIndex < totalItems - 1) {
                 currentIndex++;
@@ -170,7 +176,7 @@
             }
             updateCarousel();
         });
-
+    
         prevButton.addEventListener('click', () => {
             if (currentIndex > 0) {
                 currentIndex--;
@@ -179,9 +185,12 @@
             }
             updateCarousel();
         });
-
+    
         // Initialize carousel
-        updateCarousel();
+        setCarouselWidths();
+    
+        // Adjust carousel on window resize
+        window.addEventListener('resize', setCarouselWidths);
     });
 </script>
 {% endblock %}
