@@ -704,6 +704,7 @@ blockquote cite {
 /* FOOTER */
 footer {
     padding: 84px 52px;
+    justify-content: center;
 }
 
 footer h1,footer h2 ,footer a ,footer p {
@@ -990,7 +991,40 @@ nav {
 }
 
 /* Responsive styles */
-@media (max-width: 800px) {
+@media (max-width: 1400px) {
+    h1 , h2 , h3{
+        font-size: 32px !important;
+    }
+    .hero-education-menas, .aero{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 40px;
+    }
+    .hero-photo-menas {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .hero-text-education, .hero-photo-menas, .hero-photo-contact {
+        width: 100%;
+        max-width: 100%;
+    }
+    section , .nuolaidos-container, .adaptacija{
+        padding: 40px !important;  /* Forces this padding to take precedence */
+    }
+    .hero-photo-menas img {
+        width: 50%;
+        height: 50%;
+    }
+    .grid-container {
+        display: grid;
+        gap: 20px; /* Adjust gap between grid items as needed */
+        grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+    }
+    header {
+        height: 80px;
+    }
     #nav-menu {
         display: none;
         flex-direction: column;
@@ -1001,6 +1035,13 @@ nav {
         width: 100%;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
+    .misviz {
+        padding: 0px !important;
+    }
+
+    .vizija2, .vizija {
+        padding: 50px 40px;
+    }
 
     #nav-menu.active {
         display: flex;
@@ -1010,6 +1051,7 @@ nav {
         display: block;
     }
 }
+
 
 /* Mobile styles (up to 600px) */
 @media (max-width: 600px) {
@@ -1102,7 +1144,4 @@ nav {
     }
 
 }
-/* Very small devices (up to 360px) */
-@media (max-width: 360px) {
 
-}
