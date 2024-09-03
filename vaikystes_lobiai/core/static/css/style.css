@@ -180,7 +180,7 @@ footer {
 }
 
 .hero-text h1 , .hero-text-main h1, .lankymo-kaina-section h1, .adaptacija-content h1, .vizija h1, .vizija2 h1, .groups h1 , .main-gallery h2,
- .testimonials h2, .team h2, .hero-text li, .map h2, .group-name, .card-routines h4, .nutrition-navigation h3{
+ .testimonials h2, .team h2, .hero-text li, .map h2, .group-name, .card-routines h4, .nutrition-navigation h3, .register-form h1{
     font-family: 'Work Sans', sans-serif;
     font-weight: 800;
     font-size: 48px;
@@ -188,7 +188,8 @@ footer {
 }
 
 .grid-wrapper-education h1 , .grid-wrapper-education p, .quad-text h1, .quad-text p, .grid-wrapper-vizija h1, .grid-wrapper-vizija p,
- .lankymo-kaina p, .adaptacija-content p, .vizija p, .vizija2 p, .grupe p, .grupe h3 , .map p, .admissions-icons p, .card-routines li, .card li, .card p{
+ .lankymo-kaina p, .adaptacija-content p, .vizija p, .vizija2 p, .grupe p, .grupe h3 , .map p, .admissions-icons p, .card-routines li, .card li, .card p
+ , .register-form h4{
     font-family: 'Public Sans', sans-serif;
     font-weight: 700;
     font-size: 24px;
@@ -778,4 +779,49 @@ iframe {
     display: flex;
     flex-direction: row;
     gap: 31px;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    padding: 112px 404px;
+    background-color: #FAF0FA;
+}
+
+form {
+    width: 632px;
+    text-align: center;
+}
+
+.form-group label {
+    display: none;
+}
+
+form input[type="text" i]{
+    width: 100%;
+}
+
+form input[type="email" i]{
+    width: 100%;
+}
+
+form textarea {
+    width: 100%;
+    max-width: 100%;
+}
+
+.register-form h4 {
+    text-align: left;
+    font-size: 20px;
+}
+
+.register-form p {
+    text-align: left;
+    font-size: 17px;
+}
+
+.nuo-group {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }

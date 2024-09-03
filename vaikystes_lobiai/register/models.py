@@ -3,14 +3,14 @@ from django.db import models
 
 class Registration(models.Model):
     # Parent/Guardian Information
-    first_name = models.CharField(max_length=100, blank=True, null=True, verbose_name='Vardas')
-    last_name = models.CharField(max_length=100, blank=True, null=True, verbose_name='Pavardė (mamos, tėvo, globėjo)')
+    first_last_name = models.CharField(max_length=200, blank=True, null=True, verbose_name='Vardas, Pavardė (mamos, tėvo, globėjo)')
     contact_phone = models.CharField(max_length=15, blank=True, null=True, verbose_name='Kontaktinis telefonas')
     email = models.EmailField(blank=True, null=True, verbose_name='El. paštas')
     home_address = models.CharField(max_length=255, blank=True, null=True, verbose_name='Namų adresas')
 
     # Document and Admission Dates
     document_date = models.DateField(blank=True, null=True, verbose_name='Dokumento data')
+    child_first_last_name = models.CharField(max_length=100, blank=True, null=True, verbose_name='Vaiko vardas ir pavarde')
     admission_date = models.DateField(blank=True, null=True, verbose_name='Priėmimo data')
 
     # Child Information (Mandatory Fields)

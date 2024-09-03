@@ -1,48 +1,43 @@
 # register/forms.py
 from django import forms
+from .models import Registration
 
-class RegistrationForm(forms.Form):
-    # Parent/Guardian Information
-    first_name = forms.CharField(max_length=100, label='Vardas', required=False)
-    last_name = forms.CharField(max_length=100, label='Pavardė (mamos, tėvo, globėjo)', required=False)
-    contact_phone = forms.CharField(max_length=15, label='Kontaktinis telefonas', required=False)
-    email = forms.EmailField(label='El. paštas', required=False)
-    home_address = forms.CharField(max_length=255, label='Namų adresas', required=False)
-
-    # Document and Admission Dates
-    document_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), label='Dokumento data', required=False)
-    admission_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), label='Priėmimo data', required=False)
-
-    # Child Information (Mandatory Fields)
-    child_first_name = forms.CharField(max_length=100, label='*Vaiko vardas', required=True)
-    child_last_name = forms.CharField(max_length=100, label='*Vaiko pavardė', required=True)
-    child_personal_code = forms.CharField(max_length=20, label='*Vaiko asmens kodas', required=True)
-    child_home_address = forms.CharField(
-        max_length=255, 
-        label='*Namų adresas (faktinė ir deklaruota, jei nesutampa)', 
-        required=True
-    )
-
-    # Parent Information (Mandatory)
-    father_info = forms.CharField(
-        widget=forms.Textarea(attrs={'rows': 2}), 
-        label='*Tėtis (vardas, pavardė, kontaktinis telefonas, el. paštas)', 
-        required=True
-    )
-    mother_info = forms.CharField(
-        widget=forms.Textarea(attrs={'rows': 2}), 
-        label='*Mama (vardas, pavardė, kontaktinis telefonas, el. paštas)', 
-        required=True
-    )
-
-    # Child's Health and Abilities (Optional)
-    child_health_info = forms.CharField(
-        widget=forms.Textarea(attrs={'rows': 3}), 
-        label='*Duomenys apie vaikučio sveikatą (alergija, rega, klausa, kalba, ligos, skiepai, kt.)', 
-        required=True
-    )
-    child_talents = forms.CharField(
-        widget=forms.Textarea(attrs={'rows': 3}), 
-        label='Vaikučio išskirtiniai gebėjimai, talentai, pomėgiai', 
-        required=False
-    )
+class RegistrationForm(forms.ModelForm):
+    class Meta:
+        model = Registration
+        fields = [
+            'first_last_name', 'contact_phone', 'email', 'home_address',
+            'document_date', 'admission_date', 'child_first_last_name', 
+            'child_first_name', 'child_last_name', 'child_personal_code', 
+            'child_home_address', 'father_info', 'mother_info', 
+            'child_health_info', 'child_talents'
+        ]
+        widgets = {
+            'document_date': forms.DateInput(attrs={'type': 'date'}),
+            'admission_date': forms.DateInput(attrs={'type': 'date'}),
+            'child_home_address': forms.Textarea(attrs={'rows': 3}),
+            'father_info': forms.Textarea(attrs={'rows': 2}),
+            'mother_info': forms.Textarea(attrs={'rows': 2}),
+            'child_health_info': forms.Textarea(attrs={'rows': 3}),
+            'child_talents': forms.Textarea(attrs={'rows': 3}),
+        }
+        labels = {
+            'first_last_name': 'Vardas, Pavardė (mamos, tėvo, globėjo)',
+            'contact_phone': 'Kontaktinis telefonas',
+            'email': 'El. paštas',
+            'home_address': 'Namų adresas',
+            'document_date': 'Dokumento data',
+            'admission_date': 'Priėmimo data',
+            'child_first_last_name': 'Vaiko vardas ir pavardė',
+            'child_first_name': 'Vaiko vardas',
+            'child_last_name': 'Vaiko pavardė',
+            'child_personal_code': 'Vaiko asmens kodas',
+            'child_home_address': 'Namų adresas (faktinė ir deklaruota, jei nesutampa)',
+            'father_info': 'Tėtis (vardas, pavardė, kontaktinis telefonas, el. paštas)',
+            'mother_info': 'Mama (vardas, pavardė, kontaktinis telefonas, el. paštas)',
+            'child_health_info': 'Duomenys apie vaikučio sveikatą',
+            'child_talents': 'Vaikučio išskirtiniai gebėjimai, talentai, pomėgiai',
+        }
+        help_texts = {
+            'child_health_info': 'Informacija apie vaiko sveikatą (alergijos, regos, klausos problemos ir kt.)',
+        }
