@@ -39,6 +39,10 @@ p , h2{
     padding-bottom: 20px;
 }
 
+.testimonials h2 {
+    padding-bottom: 40px;
+}
+
 /* Header styling */
 header {
     background-color: #FAE0F5; /* Light pink background */
@@ -108,7 +112,7 @@ nav ul li a:hover::after {
 .register-red-header, .register-red {
     background-color: #F04B32;
     color: #FAF0FA;
-    padding: 14px 12px;
+    padding: 10px 12px;
     border-radius: 8px;
     font-family: 'Work Sans', sans-serif;
     font-weight: 700;
@@ -131,8 +135,6 @@ footer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 80px;
-    justify-content: center;
 }
 
 .footer-section h2 {
@@ -231,10 +233,9 @@ footer {
 .adaptacija p , .adaptacija h1 {
     padding-right: 0px;
     padding-left: 80px;
-    padding-bottom: 20px;
 }
 
-.prisiminkite p {
+.prisiminkite p , .adaptacija p{
     padding-bottom: 20px;
 }
 
@@ -268,6 +269,11 @@ footer {
     padding: 104px 52px;
 }
 /* MAIN PAGE */
+blockquote {
+    padding: 0px;
+    margin: 0px;
+}
+
 .hero-photo-main img{
     width: 100%;
 }
@@ -294,6 +300,10 @@ footer {
 
 .hero-text-main {
     width: 536px;
+}
+
+.hero-text-main p{
+    font-weight: 400;
 }
 
 .white-register-link {
@@ -421,7 +431,7 @@ blockquote cite {
 .testimonial-item {
     flex: 0 0 600px; /* Updated to a fixed width of 600px for each item */
     box-sizing: border-box;
-    padding: 20px;
+    padding: 80px 40px;
     text-align: center;
     border: 1px solid #F04B32; /* Optional border */
     background-color: #FFFFFF;
@@ -731,6 +741,15 @@ footer li {
 .footer-section-left {
     display: flex;
     flex-direction: column;
+    padding-right: 80px;
+}
+
+.footer-section-middleleft {
+    padding-right: 160px;
+}
+
+.footer-section-middleright {
+    padding-right: 202px;
 }
 
 .footer-image {
@@ -769,6 +788,7 @@ iframe {
     display: flex;
     flex-direction: column;
     width: 380px;
+    gap: 12px;
 }
 /* REGISTER */
 
@@ -793,7 +813,6 @@ iframe {
 }
 
 form {
-    width: 632px;
     text-align: center;
 }
 
@@ -812,6 +831,11 @@ form input[type="email" i]{
 form textarea {
     width: 100%;
     max-width: 100%;
+    border: 2px solid #FAE0F5;
+    border-radius: 6px;
+    height: 32px;
+    padding: 0px;
+    margin: 0px;
 }
 
 .register-form h4 {
@@ -824,8 +848,58 @@ form textarea {
     font-size: 17px;
 }
 
+.register-form-disclaimer p {
+    padding-bottom: 20px;
+}
+
 .nuo-group {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    align-items: center;
+}
+
+.admissions-hero-div {
+    display: flex;
+    flex-direction: row;
+}
+
+form p {
+    color: #C24A96;
+    font-size: 17px;
+    font-family: 'Public Sans', sans-serif;
+}
+
+form h5 {
+    color: #C24A96;
+    font-size: 17px;
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 700;
+
+}
+
+form input {
+    border: 2px solid #FAE0F5;
+    border-radius: 6px;
+    height: 32px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+/* .main-round-admissions {
+    height: 400px;
+} */
+
+.register-red-form , .django-message{
+    padding: 12px 28px;
+    font-family: 'Work Sans', sans-serif; 
+    font-size: 14px; 
+    font-weight: 400; 
+    color: #fff; 
+    border: 0px;
+    background-color: #F04B32;
+    border-radius: 6px;
 }

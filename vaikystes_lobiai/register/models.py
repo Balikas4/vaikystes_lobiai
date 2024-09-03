@@ -24,7 +24,7 @@ class Registration(models.Model):
     mother_info = models.TextField(verbose_name='Mama (vardas, pavardė, kontaktinis telefonas, el. paštas)')
 
     # Child's Health and Abilities (Optional)
-    child_health_info = models.TextField(verbose_name='Duomenys apie vaikučio sveikatą', blank=True, null=True)
+    child_health_info = models.TextField(verbose_name='Duomenys apie vaikučio sveikatą', blank=False, null=True)
     child_talents = models.TextField(verbose_name='Vaikučio išskirtiniai gebėjimai, talentai, pomėgiai', blank=True, null=True)
 
     def __str__(self):

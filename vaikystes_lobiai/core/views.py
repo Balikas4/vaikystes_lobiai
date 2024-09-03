@@ -100,27 +100,14 @@ def register(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             # Save form data to the Registration model
-            Registration.objects.create(
-                first_name=form.cleaned_data['first_name'],
-                last_name=form.cleaned_data['last_name'],
-                contact_phone=form.cleaned_data['contact_phone'],
-                email=form.cleaned_data['email'],
-                home_address=form.cleaned_data['home_address'],
-                document_date=form.cleaned_data['document_date'],
-                admission_date=form.cleaned_data['admission_date'],
-                child_first_name=form.cleaned_data['child_first_name'],
-                child_last_name=form.cleaned_data['child_last_name'],
-                child_personal_code=form.cleaned_data['child_personal_code'],
-                child_home_address=form.cleaned_data['child_home_address'],
-                father_info=form.cleaned_data['father_info'],
-                mother_info=form.cleaned_data['mother_info'],
-                child_health_info=form.cleaned_data['child_health_info'],
-                child_talents=form.cleaned_data['child_talents'],
-            )
+            form.save()
 
             # Display success message and redirect
-            messages.success(request, 'Registration form submitted successfully.')
+            messages.success(request, 'Sėkmingai pateikėte registracijos formą')
             return redirect('register')
+        else:
+            # Add an error message if the form is not valid
+            messages.error(request, 'Ivyko klaida registruojantis')
     else:
         form = RegistrationForm()
 

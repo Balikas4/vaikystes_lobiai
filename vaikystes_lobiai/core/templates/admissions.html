@@ -8,10 +8,12 @@
 <section class="hero">
     <div class="hero-text">
         <h1>Priėmimas į darželį</h1>
-        <p>Prašymas stojimui vykdomas internetu</p>
-        <a href="{% url 'register' %}" class="register-red">Registracija</a>
+        <div class="admissions-hero-div">
+            <p>Prašymas stojimui vykdomas internetu</p>
+            <a href="{% url 'register' %}" class="register-red">Registracija</a>
+        </div>
     </div>
-    <div class="hero-photo">
+    <div class="hero-photo main-round-admissions">
         <!-- Add a hero photo here -->
         <img src="{% static 'images/Priėmimas_į_darželį.jpg' %}" alt="Hero Photo" class="main-round">
     </div>

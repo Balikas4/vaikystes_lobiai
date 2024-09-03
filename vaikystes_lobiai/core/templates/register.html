@@ -3,6 +3,14 @@
 {% block title %}Register{% endblock %}
 
 {% block content %}
+<!-- Display success messages -->
+{% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li class="django-message">{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
 <section class="register-form">
     <h1>Registracijos langas</h1>
     <!-- register.html -->
@@ -125,7 +133,7 @@
             {{ form.child_talents }}
             {{ form.child_talents.errors }}
         </div>
-        <div>
+        <div class="register-form-disclaimer">
             <p>          Pateikus prašymą ir užpildžius duomenų anketą vaikas užregistruojamas į eilę darželyje „Vaikystės lobiai“. Pasikeitus aplinkybėms, jei vaikas nelankytų mūsų darželio, prašome iš anksto
                 informuoti telefonu arba elektroniniu paštu.
             </p>
@@ -142,15 +150,7 @@
             <p>Gavę užpildytą prašymą-anketą, laikome, kad sutinkate mums perduoti
                 savo ir savo vaiko asmens duomenis bei leidžiate juos naudoti išvardintais tikslais.</p>
         </div>
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="register-red-form">PATEIKTI</button>
     </form>
 </section>
-<!-- Display success messages -->
-{% if messages %}
-    <ul>
-        {% for message in messages %}
-            <li>{{ message }}</li>
-        {% endfor %}
-    </ul>
-{% endif %}
 {% endblock %}
