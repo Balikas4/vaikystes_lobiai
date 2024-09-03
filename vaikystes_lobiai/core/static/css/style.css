@@ -859,9 +859,20 @@ form textarea {
     align-items: center;
 }
 
+.admissions-hero-div p {
+    padding: 0px;
+}
+
+.admissions-hero-div img {
+    height: 25px;
+    width: 30px;
+}
+
 .admissions-hero-div {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    gap: 20px;
 }
 
 form p {
