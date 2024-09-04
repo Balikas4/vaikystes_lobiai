@@ -1142,9 +1142,147 @@ nav {
 
 /* Responsive styles */
 @media (max-width: 1400px) {
+    .gallery-item img {
+        height: 422px;
+    }
+    .hero-photo {
+        height: 240px;
+    }
+    .main-gallery h2 {
+        padding-top: 14px;
+    }
+    .hero-text {
+        padding-top: 20px;
+    }
+    .daugiau-nuotrauku {
+        padding-bottom: 14px;
+    }
+    .hero-text p {
+        font-size: 15px;
+    }
+    .grupe {
+        padding-bottom: 20px;
+    }
+    .team-description p {
+        font-size: 17px;
+    }
+    .team-container div {
+        max-width: 100%;
+    }
+    .team-container{
+        gap: 20px;
+    }
+    .hero-education{
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
+    }
+    .hero-education-menas{
+        padding-top: 20px !important;
+        padding-bottom: 40px !important;
+    }
+    .hero-text-education h2, .quad-text h1, .video-header{
+        font-size: 20px !important;
+        font-weight: 700;
+        font-family: 'Public Sans', sans-serif;
+        color: #F04B32;
+        padding-bottom: 20px;
+    }
+    .grupele p{
+        max-width: 140px;
+    }
+    .kaina p {
+        padding-right: 40px;
+    }
+    .video-header {
+        font-size: 32px !important;
+        font-weight: 800;
+    }
+    .pgap {
+        padding-bottom: 40px;
+    }
+    .pgapmini {
+        padding-bottom: 20px;
+    }
+    .fiznis-background {
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+    }
+    .grid-wrapper-education h1{
+        font-size: 24px !important;
+    }
+    .grid-wrapper-education p{
+        font-size: 17px !important;
+    }
+    .grid-education {
+        padding-top: 0px !important;
+    }
+    .grid-wrapper-education {
+        padding-top: 40px !important;
+    }
+    .quad-text {
+        padding-bottom: 40px;
+    }
+    .quad-text p {
+        padding-right: 40px;
+    }
+    .quad {
+        padding-bottom: 0px;
+    }
+    .hero-button {
+        height: 186px;
+    }
+    .admissions-icons {
+        gap: 40px;
+    }
     .grid-text  {
         font-size: 16px;
         font-weight: 500;
+    }
+    .team-container div h2 {
+        padding-bottom: 20px;
+    }
+    .team {
+        padding-top: 20px !important;
+    }
+    .footer-block1 li {
+        font-size: 15px;
+        text-align: left;
+    }
+    .footer-section-middleright h2{
+        font-size: 28px;
+    }
+    .footer-section-middleright p, .footer-section-right p{
+        font-size: 15px;
+    }
+    .nutrition-navigation {
+        justify-content: center;
+    }
+    .nutrition-item {
+        padding-right: 0px;
+    }
+    .rereverse {
+        flex-direction: column-reverse;
+    }
+    .adaptacija-gylph h1 ,  .adaptacija-gylph p{
+        padding-left: 0px;
+    }
+    .prisiminkite {
+        padding: 0px;
+    }
+    .adaptacija-content p{
+        padding-right: 20px;
+    }
+    .gallery {
+        gap: 20px;
+    }
+    .gallery-images{
+        flex-direction: column;
+    }
+    .gallery-item {
+        max-width: 100%;
+    }
+    .register-form {
+        padding: 40px 84px !important;
     }
     .grid-item4 {
         background-color: #FAF0FA;
@@ -1173,12 +1311,18 @@ nav {
         flex-direction: row;
     }
 
-    .hero-text-education, .hero-photo-menas, .hero-photo-contact {
+    .hero-text-education, .hero-photo-menas, .hero-photo-contact , .widerson{
         width: 100%;
         max-width: 100%;
     }
     section , .nuolaidos-container, .adaptacija{
         padding: 40px !important;  /* Forces this padding to take precedence */
+    }
+    .nuolaidos-container {
+        flex-direction: column;
+    }
+    .nuolaidos-container div {
+        max-width: 100%;
     }
     .hero-photo-menas img {
         width: 50%;
@@ -1230,7 +1374,7 @@ nav {
     .menu-toggle {
         display: block;
     }
-    footer .footer-block1{
+    footer .footer-block1, .team-container{
         display: flex;
         flex-direction: column;
     }
@@ -1268,7 +1412,7 @@ nav {
         transform: scale(1); /* Optionally reset scale to prevent jump on click */
     }
     .hero-main {
-        padding: 40px 16px 40px 16px !important;
+        padding: 16px 16px 16px 16px !important;
     }
 }
 /* FOOTER */
@@ -1287,6 +1431,9 @@ nav {
 
 /* Mobile styles (up to 600px) */
 @media (max-width: 600px) {
+    .register-form {
+        padding: 6px !important;
+    }
     footer {
         padding: 28px 40px;
     }
