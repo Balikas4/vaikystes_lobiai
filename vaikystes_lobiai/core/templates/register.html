@@ -11,148 +11,150 @@
         {% endfor %}
     </ul>
 {% endif %}
-<section class="register-form">
-    <h1>Registracijos langas</h1>
-    <!-- register.html -->
-    <form method="post">
-        {% csrf_token %}
-        <h4>Prašymas stojimui</h4>
-        <p>Vardas, pavardė (mamos, tėvo, globėjo)    </p>
-        <div class="form-group">
-            <label for="id_first_last_name">{{ form.first_last_name.label_tag }}</label>
-            {{ form.first_last_name }}
-            {{ form.first_last_name.errors }}
-        </div>
-        <p>Kontaktinis telefonas</p>
-        <div class="form-group">
-            <label for="id_contact_phone">{{ form.contact_phone.label_tag }}</label>
-            {{ form.contact_phone }}
-            {{ form.contact_phone.errors }}
-        </div>
-        <p>el. paštas</p>
-        <div class="form-group">
-            <label for="id_email">{{ form.email.label_tag }}</label>
-            {{ form.email }}
-            {{ form.email.errors }}
-        </div>
-        <p>Namų adresas</p>
-        <div class="form-group">
-            <label for="id_home_address">{{ form.home_address.label_tag }}</label>
-            {{ form.home_address }}
-            {{ form.home_address.errors }}
-        </div>
+<div class="slighter">
+    <section class="register-form">
+        <h1>Registracijos langas</h1>
+        <!-- register.html -->
+        <form method="post">
+            {% csrf_token %}
+            <h4>Prašymas stojimui</h4>
+            <p>Vardas, pavardė (mamos, tėvo, globėjo)    </p>
+            <div class="form-group">
+                <label for="id_first_last_name">{{ form.first_last_name.label_tag }}</label>
+                {{ form.first_last_name }}
+                {{ form.first_last_name.errors }}
+            </div>
+            <p>Kontaktinis telefonas</p>
+            <div class="form-group">
+                <label for="id_contact_phone">{{ form.contact_phone.label_tag }}</label>
+                {{ form.contact_phone }}
+                {{ form.contact_phone.errors }}
+            </div>
+            <p>el. paštas</p>
+            <div class="form-group">
+                <label for="id_email">{{ form.email.label_tag }}</label>
+                {{ form.email }}
+                {{ form.email.errors }}
+            </div>
+            <p>Namų adresas</p>
+            <div class="form-group">
+                <label for="id_home_address">{{ form.home_address.label_tag }}</label>
+                {{ form.home_address }}
+                {{ form.home_address.errors }}
+            </div>
 
-        <h5>UAB „Vaikystės lobiai“</h5>
-        <h5 class="form-padder">Direktorei Gitanai Gelžinienei</h5>
-        <h5 class="form-padder">PRAŠYMAS-ANKETA</h5>
-        <h5>DĖL VAIKO PRIĖMIMO Į UAB „VAIKYSTĖS LOBIAI“</h5>
-        <div class="form-group">
-            <label for="id_document_date">{{ form.document_date.label_tag }}</label>
-            {{ form.document_date }}
-            {{ form.document_date.errors }}
-        </div>
-        <h5>Kaunas</h5>
-        <p>Prašau mano (dukrą/sūnų)</p>
-        <div class="form-group half-form">
-            <label for="id_child_first_last_name">{{ form.child_first_last_name.label_tag }}</label>
-            {{ form.child_first_last_name }}
-            {{ form.child_first_last_name.errors }}
-            <p class="asdasd">priimti į darželį „Vaikystės lobiai“</p>
-        </div>
-        <div class="form-group nuo-group">
-            <p>nuo</p>
-            <label for="id_admission_date">{{ form.admission_date.label_tag }}</label>
-            {{ form.admission_date }}
-            {{ form.admission_date.errors }}
-        </div>
-        <p>PRIDEDAMA:</p>
-        <p>1. Vaiko duomenų anketa, 1 lapas</p>
-        <div class="breaker"></div>
-        <h4>Vaiko duomenys</h4>
-        <p class="form-padder"><b>VAIKO DUOMENYS -ANKETA</b></p>
-        <!-- Child Information -->
-        <p>*Vaiko vardas</p>
-        <div class="form-group">
-            <label for="id_child_first_name">{{ form.child_first_name.label_tag }}</label>
-            {{ form.child_first_name }}
-            {{ form.child_first_name.errors }}
-        </div>
-        <p>*Vaiko pavardė</p>
-        <div class="form-group">
-            <label for="id_child_last_name">{{ form.child_last_name.label_tag }}</label>
-            {{ form.child_last_name }}
-            {{ form.child_last_name.errors }}
-        </div>
-        <p>*Vaiko asmens kodas</p>
-        <div class="form-group">
-            <label for="id_child_personal_code">{{ form.child_personal_code.label_tag }}</label>
-            {{ form.child_personal_code }}
-            {{ form.child_personal_code.errors }}
-        </div>
-        <p>*Namų adresas (nurodyti faktinę
-            gyvenamąją vietą ir deklaruotą
-            gyvenamąją vietą, jei jos
-            nesutampa)
-            </p>
-        <div class="form-group">
-            <label for="id_child_home_address">{{ form.child_home_address.label_tag }}</label>
-            {{ form.child_home_address }}
-            {{ form.child_home_address.errors }}
-        </div>
-        <p>*Tėtis (vardas, pavardė,
-            kontaktinis telefonas, el.paštas)</p>
-        <!-- Parent Information -->
-        <div class="form-group">
-            <label for="id_father_info">{{ form.father_info.label_tag }}</label>
-            {{ form.father_info }}
-            {{ form.father_info.errors }}
-        </div>
-        <p>*Mama (vardas, pavardė,
-            kontaktinis telefonas, el.paštas)</p>
-        <div class="form-group">
-            <label for="id_mother_info">{{ form.mother_info.label_tag }}</label>
-            {{ form.mother_info }}
-            {{ form.mother_info.errors }}
-        </div>
+            <h5>UAB „Vaikystės lobiai“</h5>
+            <h5 class="form-padder">Direktorei Gitanai Gelžinienei</h5>
+            <h5 class="form-padder">PRAŠYMAS-ANKETA</h5>
+            <h5>DĖL VAIKO PRIĖMIMO Į UAB „VAIKYSTĖS LOBIAI“</h5>
+            <div class="form-group">
+                <label for="id_document_date">{{ form.document_date.label_tag }}</label>
+                {{ form.document_date }}
+                {{ form.document_date.errors }}
+            </div>
+            <h5>Kaunas</h5>
+            <p>Prašau mano (dukrą/sūnų)</p>
+            <div class="form-group half-form">
+                <label for="id_child_first_last_name">{{ form.child_first_last_name.label_tag }}</label>
+                {{ form.child_first_last_name }}
+                {{ form.child_first_last_name.errors }}
+                <p class="asdasd">priimti į darželį „Vaikystės lobiai“</p>
+            </div>
+            <div class="form-group nuo-group">
+                <p>nuo</p>
+                <label for="id_admission_date">{{ form.admission_date.label_tag }}</label>
+                {{ form.admission_date }}
+                {{ form.admission_date.errors }}
+            </div>
+            <p>PRIDEDAMA:</p>
+            <p>1. Vaiko duomenų anketa, 1 lapas</p>
+            <div class="breaker"></div>
+            <h4>Vaiko duomenys</h4>
+            <p class="form-padder"><b>VAIKO DUOMENYS -ANKETA</b></p>
+            <!-- Child Information -->
+            <p>*Vaiko vardas</p>
+            <div class="form-group">
+                <label for="id_child_first_name">{{ form.child_first_name.label_tag }}</label>
+                {{ form.child_first_name }}
+                {{ form.child_first_name.errors }}
+            </div>
+            <p>*Vaiko pavardė</p>
+            <div class="form-group">
+                <label for="id_child_last_name">{{ form.child_last_name.label_tag }}</label>
+                {{ form.child_last_name }}
+                {{ form.child_last_name.errors }}
+            </div>
+            <p>*Vaiko asmens kodas</p>
+            <div class="form-group">
+                <label for="id_child_personal_code">{{ form.child_personal_code.label_tag }}</label>
+                {{ form.child_personal_code }}
+                {{ form.child_personal_code.errors }}
+            </div>
+            <p>*Namų adresas (nurodyti faktinę
+                gyvenamąją vietą ir deklaruotą
+                gyvenamąją vietą, jei jos
+                nesutampa)
+                </p>
+            <div class="form-group">
+                <label for="id_child_home_address">{{ form.child_home_address.label_tag }}</label>
+                {{ form.child_home_address }}
+                {{ form.child_home_address.errors }}
+            </div>
+            <p>*Tėtis (vardas, pavardė,
+                kontaktinis telefonas, el.paštas)</p>
+            <!-- Parent Information -->
+            <div class="form-group">
+                <label for="id_father_info">{{ form.father_info.label_tag }}</label>
+                {{ form.father_info }}
+                {{ form.father_info.errors }}
+            </div>
+            <p>*Mama (vardas, pavardė,
+                kontaktinis telefonas, el.paštas)</p>
+            <div class="form-group">
+                <label for="id_mother_info">{{ form.mother_info.label_tag }}</label>
+                {{ form.mother_info }}
+                {{ form.mother_info.errors }}
+            </div>
 
-        <!-- Child's Health and Abilities -->
-        <p>*Duomenys apie vaikučio
-            sveikatą (alergija, rega, klausa, kalba, persirgtos pagrindinės
-            vaikiškos ligos, atlikti skiepai,
-            kita informacija)
-            </p>
-        <div class="form-group">
-            <label for="id_child_health_info">{{ form.child_health_info.label_tag }}</label>
-            {{ form.child_health_info }}
-            {{ form.child_health_info.errors }}
-        </div>
-        <p>Vaikučio išskirtiniai gebėjimai,
-            talentai; kuo labiausiai domisi,
-            ką labiausiai mėgsta
-            </p>
-        <div class="form-group">
-            <label for="id_child_talents">{{ form.child_talents.label_tag }}</label>
-            {{ form.child_talents }}
-            {{ form.child_talents.errors }}
-        </div>
-        <div class="register-form-disclaimer">
-            <p>          Pateikus prašymą ir užpildžius duomenų anketą vaikas užregistruojamas į eilę darželyje „Vaikystės lobiai“. Pasikeitus aplinkybėms, jei vaikas nelankytų mūsų darželio, prašome iš anksto
-                informuoti telefonu arba elektroniniu paštu.
-            </p>
-            <p>          Jūsų ir Jūsų vaiko asmens duomenys, nurodyti šiame dokumente, bus panaudoti: vaiko
-                registravimo į laukiančųjų eilę, grupių formavimo tikslais; registravimo į elektroninį dienyną tikslais;
-                registravimo į mokinių registrą, mokinio krepšelio skaičiavimo tikslais; mokėjimo sąskaitų išrašymo
-                tikslais; sąrašo dėl dalies užmokesčio kompensavimo skyrimo sudarymo Kauno r. savivaldybei tikslais;
-                susisiekti su tėvais, jei prireiktų. Ši informacija prieinama direktoriaus įsakymu paskirtiems asmenims,
-                suvedama į aukščiau minėtas duomenų bazes ir saugoma vaiko asmens byloje pagal UAB „Vaikystės
-                lobiai“ Asmens duomenų tvarkymo taisykles, patvirtintas 2018-05-03 direkt. įsak. Nr. V-3.
-            </p>
-            <p class="orange-para">          Informacija, pažymėta žvaigždute, yra būtina. Neturėdama šių būtinų duomenų, įstaiga
-                negali vaiko priregistruoti. </p>
-            <p><b>Gavę užpildytą prašymą-anketą, laikome, kad sutinkate mums perduoti
-                savo ir savo vaiko asmens duomenis bei leidžiate juos naudoti išvardintais tikslais.</b></p>
-        </div>
-        <button type="submit" class="register-red-form">PATEIKTI</button>
-    </form>
-</section>
+            <!-- Child's Health and Abilities -->
+            <p>*Duomenys apie vaikučio
+                sveikatą (alergija, rega, klausa, kalba, persirgtos pagrindinės
+                vaikiškos ligos, atlikti skiepai,
+                kita informacija)
+                </p>
+            <div class="form-group">
+                <label for="id_child_health_info">{{ form.child_health_info.label_tag }}</label>
+                {{ form.child_health_info }}
+                {{ form.child_health_info.errors }}
+            </div>
+            <p>Vaikučio išskirtiniai gebėjimai,
+                talentai; kuo labiausiai domisi,
+                ką labiausiai mėgsta
+                </p>
+            <div class="form-group">
+                <label for="id_child_talents">{{ form.child_talents.label_tag }}</label>
+                {{ form.child_talents }}
+                {{ form.child_talents.errors }}
+            </div>
+            <div class="register-form-disclaimer">
+                <p>          Pateikus prašymą ir užpildžius duomenų anketą vaikas užregistruojamas į eilę darželyje „Vaikystės lobiai“. Pasikeitus aplinkybėms, jei vaikas nelankytų mūsų darželio, prašome iš anksto
+                    informuoti telefonu arba elektroniniu paštu.
+                </p>
+                <p>          Jūsų ir Jūsų vaiko asmens duomenys, nurodyti šiame dokumente, bus panaudoti: vaiko
+                    registravimo į laukiančųjų eilę, grupių formavimo tikslais; registravimo į elektroninį dienyną tikslais;
+                    registravimo į mokinių registrą, mokinio krepšelio skaičiavimo tikslais; mokėjimo sąskaitų išrašymo
+                    tikslais; sąrašo dėl dalies užmokesčio kompensavimo skyrimo sudarymo Kauno r. savivaldybei tikslais;
+                    susisiekti su tėvais, jei prireiktų. Ši informacija prieinama direktoriaus įsakymu paskirtiems asmenims,
+                    suvedama į aukščiau minėtas duomenų bazes ir saugoma vaiko asmens byloje pagal UAB „Vaikystės
+                    lobiai“ Asmens duomenų tvarkymo taisykles, patvirtintas 2018-05-03 direkt. įsak. Nr. V-3.
+                </p>
+                <p class="orange-para">          Informacija, pažymėta žvaigždute, yra būtina. Neturėdama šių būtinų duomenų, įstaiga
+                    negali vaiko priregistruoti. </p>
+                <p><b>Gavę užpildytą prašymą-anketą, laikome, kad sutinkate mums perduoti
+                    savo ir savo vaiko asmens duomenis bei leidžiate juos naudoti išvardintais tikslais.</b></p>
+            </div>
+            <button type="submit" class="register-red-form">PATEIKTI</button>
+        </form>
+    </section>
+</div>
 {% endblock %}

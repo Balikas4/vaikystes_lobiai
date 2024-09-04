@@ -5,135 +5,150 @@
 
 {% block content %}
 <!-- Hero Section -->
-<section class="hero rereverse">
-    <div class="hero-text">
-        <h1>Priėmimas į darželį</h1>
-        <div class="admissions-hero-div">
-            <div class="grupele">
-                <p>Prašymas stojimui vykdomas internetu</p>
-                <img src="{% static 'images/rodykle.png' %}">
+ <!-- Hero Button -->
+<div class="slighter">
+    <section class="hero rereverse">
+        <div class="hero-text">
+            <h1>Priėmimas į darželį</h1>
+            <div class="admissions-hero-div">
+                <div class="grupele">
+                    <p>Prašymas stojimui vykdomas internetu</p>
+                    <img src="{% static 'images/rodykle.png' %}">
+                </div>
+                <a href="{% url 'register' %}" class="register-red">Registracija</a>
             </div>
-            <a href="{% url 'register' %}" class="register-red">Registracija</a>
         </div>
-    </div>
-    <div class="hero-photo main-round-admissions">
-        <!-- Add a hero photo here -->
-        <img src="{% static 'images/Priėmimas_į_darželį.jpg' %}" alt="Hero Photo" class="main-round">
-    </div>
-</section>
+        <div class="hero-photo main-round-admissions">
+            <!-- Add a hero photo here -->
+            <img src="{% static 'images/Priėmimas_į_darželį.jpg' %}" alt="Hero Photo" class="main-round">
+        </div>
+    </section>
+</div>
 
 <!-- Lankymo kaina -->
-<section class="lankymo-kaina-section">
-    <h1>{{ lankymo_kaina.title }}</h1>
-    <div class="lankymo-kaina">
-        {% if lankymo_kaina %}
-            <div class="kaina">
-                <!-- Use |safe to render HTML content -->
-                {{ lankymo_kaina.description|safe }}
-            </div>
-            <div class="kaina">
-                <!-- Use |safe to render HTML content -->
-                {{ lankymo_kaina.additional_info|safe }}
-            </div>
-        {% else %}
-            <p>No attendance cost information available.</p>
-        {% endif %}
-    </div>
-</section>
-<!-- Nuolaidos ir kompensacijos -->
-<section class="nuolaidos-section misviz">
-    <div class="nuolaidos-container">
-        {% if nuolaidos_ir_kompensacijos %}
-            <div class="hero-text">
-                <h1>{{ nuolaidos_ir_kompensacijos.title }}</h1>
-                <!-- Use |safe to render HTML content -->
-                <p>{{ nuolaidos_ir_kompensacijos.description|safe }}</p>
-            </div>
-            {% if nuolaidos_ir_kompensacijos.image %}
-                <div class="hero-photo">
-                    <img src="{{ nuolaidos_ir_kompensacijos.image.url }}" alt="{{ nuolaidos_ir_kompensacijos.title }}" class="main-round">
+ <!-- Hero Button -->
+<div class="swhite">
+    <section class="lankymo-kaina-section">
+        <h1>{{ lankymo_kaina.title }}</h1>
+        <div class="lankymo-kaina">
+            {% if lankymo_kaina %}
+                <div class="kaina">
+                    <!-- Use |safe to render HTML content -->
+                    {{ lankymo_kaina.description|safe }}
                 </div>
+                <div class="kaina">
+                    <!-- Use |safe to render HTML content -->
+                    {{ lankymo_kaina.additional_info|safe }}
+                </div>
+            {% else %}
+                <p>No attendance cost information available.</p>
             {% endif %}
-        {% else %}
-            <p>No discounts or compensations available.</p>
-        {% endif %}
-    </div>
-</section>
+        </div>
+    </section>
+</div>
+<!-- Nuolaidos ir kompensacijos -->
+<div class="slight">
+    <section class="nuolaidos-section misviz">
+        <div class="nuolaidos-container">
+            {% if nuolaidos_ir_kompensacijos %}
+                <div class="hero-text">
+                    <h1>{{ nuolaidos_ir_kompensacijos.title }}</h1>
+                    <!-- Use |safe to render HTML content -->
+                    <p>{{ nuolaidos_ir_kompensacijos.description|safe }}</p>
+                </div>
+                {% if nuolaidos_ir_kompensacijos.image %}
+                    <div class="hero-photo">
+                        <img src="{{ nuolaidos_ir_kompensacijos.image.url }}" alt="{{ nuolaidos_ir_kompensacijos.title }}" class="main-round">
+                    </div>
+                {% endif %}
+            {% else %}
+                <p>No discounts or compensations available.</p>
+            {% endif %}
+        </div>
+    </section>
+</div>
 
 <!-- Reikalingi dokumentai -->
-<section class="reikalingi-dokumentai">
-    <div class="hero-text">
-        <h1>Reikalingi dokumentai</h1>
-        <p>Šie dokumentai reikalingi pradėjus lankyti darželį pirmąją dieną.</p>
-    </div>
-    <div class="admissions-icons">
-        <div class="admissions-icon">
-            <img src="{% static 'images/Gimimo_liudijimas.png' %}" alt="Big Icon" class="big-icon">
-            <p>Vaiko gimimo įrašo kopija</p>
+<div class="slighter">
+    <section class="reikalingi-dokumentai">
+        <div class="hero-text">
+            <h1>Reikalingi dokumentai</h1>
+            <p>Šie dokumentai reikalingi pradėjus lankyti darželį pirmąją dieną.</p>
         </div>
-        <div class="admissions-icon">
-            <img src="{% static 'images/Gydytojo_israsas.png' %}" alt="Big Icon" class="big-icon">
-            <p>Gydytojo pažyma (elektroninė)</p>
+        <div class="admissions-icons">
+            <div class="admissions-icon">
+                <img src="{% static 'images/Gimimo_liudijimas.png' %}" alt="Big Icon" class="big-icon">
+                <p>Vaiko gimimo įrašo kopija</p>
+            </div>
+            <div class="admissions-icon">
+                <img src="{% static 'images/Gydytojo_israsas.png' %}" alt="Big Icon" class="big-icon">
+                <p>Gydytojo pažyma (elektroninė)</p>
+            </div>
+            <div class="admissions-icon">
+                <img src="{% static 'images/Sutartis.png' %}" alt="Big Icon" class="big-icon">
+                <p>Sutartis (pasirašoma pradėjus lankyti darželį)</p>
+            </div>
         </div>
-        <div class="admissions-icon">
-            <img src="{% static 'images/Sutartis.png' %}" alt="Big Icon" class="big-icon">
-            <p>Sutartis (pasirašoma pradėjus lankyti darželį)</p>
-        </div>
-    </div>
-</section>
+    </section>
+</div>
 
 <!-- Adaptacija -->
-<section class="misviz">
-    <div class="adaptacija">
-        <div class="hero-photo">
-            <img src="{% static 'images/Adaptacija.JPG' %}" alt="Hero Photo" class="main-round">
+<div class="slight">
+    <section class="misviz">
+        <div class="adaptacija">
+            <div class="hero-photo">
+                <img src="{% static 'images/Adaptacija.JPG' %}" alt="Hero Photo" class="main-round">
+            </div>
+            <div class="hero-text">
+                <h1>Adaptacija</h1>
+                <p>Kiekvienas vaikas yra skirtingas ir unikalus, todėl ir adaptacija darželyje skirtinga. Vieniems lengvesnė ir trunka trumpiau, jautresniems ji gali užtrukti ilgiau. Rekomendacijos pirmai adaptacijos savaitei:</p>
+                <p><b>Pirmoji diena.</b> Rekomenduojame kartu su vaiku praleisti maždaug 1 val., kad su teigiama emocija išeitumėte iš darželio.</p>
+                <p><b>Antroji diena.</b> Rekomenduojame kartu atėjus, pabūti apie 30 min ir vaikui įsitraukus į žaidimą, palikti jį mokytojų priežiūrai dar 30 min.</p>
+                <p><b>Trečioji diena.</b> Mokytojoms įvertinus, kaip sekasi, rekomenduojama vaiką palikti vieną iki 1valandos. Ypatingai svarbus trumpas atsisveikinimas. Ašarėlės yra natūrali adaptacijos dalis.</p>
+                <p><b>Ketvirtoji diena.</b> Mokytojoms rekomendavus, mažylis paliekamas apie 2 valandas.</p>
+                <p><b>Penktoji diena.</b> Mokytojos įvertina , kaip sekasi ir mažylio emocinei būklei leidus, vaikas lieka iki 3 valandų ir jau valgo pietus. Susitariama dėl tolimesnės adaptacijos eigos.</p>
+                <p>Jeigu Jūsų vaikas jau lankė kitą ugdymo įstaigą, tuomet galite pradėti pirmą dieną nuo pusdienio, sekančią dieną jau su pietų miegeliu. Atkreipiame dėmesį, kad buvimas kartu su vaiku darželyje, ilgi atsisveikinimai paliekant, tik prailgina ir apsunkina vaiko adaptaciją. Kilus emociniams sunkumams, išbandę visus nuraminimo būdus, nedelsdami skambiname tėveliams. Kviečiame pasitikėti mūsų ilgamete patirtimi ir profesionalumu.</p>
+            </div>
         </div>
-        <div class="hero-text">
-            <h1>Adaptacija</h1>
-            <p>Kiekvienas vaikas yra skirtingas ir unikalus, todėl ir adaptacija darželyje skirtinga. Vieniems lengvesnė ir trunka trumpiau, jautresniems ji gali užtrukti ilgiau. Rekomendacijos pirmai adaptacijos savaitei:</p>
-            <p><b>Pirmoji diena.</b> Rekomenduojame kartu su vaiku praleisti maždaug 1 val., kad su teigiama emocija išeitumėte iš darželio.</p>
-            <p><b>Antroji diena.</b> Rekomenduojame kartu atėjus, pabūti apie 30 min ir vaikui įsitraukus į žaidimą, palikti jį mokytojų priežiūrai dar 30 min.</p>
-            <p><b>Trečioji diena.</b> Mokytojoms įvertinus, kaip sekasi, rekomenduojama vaiką palikti vieną iki 1valandos. Ypatingai svarbus trumpas atsisveikinimas. Ašarėlės yra natūrali adaptacijos dalis.</p>
-            <p><b>Ketvirtoji diena.</b> Mokytojoms rekomendavus, mažylis paliekamas apie 2 valandas.</p>
-            <p><b>Penktoji diena.</b> Mokytojos įvertina , kaip sekasi ir mažylio emocinei būklei leidus, vaikas lieka iki 3 valandų ir jau valgo pietus. Susitariama dėl tolimesnės adaptacijos eigos.</p>
-            <p>Jeigu Jūsų vaikas jau lankė kitą ugdymo įstaigą, tuomet galite pradėti pirmą dieną nuo pusdienio, sekančią dieną jau su pietų miegeliu. Atkreipiame dėmesį, kad buvimas kartu su vaiku darželyje, ilgi atsisveikinimai paliekant, tik prailgina ir apsunkina vaiko adaptaciją. Kilus emociniams sunkumams, išbandę visus nuraminimo būdus, nedelsdami skambiname tėveliams. Kviečiame pasitikėti mūsų ilgamete patirtimi ir profesionalumu.</p>
-        </div>
-    </div>
     </section>
-
+</div>
 <!-- Prisiminkite -->
-<section>
-    <div class="prisiminkite">
-        <div class="adaptacija-content">
-            <h1>Prisiminkite</h1>
-            <p>Mažylio ašarėlės – normali reakcija į atsiskyrimą.
-                Teigiamos tėvų emocijos rytais, puiki dovana vaikui įveikti adaptacinius sunkumus.
-                Maži ir trumpi atsisveikinimo ritualai padeda lengviau išsiskirti ryte.
-                Svarbu leisti vaikui ir sau išgyventi įvairius kylančius nemalonius jausmus bent kelis mėnesius, pasitelkti kantrybę ir pasitikėjimą ugdymo įstaiga, nedarant skubotų sprendimų.
-                Tėvų nuostatos, jausmai, emocijos betarpiškai susiję su vaiko jausmais, emocijomis ir lengvina arba apsunkina adaptaciją.
-            </p>
-            <p><b>Padėkime vaikui įveikti adaptaciją kartu bendradarbiaudami :)</b></p>
+<div class="swhite">
+    <section>
+        <div class="prisiminkite">
+            <div class="adaptacija-content">
+                <h1>Prisiminkite</h1>
+                <p>Mažylio ašarėlės – normali reakcija į atsiskyrimą.
+                    Teigiamos tėvų emocijos rytais, puiki dovana vaikui įveikti adaptacinius sunkumus.
+                    Maži ir trumpi atsisveikinimo ritualai padeda lengviau išsiskirti ryte.
+                    Svarbu leisti vaikui ir sau išgyventi įvairius kylančius nemalonius jausmus bent kelis mėnesius, pasitelkti kantrybę ir pasitikėjimą ugdymo įstaiga, nedarant skubotų sprendimų.
+                    Tėvų nuostatos, jausmai, emocijos betarpiškai susiję su vaiko jausmais, emocijomis ir lengvina arba apsunkina adaptaciją.
+                </p>
+                <p><b>Padėkime vaikui įveikti adaptaciją kartu bendradarbiaudami :)</b></p>
+            </div>
+            <div class="adaptacija-content">
+                <h1>Svarbu</h1>
+                <p>Užtikrinti vaiko fiziologinius ir psichologinius poreikius.
+                    Mokyti vaiką pasakyti „Stop“, „Man nepatinka“.
+                    Vaikui girdint apie ugdymo įstaigą ir mokytojus kalbėti pozityviai.
+                    Kasdien vaikui pasakyti, kad tikite, kad jo diena bus sėkminga ir įdomi.
+                    Iš vakaro aptarti, kas laukia rytoj.
+                    Kokybiškas bendras laikas su vaiku kasdien bent 20 minučių: žaidimai, pokalbiai, kita maloni veikla.
+                    Su vaiku kalbėtis apie jo jausmus.
+                    Ugdyti vaiko savarankiškumą, savitvarkos įgūdžius.
+                    Susipažinti su grupės mokytojomis, kitais tėvais, skirti laiko pokalbiams, drąsiai klausti. Prireikus, kreiptis pagalbos.
+                    Sėkmingos adaptacijos paslaptis – pasitikėjimas ir bendradarbiavimas.</p>
+            </div>
         </div>
-        <div class="adaptacija-content">
-            <h1>Svarbu</h1>
-            <p>Užtikrinti vaiko fiziologinius ir psichologinius poreikius.
-                Mokyti vaiką pasakyti „Stop“, „Man nepatinka“.
-                Vaikui girdint apie ugdymo įstaigą ir mokytojus kalbėti pozityviai.
-                Kasdien vaikui pasakyti, kad tikite, kad jo diena bus sėkminga ir įdomi.
-                Iš vakaro aptarti, kas laukia rytoj.
-                Kokybiškas bendras laikas su vaiku kasdien bent 20 minučių: žaidimai, pokalbiai, kita maloni veikla.
-                Su vaiku kalbėtis apie jo jausmus.
-                Ugdyti vaiko savarankiškumą, savitvarkos įgūdžius.
-                Susipažinti su grupės mokytojomis, kitais tėvais, skirti laiko pokalbiams, drąsiai klausti. Prireikus, kreiptis pagalbos.
-                Sėkmingos adaptacijos paslaptis – pasitikėjimas ir bendradarbiavimas.</p>
-        </div>
-    </div>
-</section>
+    </section>
+</div>
 <!-- Hero Button -->
-<section class="hero-button">
-    <div class="button-text">
-        <a href="{% url 'register'%}" class="registracija-button">Registracija</a>
-        <p>Prisijunkite prie „Vaikystės lobių“!</p>
-    </div>
-</section>
+<div class="slight">
+    <section class="hero-button">
+        <div class="button-text">
+            <a href="{% url 'register'%}" class="registracija-button">Registracija</a>
+            <p>Prisijunkite prie „Vaikystės lobių“!</p>
+        </div>
+    </section>
+</div>
 {% endblock %}

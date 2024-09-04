@@ -4,99 +4,108 @@
 {% block title %}Vaikystės lobiai{% endblock %}
 
 {% block content %}
-<section class="hero-main">
-    <div class="hero-text-main">
-        <h1>{{ main_page.hero.hero_title }}</h1>
-        <div class="main-text-button">
-            <p>{{ main_page.hero.hero_description }}</p>
-            <a href="{{ main_page.hero.hero_button_url }}" class="white-register-link">{{ main_page.hero.hero_button_text }}</a>
+<div class="shard">
+    <section class="hero-main">
+        <div class="hero-text-main">
+            <h1>{{ main_page.hero.hero_title }}</h1>
+            <div class="main-text-button">
+                <p>{{ main_page.hero.hero_description }}</p>
+                <a href="{{ main_page.hero.hero_button_url }}" class="white-register-link">{{ main_page.hero.hero_button_text }}</a>
+            </div>
         </div>
-    </div>
-    {% if main_page.hero.hero_photo %}
-    <div class="hero-photo-main">
-        <img src="{{ main_page.hero.hero_photo.url }}" alt="Hero Photo">
-    </div>
-    {% endif %}
-</section>
+        {% if main_page.hero.hero_photo %}
+        <div class="hero-photo-main">
+            <img src="{{ main_page.hero.hero_photo.url }}" alt="Hero Photo">
+        </div>
+        {% endif %}
+    </section>
+</div>
+<div class="slight sdiff">
+    <section class="grid-container">
+        <div class="grid-item grid-item1">
+            <img src="{% static 'images/Apie_mus.png' %}" alt="Image 1" class="grid-image">
+            <h3>Apie mus</h3>
+            <p class="grid-text">Vaikų grupės, mūsų vertybės, komanda bei darželio istorija</p>
+            <a href="{% url 'about' %}" class="grid-link see-trough-link" >Daugiau</a>
+        </div>
+        <div class="grid-item grid-item2">
+            <img src="{% static 'images/Ugdymas.png' %}" alt="Image 2" class="grid-image">
+            <h3>Ugdymas</h3>
+            <p class="grid-text">Mūsų stiprybės, ugydymo programos, pažinimas ir kompetencijos</p>
+            <a href="{% url 'education' %}" class="grid-link see-trough-link">Daugiau</a>
+        </div>
+        <div class="grid-item grid-item3">
+            <img src="{% static 'images/Kaina.png' %}" alt="Image 3" class="grid-image">
+            <h3>Kaina</h3>
+            <p class="grid-text">Priėmimas, lankymo kaina, planai ir nuolaidos</p>
+            <a href="{% url 'admissions' %}" class="grid-link see-trough-link">Daugiau</a>
+        </div>
+        <div class="grid-item grid-item4">
+            <img src="{% static 'images/Kur_mes.png' %}" alt="Image 4" class="grid-image">
+            <h3>Kur mes?</h3>
+            <p class="grid-text">Darželio lokacija ir nuorodos</p>
+            <a href="{% url 'contact' %}" class="grid-link see-trough-link">Daugiau</a>
+        </div>
+    </section>
+</div>
 
-<section class="grid-container">
-    <div class="grid-item grid-item1">
-        <img src="{% static 'images/Apie_mus.png' %}" alt="Image 1" class="grid-image">
-        <h3>Apie mus</h3>
-        <p class="grid-text">Vaikų grupės, mūsų vertybės, komanda bei darželio istorija</p>
-        <a href="{% url 'about' %}" class="grid-link see-trough-link" >Daugiau</a>
-    </div>
-    <div class="grid-item">
-        <img src="{% static 'images/Ugdymas.png' %}" alt="Image 2" class="grid-image">
-        <h3>Ugdymas</h3>
-        <p class="grid-text">Mūsų stiprybės, ugydymo programos, pažinimas ir kompetencijos</p>
-        <a href="{% url 'education' %}" class="grid-link see-trough-link">Daugiau</a>
-    </div>
-    <div class="grid-item grid-item3">
-        <img src="{% static 'images/Kaina.png' %}" alt="Image 3" class="grid-image">
-        <h3>Kaina</h3>
-        <p class="grid-text">Priėmimas, lankymo kaina, planai ir nuolaidos</p>
-        <a href="{% url 'admissions' %}" class="grid-link see-trough-link">Daugiau</a>
-    </div>
-    <div class="grid-item grid-item4">
-        <img src="{% static 'images/Kur_mes.png' %}" alt="Image 4" class="grid-image">
-        <h3>Kur mes?</h3>
-        <p class="grid-text">Darželio lokacija ir nuorodos</p>
-        <a href="{% url 'contact' %}" class="grid-link see-trough-link">Daugiau</a>
-    </div>
-</section>
+<div class="slight">
+    <section class="main-gallery">
+        <h2>Mūsų akimirkos</h2>
+        <div class="gallery-container-main">
+            <div class="gallery-main">
+                {% for image in main_page.gallery.all %}
+                    <div class="gallery-item">
+                        <img src="{{ image.image.url }}" alt="Gallery Image">
+                    </div>
+                {% empty %}
+                    <p>No images available in the gallery.</p>
+                {% endfor %}
+            </div>
+            <div class="navigation">
+                <span class="bubble active" data-index="0"></span>
+                <span class="bubble" data-index="1"></span>
+                <span class="bubble" data-index="2"></span>
+            </div>
+        </div>
+        <div class="daugiau-nuotrauku">
+            <a href="{% url 'gallery' %}" class="see-trough-link">Daugiau nuotraukų ></a>
+        </div>
+    </section>
+</div>
 
-<section class="main-gallery">
-    <h2>Mūsų akimirkos</h2>
-    <div class="gallery-container-main">
-        <div class="gallery-main">
-            {% for image in main_page.gallery.all %}
-                <div class="gallery-item">
-                    <img src="{{ image.image.url }}" alt="Gallery Image">
-                </div>
-            {% empty %}
-                <p>No images available in the gallery.</p>
-            {% endfor %}
+<div class="slighter">
+    <section class="testimonials">
+        <h2>Atsiliepimai</h2>
+        <div class="testimonials-container">
+            <div class="testimonials-wrapper">
+                {% for review in main_page.reviews.all %}
+                    <div class="testimonial-item">
+                        <blockquote>
+                            <p>"{{ review.text }}"</p>
+                            <cite>- {{ review.name }}</cite>
+                        </blockquote>
+                    </div>
+                {% empty %}
+                    <p>Atsiliepimų nera</p>
+                {% endfor %}
+            </div>
+            <div class="testimonials-navigation">
+                <button class="nav-button prev">&lt;</button>
+                <button class="nav-button next">&gt;</button>
+            </div>
         </div>
-        <div class="navigation">
-            <span class="bubble active" data-index="0"></span>
-            <span class="bubble" data-index="1"></span>
-            <span class="bubble" data-index="2"></span>
-        </div>
-    </div>
-    <div class="daugiau-nuotrauku">
-        <a href="{% url 'gallery' %}" class="see-trough-link">Daugiau nuotraukų ></a>
-    </div>
-</section>
-
-<section class="testimonials">
-    <h2>Atsiliepimai</h2>
-    <div class="testimonials-container">
-        <div class="testimonials-wrapper">
-            {% for review in main_page.reviews.all %}
-                <div class="testimonial-item">
-                    <blockquote>
-                        <p>"{{ review.text }}"</p>
-                        <cite>- {{ review.name }}</cite>
-                    </blockquote>
-                </div>
-            {% empty %}
-                <p>Atsiliepimų nera</p>
-            {% endfor %}
-        </div>
-        <div class="testimonials-navigation">
-            <button class="nav-button prev">&lt;</button>
-            <button class="nav-button next">&gt;</button>
-        </div>
-    </div>
-</section>
+    </section>
+</div>
 <!-- Hero Button -->
-<section class="hero-button">
-    <div class="button-text">
-        <a href="{% url 'register'%}" class="registracija-button">Registracija</a>
-        <p>Prisijunkite prie „Vaikystės lobių“!</p>
-    </div>
-</section>
+<div class="slight">
+    <section class="hero-button">
+        <div class="button-text">
+            <a href="{% url 'register'%}" class="registracija-button">Registracija</a>
+            <p>Prisijunkite prie „Vaikystės lobių“!</p>
+        </div>
+    </section>
+</div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {

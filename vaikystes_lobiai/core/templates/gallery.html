@@ -3,28 +3,32 @@
 {% block title %}Galerija{% endblock %}
 
 {% block content %}
-<section class="gallery">
-    {% for category in categories %}
-        <h1>{{ category.name }}</h1>
-        <div class="gallery-images">
-            {% for image in category.images.all %}
-                <div class="gallery-item">
-                    <img src="{{ image.image.url }}" alt="{{ image.description }}">
-                    <p>{{ image.description }}</p>
-                </div>
-            {% empty %}
-                <p>No images available for this category.</p>
-            {% endfor %}
-        </div>
-    {% empty %}
-        <p>No categories available.</p>
-    {% endfor %}
-</section>
+<div class="slighter">
+    <section class="gallery">
+        {% for category in categories %}
+            <h1>{{ category.name }}</h1>
+            <div class="gallery-images">
+                {% for image in category.images.all %}
+                    <div class="gallery-item">
+                        <img src="{{ image.image.url }}" alt="{{ image.description }}">
+                        <p>{{ image.description }}</p>
+                    </div>
+                {% empty %}
+                    <p>No images available for this category.</p>
+                {% endfor %}
+            </div>
+        {% empty %}
+            <p>No categories available.</p>
+        {% endfor %}
+    </section>
+</div>
 <!-- Hero Button -->
-<section class="hero-button">
-    <div class="button-text">
-        <a href="{% url 'register'%}" class="registracija-button">Registracija</a>
-        <p>Prisijunkite prie „Vaikystės lobių“!</p>
-    </div>
-</section>
+<div class="slight">
+    <section class="hero-button">
+        <div class="button-text">
+            <a href="{% url 'register'%}" class="registracija-button">Registracija</a>
+            <p>Prisijunkite prie „Vaikystės lobių“!</p>
+        </div>
+    </section>
+</div>
 {% endblock %}

@@ -1,4 +1,39 @@
 /* Default styling */
+
+ header {
+    background-color: #FAE0F5;
+ }
+
+.sharldless {
+    background-color: #F04B32;
+ }
+
+.shard{
+    background-color: #F04B32;
+    margin: auto;
+}
+
+.slight {
+    background-color: #FAE0F5;
+    margin: auto;
+}
+
+.slighter {
+    background-color: #FAF0FA;
+    margin: auto;
+}
+
+.swhite {
+    background-color: #FFFFFF;
+    margin: auto;
+}
+
+.custom-div-header, .grid-container, .main-gallery , .testimonials, .hero-button, .hero, .misviz, .groups, .routines, .team, .grid-education, .quad
+, .nutrition-container, .video-section, .lankymo-kaina-section, .reikalingi-dokumentai, .prisiminkite, .gallery, .map, .register-form{
+    max-width: 1336px;
+    margin: auto;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -44,7 +79,7 @@ p , h2{
 }
 
 /* Header styling */
-header {
+.custom-div-header {
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -54,7 +89,7 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 52px;
+    padding: 0px 52px 0px 36px;
 }
 nav {
     height: 100%;
@@ -71,6 +106,8 @@ nav ul {
 
 nav ul li {
     margin-right: 20px; /* Space between items */
+    font-family: 'Public Sans', sans-serif;
+    font-size: 18px;
 }
 
 .logo-icon {
@@ -134,6 +171,10 @@ nav ul li a:hover::after {
 
 .grid-item1, .grid-item3 {
     background-color: #FAF0FA;
+}
+
+.grid-item2, .grid-item4 {
+    background-color: white;
 }
 
 /* Footer styling */
@@ -295,10 +336,12 @@ blockquote {
     align-items: center; /* Align items vertically centered */
     justify-content: space-between; /* Space between text and image */
     background-color: #F04B32;
-    padding-right: 16px;
-    padding-left: 52px;
+    /* padding-right: 16px;
+    padding-left: 52px; */
     padding-top: 42px;
     padding-bottom: 42px;
+    max-width: 1336px;
+    margin: auto;
 }
 
 .hero-text-main h1, .hero-text-main p {
@@ -326,7 +369,7 @@ blockquote {
 .see-trough-link {
     background-color: transparent;
     color: #F04B32;
-    padding: 14px 25px;
+    padding: 9px 25px;
     border-radius: 12px;
     font-family: 'Work Sans', sans-serif;
     font-weight: 700;
@@ -608,7 +651,6 @@ form h5 {
     flex: 0 0 100%; /* Each week takes up 100% of the container width */
     box-sizing: border-box;
     padding: 20px;
-    border: 1px solid #ddd;
     overflow-x: auto; /* Enable horizontal scrolling */
 }
 
@@ -1031,6 +1073,7 @@ form input {
 
 .grid-item p {
     margin: 0px;
+    padding: 0px 40px;
 }
 
 
@@ -1120,10 +1163,12 @@ nav {
         grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
     }
     .hero-text-main {
-        width: 244px;
+        width: 344px;
+        padding-left: 24px;
     }
-    header {
+    .custom-div-header {
         height: 80px;
+        padding: 0px 42px 0px 26px;
     }
     .header-logo {
         height: 60px;
@@ -1153,6 +1198,7 @@ nav {
 
     #nav-menu.active {
         display: flex;
+        padding-top: 24px;
     }
 
     .menu-toggle {
@@ -1176,9 +1222,31 @@ nav {
     .grupele img {
         transform: rotate(90deg);
     }
+    .register-red-header {
+        padding: 0px;
+        display: list-item;
+        background: transparent;
+        padding-left: 40px;
+        padding-bottom: 32px;
+        font-family: 'Public Sans', sans-serif;
+        font-weight: 500;
+        font-size: 18px;
+        color: #F04B32;
+    }
+    .register-red-header:hover, .register-red:hover {
+        transform: scale(1.00); /* Scale up by 5% on hover */
+    }
+    
+    .register-red-header:active, .register-red:active {
+        background-color: transparent; /* Slightly darker shade on click */
+        transform: scale(1); /* Optionally reset scale to prevent jump on click */
+    }
+    .hero-main {
+        padding: 40px 16px 40px 16px !important;
+    }
 }
 /* FOOTER */
-@media (max-width: 900px) {
+@media (max-width: 920px) {
     footer {
         padding: 43px 40px;
     }
@@ -1228,7 +1296,7 @@ nav {
         width: 250px;
     }
     .hero-text-main {
-        width: 323px;
+        width: auto;
     }
     .footer-section {
         padding-right: 0px;

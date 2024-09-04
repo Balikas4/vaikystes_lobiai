@@ -5,72 +5,80 @@
 
 {% block content %}
 <!-- Hero Section -->
-<section class="hero nutrition-hero">
-    <div class="hero-text">
-        <h1>Sveika ir subalansuota mityba</h1>
-        <p>Darželyje vaikai maitinami mūsų virtuvėje pagaminu, plataus asortimento šviežiu maistu. Maisto racionas subalansuotas ir alergiškiems vaikams. Vaikai turi galimybę pasirinkti ir pakartoti norimo maisto. Dalyvaujame „Vaisių ir daržovių bei pieno ir pieno produktų vartojimo skatinimo vaikų ugdymo įstaigose“ programoje, kasdien užkandžiaujame šviežiais vaisiais bei termiškai neapdorotomis daržovėmis.</p>
-    </div>
-    <div class="hero-photo">
-        <img src="{% static 'images/Sveikas_maistas.jpg' %}" alt="Hero Photo">
-    </div>
-</section>
-<!-- Nutrition Section -->
-<section id="nutrition" class="misviz">
-    <div class="nutrition-container">
-        <div class="nutrition-wrapper">
-            {% for week_number, daily_nutrition in weeks.items %}
-                <div class="nutrition-item">
-                    <div class="nutrition-navigation">
-                        <button class="nav-button prev">&lt;</button>
-                        <h3>Valgiaraštis | {{ week_number }} Savaitė</h3>
-                        <button class="nav-button next">&gt;</button>
-                    </div>
-                    <div class="card-holder">
-                        {% for day_nutrition in daily_nutrition %}
-                            <div class="card">
-                                <h4>{{ day_nutrition.day }}</h4>
-                                {% for nutrient in day_nutrition.nutrients.all %}
-                                    {% if forloop.counter == 1 %}
-                                        <p>🍳 Pusryčiai</p>
-                                        <li>{{ nutrient.name }}</li>
-                                    {% elif forloop.counter == 2 %}
-                                        <p>🍽 Pietūs</p>
-                                        <li>{{ nutrient.name }}</li>
-                                    {% elif forloop.counter == 3 %}
-                                        <p>🍲 Vakarienė</p>
-                                        <li>{{ nutrient.name }}</li>
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
-                        {% empty %}
-                            <p>No nutrition data available for this week.</p>
-                        {% endfor %}
-                    </div>
-                </div>
-            {% endfor %}
+<div class="slighter">
+    <section class="hero nutrition-hero">
+        <div class="hero-text">
+            <h1>Sveika ir subalansuota mityba</h1>
+            <p>Darželyje vaikai maitinami mūsų virtuvėje pagaminu, plataus asortimento šviežiu maistu. Maisto racionas subalansuotas ir alergiškiems vaikams. Vaikai turi galimybę pasirinkti ir pakartoti norimo maisto. Dalyvaujame „Vaisių ir daržovių bei pieno ir pieno produktų vartojimo skatinimo vaikų ugdymo įstaigose“ programoje, kasdien užkandžiaujame šviežiais vaisiais bei termiškai neapdorotomis daržovėmis.</p>
         </div>
-    </div>
-</section>
+        <div class="hero-photo">
+            <img src="{% static 'images/Sveikas_maistas.jpg' %}" alt="Hero Photo">
+        </div>
+    </section>
+</div>
+<!-- Nutrition Section -->
+<div class="swhite">
+    <section id="nutrition" class="misviz">
+        <div class="nutrition-container">
+            <div class="nutrition-wrapper">
+                {% for week_number, daily_nutrition in weeks.items %}
+                    <div class="nutrition-item">
+                        <div class="nutrition-navigation">
+                            <button class="nav-button prev">&lt;</button>
+                            <h3>Valgiaraštis | {{ week_number }} Savaitė</h3>
+                            <button class="nav-button next">&gt;</button>
+                        </div>
+                        <div class="card-holder">
+                            {% for day_nutrition in daily_nutrition %}
+                                <div class="card">
+                                    <h4>{{ day_nutrition.day }}</h4>
+                                    {% for nutrient in day_nutrition.nutrients.all %}
+                                        {% if forloop.counter == 1 %}
+                                            <p>🍳 Pusryčiai</p>
+                                            <li>{{ nutrient.name }}</li>
+                                        {% elif forloop.counter == 2 %}
+                                            <p>🍽 Pietūs</p>
+                                            <li>{{ nutrient.name }}</li>
+                                        {% elif forloop.counter == 3 %}
+                                            <p>🍲 Vakarienė</p>
+                                            <li>{{ nutrient.name }}</li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            {% empty %}
+                                <p>No nutrition data available for this week.</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</div>
 
 <!-- Video  -->
-<section class="video-section">
-    <h1>{{ video.title }}</h1>
-    <div class="video-container">
-        <div style="position: relative; overflow: hidden; padding-top: 56.25%;">
-            <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
-                    src="https://www.lrt.lt/mediateka/irasas/1013682460/stilius-2018-01-06?embed&time_start=1968"
-                    frameborder="0" scrolling="no" allowfullscreen>
-            </iframe>
+<div class="slighter">
+    <section class="video-section">
+        <h1>{{ video.title }}</h1>
+        <div class="video-container">
+            <div style="position: relative; overflow: hidden; padding-top: 56.25%;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+                        src="https://www.lrt.lt/mediateka/irasas/1013682460/stilius-2018-01-06?embed&time_start=1968"
+                        frameborder="0" scrolling="no" allowfullscreen>
+                </iframe>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+</div>
 <!-- Hero Button -->
-<section class="hero-button">
-    <div class="button-text">
-        <a href="{% url 'register'%}" class="registracija-button">Registracija</a>
-        <p>Prisijunkite prie „Vaikystės lobių“!</p>
-    </div>
-</section>
+<div class="slight">
+    <section class="hero-button">
+        <div class="button-text">
+            <a href="{% url 'register'%}" class="registracija-button">Registracija</a>
+            <p>Prisijunkite prie „Vaikystės lobių“!</p>
+        </div>
+    </section>
+</div>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const wrapper = document.querySelector('.nutrition-wrapper');

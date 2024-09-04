@@ -6,113 +6,124 @@
 {% block title %}Apie mus{% endblock %}
 
 {% block content %}
-
-<section class="hero">
-    <div class="hero-text">
-        <h1>{{ about_us_page.about_us_title }}</h1>
-        {{ about_us_page.about_us_description|safe }}
-    </div>
-    <div class="hero-photo">
-        <img src="{{ about_us_page.hero_photo.url }}" alt="About Us Hero Image">
-    </div>
-</section>
-<section class="misviz">
-    <div class="misija-vizija">
-        <div class="vizija">
-            <h1>Misija</h1>
-            <p>Modernioje, veikti ir pažinti skatinančioje aplinkoje, sukuriame emociškai saugų, pagarbų, bendradarbiaujant su vaiku ir jo šeima grįstą ryšį, taip užtikriname motyvuojančią vaiko socialinę- emocinę ir pažintinę ūgtį, teikdami aukščiausios kokybės švietimo paslaugas.</p>
+<div class="slighter">
+    <section class="hero">
+        <div class="hero-text">
+            <h1>{{ about_us_page.about_us_title }}</h1>
+            {{ about_us_page.about_us_description|safe }}
         </div>
-        <div class="vizija2">
-            <h1>Vizija</h1>
-            <p>Siekdami užtikrinti harmoningą vaikų asmenybės augimą, orientuojamės į šiuolaikinio ugdymo strategijas, inovatyvius vaikų ugdymo metodus, siekiame būti atviri naujovėms, mokomės konstruktyviai bendradarbiauti, nuolat atsinaujiname ir kuriame savitą, vertybėmis grįstą darželio ugdymo sistemą.</p>
+        <div class="hero-photo">
+            <img src="{{ about_us_page.hero_photo.url }}" alt="About Us Hero Image">
         </div>
-    </div>
-</section>
+    </section>
+</div>
+<div class="slight sdiff">
+    <section class="misviz">
+        <div class="misija-vizija">
+            <div class="vizija">
+                <h1>Misija</h1>
+                <p>Modernioje, veikti ir pažinti skatinančioje aplinkoje, sukuriame emociškai saugų, pagarbų, bendradarbiaujant su vaiku ir jo šeima grįstą ryšį, taip užtikriname motyvuojančią vaiko socialinę- emocinę ir pažintinę ūgtį, teikdami aukščiausios kokybės švietimo paslaugas.</p>
+            </div>
+            <div class="vizija2">
+                <h1>Vizija</h1>
+                <p>Siekdami užtikrinti harmoningą vaikų asmenybės augimą, orientuojamės į šiuolaikinio ugdymo strategijas, inovatyvius vaikų ugdymo metodus, siekiame būti atviri naujovėms, mokomės konstruktyviai bendradarbiauti, nuolat atsinaujiname ir kuriame savitą, vertybėmis grįstą darželio ugdymo sistemą.</p>
+            </div>
+        </div>
+    </section>
+</div>
 
 <!-- Groups Section -->
-<section class="groups">
-    <h1>Grupės</h1>
-    <div class="grupes">
-    {% for group in groups %}
-        <div class="grupe">
-            <h3>{{ group.name }}</h3>
-            <p>{{ group.description }}</p>
-        </div>
-    {% empty %}
-        <p>No groups available.</p>
-    {% endfor %}
-</section>
+<div class="slighter">
+    <section class="groups">
+        <h1>Grupės</h1>
+        <div class="grupes">
+        {% for group in groups %}
+            <div class="grupe">
+                <h3>{{ group.name }}</h3>
+                <p>{{ group.description }}</p>
+            </div>
+        {% empty %}
+            <p>No groups available.</p>
+        {% endfor %}
+    </section>
+</div>
 
 <!-- Daily Routine Section -->
 <!-- Daily Routine Section -->
-<section class="routines">
-    <div class="routines-container">
-        <div class="routines-wrapper">
-            {% for group in groups %}
-                <div class="group-routine">
-                    <div class="routines-navigation">
-                        <button class="nav-button prev">&lt;</button>
-                        <h3 class="group-name">{{ group.name }}</h3>
-                        <button class="nav-button next">&gt;</button>
+<div class="slighter">
+    <section class="routines">
+        <div class="routines-container">
+            <div class="routines-wrapper">
+                {% for group in groups %}
+                    <div class="group-routine">
+                        <div class="routines-navigation">
+                            <button class="nav-button prev">&lt;</button>
+                            <h3 class="group-name">{{ group.name }}</h3>
+                            <button class="nav-button next">&gt;</button>
+                        </div>
+                        
+                        <div class="card-holder-routines">
+                            {% for day in days_of_week %}
+                                {% with routine_data|get_item:group.id|get_item:day as routine %}
+                                    <div class="card-routines">
+                                        <h4>{{ day }}</h4>
+                                        {% if routine %}
+                                            {% for activity in routine.activities.all %}
+                                                <li>
+                                                    {{ activity.name }}
+                                                    {% if activity.icon %}
+                                                        <img src="{{ activity.icon.url }}" alt="{{ activity.name }} icon">
+                                                    {% endif %}
+                                                </li>
+                                            {% empty %}
+                                                <li>No activities scheduled.</li>
+                                            {% endfor %}
+                                        {% else %}
+                                            <p>No routine for this day.</p>
+                                        {% endif %}
+                                    </div>
+                                {% endwith %}
+                            {% endfor %}
+                        </div>
                     </div>
-                    
-                    <div class="card-holder-routines">
-                        {% for day in days_of_week %}
-                            {% with routine_data|get_item:group.id|get_item:day as routine %}
-                                <div class="card-routines">
-                                    <h4>{{ day }}</h4>
-                                    {% if routine %}
-                                        {% for activity in routine.activities.all %}
-                                            <li>
-                                                {{ activity.name }}
-                                                {% if activity.icon %}
-                                                    <img src="{{ activity.icon.url }}" alt="{{ activity.name }} icon">
-                                                {% endif %}
-                                            </li>
-                                        {% empty %}
-                                            <li>No activities scheduled.</li>
-                                        {% endfor %}
-                                    {% else %}
-                                        <p>No routine for this day.</p>
-                                    {% endif %}
-                                </div>
-                            {% endwith %}
-                        {% endfor %}
-                    </div>
-                </div>
-            {% empty %}
-                <p>No groups available.</p>
-            {% endfor %}
+                {% empty %}
+                    <p>No groups available.</p>
+                {% endfor %}
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+</div>
 
 
 
 
 <!-- Team Section -->
-<section class="team">
-    <div class="team-container">
-        <div class="hero-text">
-            <h2>Mūsų komanda</h2>
-            <!-- Replace the <ul> list with the rich text field -->
-            <div class="team-description">
-                {{ about_us_page.team_description|safe }}
+<div class="swhite">
+    <section class="team">
+        <div class="team-container">
+            <div class="hero-text">
+                <h2>Mūsų komanda</h2>
+                <!-- Replace the <ul> list with the rich text field -->
+                <div class="team-description">
+                    {{ about_us_page.team_description|safe }}
+                </div>
+            </div>
+            <div class="hero-photo">
+                <img src="{{ about_us_page.team_photo.url }}" alt="Team Photo" class="team-photo">
             </div>
         </div>
-        <div class="hero-photo">
-            <img src="{{ about_us_page.team_photo.url }}" alt="Team Photo" class="team-photo">
-        </div>
-    </div>
-</section>
+    </section>
+</div>
 
 <!-- Hero Button -->
-<section class="hero-button">
-    <div class="button-text">
-        <a href="{% url 'register'%}" class="registracija-button">Registracija</a>
-        <p>Prisijunkite prie „Vaikystės lobių“!</p>
-    </div>
-</section>
+<div class="slight">
+    <section class="hero-button">
+        <div class="button-text">
+            <a href="{% url 'register'%}" class="registracija-button">Registracija</a>
+            <p>Prisijunkite prie „Vaikystės lobių“!</p>
+        </div>
+    </section>
+</div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {

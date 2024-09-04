@@ -18,69 +18,72 @@
 <body>
     <div class="main-container">
         <header>
-            <a href="{% url 'home' %}"><img src="{% static 'images/logo-header.png' %}" alt="Kindergarten Logo" class="header-logo"></a>
-            <nav>
-                <div class="menu-toggle" id="menu-toggle">
-                    <img src="{% static 'images/burger_icon.png' %}" alt="Menu Toggle">
-                </div>
-                <ul id="nav-menu">
-                    <li><a href="{% url 'about' %}">Apie Mus</a></li>
-                    <li><a href="{% url 'education' %}">Ugdymas</a></li>
-                    <li><a href="{% url 'nutrition' %}">Maitinimas</a></li>
-                    <li><a href="{% url 'admissions' %}">Priemimo Tvarka</a></li>
-                    <li><a href="{% url 'gallery' %}">Galerija</a></li>
-                    <li><a href="{% url 'contact' %}">Kontaktai</a></li>
-                    <a href="{% url 'register' %}" class="register-red-header">Registracija</a>
-                </ul>
-            </nav>
-        </header>
-
-        <main>
-            {% block content %}
-            <!-- Main content will go here -->
-            {% endblock %}
-        </main>
-
-        <footer>
-            <div class="footer-block1">
-                <div class="footer-section footer-section-left">
-                    <a href="{% url 'home' %}"><img src="{% static 'images/logo-footer.png' %}" alt="Kindergarten Logo" class="footer-logo"></a>
-                </div>
-                <div class="footer-section footer-section-middleleft">
-                    <ul>
-                        <li><a href="{% url 'home' %}">Pagrindinis</a></li>
+            <div class="custom-div-header">
+                <a href="{% url 'home' %}"><img src="{% static 'images/logo-header.png' %}" alt="Kindergarten Logo" class="header-logo"></a>
+                <nav>
+                    <div class="menu-toggle" id="menu-toggle">
+                        <img src="{% static 'images/burger_icon.png' %}" alt="Menu Toggle">
+                    </div>
+                    <ul id="nav-menu">
                         <li><a href="{% url 'about' %}">Apie Mus</a></li>
                         <li><a href="{% url 'education' %}">Ugdymas</a></li>
                         <li><a href="{% url 'nutrition' %}">Maitinimas</a></li>
                         <li><a href="{% url 'admissions' %}">Priemimo Tvarka</a></li>
                         <li><a href="{% url 'gallery' %}">Galerija</a></li>
                         <li><a href="{% url 'contact' %}">Kontaktai</a></li>
+                        <a href="{% url 'register' %}" class="register-red-header">Registracija</a>
                     </ul>
-                </div>
+                </nav>
             </div>
-            <div class="footer-block2">
-                <div class="footer-section footer-section-middleright">
-                    <h2>Susisiekite</h2>
-                    <div class="grouped-paras">
-                        <p><a href="tel:+37061154222">+370 611 54 222</a></p>
-                        <p><a href="mailto:info@vaikysteslobiai.lt">info@vaikysteslobiai.lt</a></p>
+        </header>
+    </div>
+        <main>
+            {% block content %}
+            <!-- Main content will go here -->
+            {% endblock %}
+        </main>
+        <div class="shardless">
+            <footer>
+                <div class="footer-block1">
+                    <div class="footer-section footer-section-left">
+                        <a href="{% url 'home' %}"><img src="{% static 'images/logo-footer.png' %}" alt="Kindergarten Logo" class="footer-logo"></a>
                     </div>
-                    <div class="grouped-paras">
-                        <p>Darbo laikas:</p>
-                        <p>Pirmadienis - Penktadienis</p>
-                        <p>07.30-18.00</p>
+                    <div class="footer-section footer-section-middleleft">
+                        <ul>
+                            <li><a href="{% url 'home' %}">Pagrindinis</a></li>
+                            <li><a href="{% url 'about' %}">Apie Mus</a></li>
+                            <li><a href="{% url 'education' %}">Ugdymas</a></li>
+                            <li><a href="{% url 'nutrition' %}">Maitinimas</a></li>
+                            <li><a href="{% url 'admissions' %}">Priemimo Tvarka</a></li>
+                            <li><a href="{% url 'gallery' %}">Galerija</a></li>
+                            <li><a href="{% url 'contact' %}">Kontaktai</a></li>
+                        </ul>
                     </div>
-                    <a href="{% url 'register' %}" class="registracija-button-footer">Registracija ></a>
                 </div>
-                <div class="footer-section footer-section-right">
-                    <img src="{% static 'images/kuriame_lietuvos_ateiti.png' %}" alt="Footer Image" class="footer-image">
-                    <p><a href="https://www.facebook.com/vaikysteslobiai" target="_blank" class="social-link">
-                            <i class="fab fa-facebook-square social-icon"></i> Sekite naujienas Facebook
-                    </a></p>
-                    <p>&copy;Vaikystės lobiai 2024. Visos teises saugomos </p>
+                <div class="footer-block2">
+                    <div class="footer-section footer-section-middleright">
+                        <h2>Susisiekite</h2>
+                        <div class="grouped-paras">
+                            <p><a href="tel:+37061154222">+370 611 54 222</a></p>
+                            <p><a href="mailto:info@vaikysteslobiai.lt">info@vaikysteslobiai.lt</a></p>
+                        </div>
+                        <div class="grouped-paras">
+                            <p>Darbo laikas:</p>
+                            <p>Pirmadienis - Penktadienis</p>
+                            <p>07.30-18.00</p>
+                        </div>
+                        <a href="{% url 'register' %}" class="registracija-button-footer">Registracija ></a>
+                    </div>
+                    <div class="footer-section footer-section-right">
+                        <img src="{% static 'images/kuriame_lietuvos_ateiti.png' %}" alt="Footer Image" class="footer-image">
+                        <p><a href="https://www.facebook.com/vaikysteslobiai" target="_blank" class="social-link">
+                                <i class="fab fa-facebook-square social-icon"></i> Sekite naujienas Facebook
+                        </a></p>
+                        <p>&copy;Vaikystės lobiai 2024. Visos teises saugomos </p>
+                    </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
+        </div>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 const menuToggle = document.getElementById('menu-toggle');

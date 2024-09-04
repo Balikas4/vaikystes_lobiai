@@ -5,44 +5,48 @@
 
 {% block content %}
 <!-- Hero Section -->
-<section class="hero rereverse aero">
-    <div class="contact-desc">
-        <div class="hero-text">
-            <h1>Susipažinkime!</h1>
-        </div>
-        <div class="conact-desc-wrapper">
-            <div>
-                {{ contact.description|safe }}
+<div class="slighter">
+    <section class="hero rereverse aero">
+        <div class="contact-desc">
+            <div class="hero-text">
+                <h1>Susipažinkime!</h1>
             </div>
-            <div>
-                {{ contact.additional_info|safe }}
+            <div class="conact-desc-wrapper">
+                <div>
+                    {{ contact.description|safe }}
+                </div>
+                <div>
+                    {{ contact.additional_info|safe }}
+                </div>
             </div>
         </div>
-    </div>
-    <div class="hero-photo hero-photo-contact">
-    {% if contact.hero_photo %}
-        <img src="{{ contact.hero_photo.url }}" alt="Hero Photo">
-    {% else %}
-        <p>No hero photo available.</p>
-    {% endif %}
-    </div>
-</section>
+        <div class="hero-photo hero-photo-contact">
+        {% if contact.hero_photo %}
+            <img src="{{ contact.hero_photo.url }}" alt="Hero Photo">
+        {% else %}
+            <p>No hero photo available.</p>
+        {% endif %}
+        </div>
+    </section>
+</div>
 
 
 <!-- Google Maps Section -->
-<section class="map">
-    <h2>Mus rasite</h2>
-    <p>Paberžės g. 1, Noreikiškių k., Kauno r., Lietuva</p>
-    <p>Kamšos namų rajonas prie U. Karvelio dvaro sodybos.</p>
-    <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1364.4688660337583!2d23.855904637858455!3d54.889687878840974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e7218ad045c1d1%3A0x1f17ce3874a03e61!2sPrivate%20kindergarten%20%22Childhood%20Treasures%22!5e0!3m2!1sen!2slt!4v1724935183114!5m2!1sen!2slt" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        width="100%" 
-        height="450" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-</section>
+<div class="slight">
+    <section class="map">
+        <h2>Mus rasite</h2>
+        <p>Paberžės g. 1, Noreikiškių k., Kauno r., Lietuva</p>
+        <p>Kamšos namų rajonas prie U. Karvelio dvaro sodybos.</p>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1364.4688660337583!2d23.855904637858455!3d54.889687878840974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e7218ad045c1d1%3A0x1f17ce3874a03e61!2sPrivate%20kindergarten%20%22Childhood%20Treasures%22!5e0!3m2!1sen!2slt!4v1724935183114!5m2!1sen!2slt" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            width="100%" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </section>
+</div>
 
 {% endblock %}
