@@ -956,9 +956,16 @@ form input {
 .form-group {
     margin-bottom: 12px;
 }
-/* .main-round-admissions {
+.main-round-admissions {
     height: 400px;
-} */
+}
+
+.grupele {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
 
 .register-red-form , .django-message{
     padding: 12px 28px;
@@ -1001,7 +1008,7 @@ form input {
 
 /* Grid images */
 .grid-image {
-    width: 130px;
+    width: 160px;
     height: 160px;
     padding-bottom: 20px;
 }
@@ -1162,11 +1169,33 @@ nav {
     .footer-section-middleleft, .footer-section-middleright {
         padding-right: 0px;
     }
+    .admissions-hero-div {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .grupele img {
+        transform: rotate(90deg);
+    }
 }
-
+/* FOOTER */
+@media (max-width: 900px) {
+    footer {
+        padding: 43px 40px;
+    }
+    .footer-section-left {
+        padding-right: 0px;
+    }
+    .footer-block1 {
+        align-items: center;
+        text-align: center;
+    }
+}
 
 /* Mobile styles (up to 600px) */
 @media (max-width: 600px) {
+    footer {
+        padding: 28px 40px;
+    }
     header {
         padding: 0px 24px;
     }
@@ -1262,6 +1291,9 @@ nav {
     }
     .grid-container {
         grid-template-columns: repeat(1, 1fr);
+    }
+    .footer-block2, .footer-block1 {
+        gap: 20px;
     }
     
 }
