@@ -50,6 +50,16 @@
     display: flex; /* Optional: Adjusts the content inside */
 }
 
+.toggle-icon {
+    width: 30px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.hidden {
+    display: none;
+}
+
 body {
     display: flex;
     flex-direction: column;
