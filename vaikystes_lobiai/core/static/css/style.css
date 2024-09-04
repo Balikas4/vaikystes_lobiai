@@ -42,7 +42,7 @@
     display: flex; /* Optional: Adjusts the content inside */
 }
 
-.slight-sleft {
+.slight-sleft2{
     background: linear-gradient(to right, #FAF0FA 50%, #FAE0F5 50%);
     /* Ensure the div takes the full width of its container */
     width: 100%;
