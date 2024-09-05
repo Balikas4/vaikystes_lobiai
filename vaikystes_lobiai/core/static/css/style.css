@@ -29,7 +29,7 @@
 }
 
 .custom-div-header, .grid-container, .main-gallery , .testimonials, .hero-button, .hero, .misviz, .groups, .routines, .team, .grid-education, .quad
-, .nutrition-container, .video-section, .lankymo-kaina-section, .reikalingi-dokumentai, .prisiminkite, .gallery, .map, .register-form{
+, .nutrition-container, .video-section, .lankymo-kaina-section, .reikalingi-dokumentai, .prisiminkite, .gallery, .map, .register-form, .gallery-page-gallery{
     max-width: 1336px;
     margin: auto;
 }
@@ -138,6 +138,10 @@ nav ul li {
     margin-right: 40px; /* Space between items */
     font-family: 'Public Sans', sans-serif;
     font-size: 18px;
+}
+
+.gallery-page-gallery h1{
+    padding-top: 20px;
 }
 
 .logo-icon {
@@ -264,7 +268,8 @@ footer {
 }
 
 .hero-text h1 , .hero-text-main h1, .lankymo-kaina-section h1, .adaptacija-content h1, .vizija h1, .vizija2 h1, .groups h1 , .main-gallery h2,
- .testimonials h2, .team h2, .hero-text li, .map h2, .group-name, .card-routines h4, .nutrition-navigation h3, .register-form h1, .gallery h1{
+ .testimonials h2, .team h2, .hero-text li, .map h2, .group-name, .card-routines h4, .nutrition-navigation h3, .register-form h1, .gallery h1
+ , .gallery-page-gallery h1{
     font-family: 'Work Sans', sans-serif;
     font-weight: 800;
     font-size: 48px;
@@ -1299,6 +1304,46 @@ nav {
     padding-right: 0px;
 }
 
+/* GALLERY */
+/* Container for the gallery section */
+.gallery-page-gallery {
+    padding: 20px;
+}
+
+
+/* Grid container for images */
+.gallery-images-division {
+    display: grid;
+    gap: 6px; /* Space between grid items */
+}
+/* Style for gallery items */
+.gallery-item-part {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Style for images */
+.gallery-item-part img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid #ddd; /* Optional: Adds a border between the image and text */
+}
+
+/* Style for descriptions */
+.gallery-item-part p {
+    padding: 10px;
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #333;
+}
+.gallery-images-division {
+    grid-template-columns: repeat(3, 1fr);
+}
+
 /* Responsive styles */
 @media (max-width: 1400px) {
     .gallery-item img {
@@ -1366,6 +1411,9 @@ nav {
     }
     .pgap {
         padding-bottom: 40px;
+    }
+    .gallery-images-division {
+        grid-template-columns: repeat(2, 1fr);
     }
     .pgapmini {
         padding-bottom: 20px;
@@ -1904,6 +1952,9 @@ nav {
     }
     .gallery-main {
         width: 600%;
+    }
+    .gallery-images-division {
+        grid-template-columns: 1fr;
     }
 }
 

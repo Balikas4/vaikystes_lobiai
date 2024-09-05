@@ -4,14 +4,13 @@
 
 {% block content %}
 <div class="slighter">
-    <section class="gallery">
+    <section class="gallery-page-gallery">
         {% for category in categories %}
             <h1>{{ category.name }}</h1>
-            <div class="gallery-images">
+            <div class="gallery-images-division">
                 {% for image in category.images.all %}
-                    <div class="gallery-item">
+                    <div class="gallery-item-part">
                         <img src="{{ image.image.url }}" alt="{{ image.description }}">
-                        <p>{{ image.description }}</p>
                     </div>
                 {% empty %}
                     <p>No images available for this category.</p>
