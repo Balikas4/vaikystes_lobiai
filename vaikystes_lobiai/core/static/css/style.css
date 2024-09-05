@@ -1015,6 +1015,7 @@ iframe {
     flex-direction: column;
     padding: 31px 404px 100px 404px;
     background-color: #FAF0FA;
+    max-width: 632px;
 }
 
 form {
@@ -1254,6 +1255,10 @@ nav {
 }
 .hero-education-menas , .fiznis-background{
     padding: 52px;
+}
+.nuolaidos-container{
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 /* Responsive styles */
