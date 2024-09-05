@@ -25,26 +25,26 @@
         <div class="grid-item grid-item1">
             <img src="{% static 'images/Apie_mus.png' %}" alt="Image 1" class="grid-image">
             <h3>Apie mus</h3>
-            <p class="grid-text">Vaikų grupės, mūsų vertybės, komanda bei darželio istorija</p>
-            <a href="{% url 'about' %}" class="grid-link see-trough-link" >Daugiau</a>
+            <p class="grid-text">Vaikų grupės, mūsų vertybės,<br> komanda bei darželio istorija</p>
+            <a href="{% url 'about' %}" class="grid-link see-trough-link" >Daugiau ></a>
         </div>
         <div class="grid-item grid-item2">
             <img src="{% static 'images/Ugdymas.png' %}" alt="Image 2" class="grid-image">
             <h3>Ugdymas</h3>
-            <p class="grid-text">Mūsų stiprybės, ugydymo programos, pažinimas ir kompetencijos</p>
-            <a href="{% url 'education' %}" class="grid-link see-trough-link">Daugiau</a>
+            <p class="grid-text">Mūsų stiprybės, ugydymo programos, <br> pažinimas ir kompetencijos</p>
+            <a href="{% url 'education' %}" class="grid-link see-trough-link">Daugiau ></a>
         </div>
         <div class="grid-item grid-item3">
             <img src="{% static 'images/Kaina.png' %}" alt="Image 3" class="grid-image">
             <h3>Kaina</h3>
             <p class="grid-text">Priėmimas, lankymo kaina, planai ir nuolaidos</p>
-            <a href="{% url 'admissions' %}" class="grid-link see-trough-link">Daugiau</a>
+            <a href="{% url 'admissions' %}" class="grid-link see-trough-link">Daugiau ></a>
         </div>
         <div class="grid-item grid-item4">
             <img src="{% static 'images/Kur_mes.png' %}" alt="Image 4" class="grid-image">
             <h3>Kur mes?</h3>
             <p class="grid-text">Darželio lokacija ir nuorodos</p>
-            <a href="{% url 'contact' %}" class="grid-link see-trough-link">Daugiau</a>
+            <a href="{% url 'contact' %}" class="grid-link see-trough-link">Daugiau ></a>
         </div>
     </section>
 </div>
@@ -76,7 +76,11 @@
 
 <div class="slighter">
     <section class="testimonials">
-        <h2>Atsiliepimai</h2>
+        <div class="mygtukeliai">
+            <button class="nav-button prev">&lt;</button>
+            <h2>Atsiliepimai</h2>
+            <button class="nav-button next">&gt;</button>
+        </div>
         <div class="testimonials-container">
             <div class="testimonials-wrapper">
                 {% for review in main_page.reviews.all %}
@@ -89,10 +93,6 @@
                 {% empty %}
                     <p>Atsiliepimų nera</p>
                 {% endfor %}
-            </div>
-            <div class="testimonials-navigation">
-                <button class="nav-button prev">&lt;</button>
-                <button class="nav-button next">&gt;</button>
             </div>
         </div>
     </section>
