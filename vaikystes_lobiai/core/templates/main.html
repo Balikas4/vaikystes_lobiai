@@ -55,7 +55,7 @@
         <div class="gallery-container-main">
             <div class="gallery-main">
                 {% for image in main_page.gallery.all %}
-                    <div class="gallery-item">
+                    <div class="gallery-item main-page-galerija">
                         <img src="{{ image.image.url }}" alt="Gallery Image">
                     </div>
                 {% empty %}

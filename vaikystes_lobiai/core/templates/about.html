@@ -60,8 +60,7 @@
                             <button class="nav-button prev">&lt;</button>
                             <h3 class="group-name">{{ group.name }}</h3>
                             <button class="nav-button next">&gt;</button>
-                        </div>
-                        
+                        </div>   
                         <div class="card-holder-routines">
                             {% for day in days_of_week %}
                                 {% with routine_data|get_item:group.id|get_item:day as routine %}

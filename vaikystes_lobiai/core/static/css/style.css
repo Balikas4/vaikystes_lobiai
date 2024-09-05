@@ -36,6 +36,7 @@
 
 .slight-sleft {
     background: linear-gradient(to right, #FAF0FA 50%, white 50%);
+    
     /* Ensure the div takes the full width of its container */
     width: 100%;
     height: 100%; /* Adjust the height as needed */
@@ -109,6 +110,7 @@ p , h2{
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1); /* Adds a 4px shadow */
 }
 .custom-div-header {
     background-color: #FAE0F5; /* Light pink background */
@@ -117,7 +119,7 @@ p , h2{
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 52px 0px 36px;
+    padding: 0px 36px 0px 36px;
 }
 nav {
     height: 100%;
@@ -406,7 +408,12 @@ blockquote {
     font-family: 'Work Sans', sans-serif;
     font-weight: 800;
     font-size: 20px;
+    transition: transform 0.3s ease;
 }
+.white-register-link:hover {
+    transform: scale(1.05);
+}
+
 
 .see-trough-link {
     background-color: transparent;
@@ -545,6 +552,9 @@ blockquote cite {
 .testimonials-navigation, .routines-navigation {
     text-align: center;
     margin-top: 10px;
+}
+.main-page-galerija img {
+    border-radius: 16px;
 }
 
 .nav-button {
@@ -856,6 +866,8 @@ form h5 {
     padding-right: 40px;
 }
 
+
+
 /* ADMISSION */
 .quad , .grid-education, .grid-vizija{
     padding: 52px;
@@ -878,11 +890,37 @@ form h5 {
     text-align: center;
 }
 
+.ulas {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    color: #F04B32;
+    padding-bottom: 40px;
+    padding-right: 16px;
+}
+
+.ulas li {
+    position: relative;
+    padding-left: 20px; /* Add space for the custom bullet */
+}
+
+.ulas li::before {
+    content: '•'; /* Custom bullet point */
+    position: absolute;
+    left: 0;
+    color: #F04B32; /* Bullet color matching text color */
+    font-size: 20px; /* Bullet size */
+    line-height: 17px; /* Align bullet vertically with text */
+}
+
 /* FOOTER */
 footer {
     padding: 84px 52px;
     justify-content: center;
-    align-items: end;
+    align-items: start;
 }
 
 footer h1,footer h2 ,footer a ,footer p {
@@ -1125,7 +1163,7 @@ form input {
 
 .register-red-form , .django-message{
     padding: 12px 28px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Work Sans', sans-serif;
     font-size: 14px; 
     font-weight: 700; 
     color: #fff; 
@@ -1272,9 +1310,6 @@ nav {
     .main-gallery h2 {
         padding-top: 14px;
     }
-    .hero-text {
-        padding-top: 20px;
-    }
     .daugiau-nuotrauku {
         padding-bottom: 14px;
     }
@@ -1373,6 +1408,9 @@ nav {
     .grid-text  {
         font-size: 16px;
         font-weight: 500;
+    }
+    .grid-item3 p {
+        padding: 0px 70px;
     }
     .team-container div h2 {
         padding-bottom: 20px;
@@ -1507,7 +1545,9 @@ nav {
         width: 100%;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
-
+    .footer-image {
+        padding-bottom: 160px;
+    }
     nav ul li {
         padding-left: 40px;
         padding-bottom: 32px;
@@ -1563,6 +1603,17 @@ nav {
     }
     .hero-main {
         padding: 16px 16px 16px 16px !important;
+    }
+    .mygtukeliai{
+        align-items: center;
+    }
+    .no-pad-zone {
+        padding-right: 0px !important;
+        padding-top: 0px !important;
+    }
+    .grupe p {
+        padding-left: 0px;
+        padding-right: 16px;
     }
 }
 /* FOOTER */
@@ -1819,6 +1870,37 @@ nav {
     }
     .register-form {
         padding-bottom: 40px !important;
+    }
+    .contact-desc div {
+        padding-top: 0px;
+    }
+    .grid-wrapper-education p {
+        font-size: 15px;
+    }
+    .hero-text{
+        padding-top: 0px;
+    }
+    .main-hero-education {
+        padding-top: 16px !important;
+    }
+    .admissions-hero {
+        padding: 16px !important;
+    }
+    .nuolaidos-container , .conact-desc-wrapper, .aero {
+        gap: 16px;
+    }
+    .adaptacija-gylph {
+        gap: 0px;
+    }
+    .kaina p , .adaptacija-content p{
+        padding-right: 0px;
+    }
+    .ulas li{
+        text-align: start;
+    }
+    .ulas{
+        padding-right: 0px;
+        padding-bottom: 16px;
     }
 }
 
