@@ -1902,5 +1902,8 @@ nav {
         padding-right: 0px;
         padding-bottom: 16px;
     }
+    .gallery-main {
+        width: 600%;
+    }
 }
 

@@ -109,22 +109,41 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Select the correct class .gallery-main instead of .gallery
         const gallery = document.querySelector('.gallery-main');
-        const bubbles = document.querySelectorAll('.bubble');
-        const itemsPerView = 2; // Number of images shown per slide
+        const bubblesContainer = document.querySelector('.navigation');
+        let bubbles = document.querySelectorAll('.bubble');
         const galleryItems = document.querySelectorAll('.gallery-item');
-        const totalSlides = Math.ceil(galleryItems.length / itemsPerView);
+        let itemsPerView = window.innerWidth <= 600 ? 1 : 2; // 1 image per slide on mobile, 2 on larger screens
+        let totalSlides = Math.ceil(galleryItems.length / itemsPerView);
         let currentIndex = 0;
+        let autoSlideInterval;
     
-        // Set the gallery width based on the number of slides
-        gallery.style.width = `${totalSlides * 100}%`;
+        // Function to update the gallery layout
+        function updateGalleryLayout() {
+            itemsPerView = window.innerWidth <= 600 ? 1 : 2;
+            totalSlides = Math.ceil(galleryItems.length / itemsPerView);
+            gallery.style.width = `${totalSlides * 100}%`;
     
-        // Set width of each gallery item to ensure two images per slide
-        galleryItems.forEach(item => {
-            item.style.width = `${100 / itemsPerView}%`;
-        });
+            // Set width of each gallery item based on items per view
+            galleryItems.forEach(item => {
+                item.style.width = `${100 / itemsPerView}%`;
+            });
     
+            // Adjust the number of bubbles based on total slides
+            bubblesContainer.innerHTML = ''; // Clear existing bubbles
+            for (let i = 0; i < totalSlides; i++) {
+                const bubble = document.createElement('span');
+                bubble.classList.add('bubble');
+                if (i === 0) bubble.classList.add('active'); // Set the first bubble as active
+                bubble.setAttribute('data-index', i);
+                bubblesContainer.appendChild(bubble);
+            }
+    
+            bubbles = document.querySelectorAll('.bubble'); // Re-select bubbles after adding them
+            attachBubbleEvents(); // Attach click events to new bubbles
+        }
+    
+        // Function to update the gallery position and active bubble
         function updateGallery() {
             const translatePercentage = (currentIndex * (100 / totalSlides));
             gallery.style.transform = `translateX(-${translatePercentage}%)`;
@@ -136,15 +155,54 @@
             }
         }
     
-        bubbles.forEach((bubble, index) => {
-            bubble.addEventListener('click', () => {
-                currentIndex = index;
-                updateGallery();
+        // Function to attach click events to bubbles
+        function attachBubbleEvents() {
+            bubbles.forEach((bubble, index) => {
+                bubble.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateGallery();
+                    resetAutoSlide(); // Reset auto slide timer when user interacts
+                });
             });
-        });
+        }
     
-        // Initialize the carousel
+        // Function to go to the next slide
+        function goToNextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides; // Loop back to the first slide
+            updateGallery();
+        }
+    
+        // Function to start auto-slide
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(goToNextSlide, 3000); // Auto-slide every 3 seconds
+        }
+    
+        // Function to stop auto-slide
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+    
+        // Function to reset auto-slide (used when user interacts)
+        function resetAutoSlide() {
+            stopAutoSlide();
+            startAutoSlide();
+        }
+    
+        // Initialize the gallery layout
+        updateGalleryLayout();
+    
+        // Update gallery layout on window resize
+        window.addEventListener('resize', updateGalleryLayout);
+    
+        // Initialize the carousel position
         updateGallery();
+    
+        // Start auto-slide
+        startAutoSlide();
+    
+        // Stop auto-slide on user interaction (clicks) and restart after some time
+        gallery.addEventListener('mouseover', stopAutoSlide);
+        gallery.addEventListener('mouseleave', startAutoSlide);
     });    
 </script>
 <script>
