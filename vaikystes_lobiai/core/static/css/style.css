@@ -1425,9 +1425,6 @@ nav {
     .daugiau-nuotrauku {
         padding-bottom: 14px;
     }
-    .hero-text p {
-        font-size: 15px;
-    }
     .tekstas-edukacija {
         font-size: 17px;
     }
@@ -1939,7 +1936,10 @@ nav {
     .hero-text h2 {
         padding-bottom: 20px;
     }
-
+    .paddedas h1, .paddedas p{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
     .registracija-button {
         margin: auto;
     }
@@ -1975,6 +1975,9 @@ nav {
     }
     .testimonial-item {
         place-content: center;
+    }
+    .card li , .ulas li{
+        font-size: 15px;
     }
     .testimonials-wrapper {
         height: 300px;
