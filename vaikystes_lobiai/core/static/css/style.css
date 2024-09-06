@@ -183,6 +183,13 @@ nav ul li a:hover::after {
     height: 80px;
 }
 
+blockquote cite {
+    font-style: normal;
+}
+
+.testimonial-item {
+    text-align: left;
+}
 .register-red-header, .register-red {
     background-color: #F04B32;
     color: #FAF0FA;
@@ -323,7 +330,7 @@ footer {
 
 .adaptacija p , .adaptacija h1 {
     padding-right: 0px;
-    padding-left: 80px;
+    padding-left: 40px;
 }
 
 .prisiminkite p , .adaptacija p{
@@ -349,6 +356,9 @@ footer {
     flex: 1; /* Image takes up 1 part of the available space */
     max-width: 50%; /* Optional: Limits image section to 50% of the width */
     align-content: center;
+}
+.paddedas h1, .paddedas p{
+    padding-left: 40px;
 }
 
 .hero-photo img {
