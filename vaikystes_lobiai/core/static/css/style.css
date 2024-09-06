@@ -1249,6 +1249,9 @@ form input {
     padding: 20px 0px;
 }
 
+.ulanovas {
+    padding-right: 0px;
+}
 /* Grid container */
 .grid-container {
     display: grid;
@@ -1580,13 +1583,9 @@ nav {
     .prisiminkite {
         padding: 0px;
     }
-    .adaptacija-content p{
-        padding-right: 20px;
-    }
     .register-form-disclaimer {
         padding-bottom: 30px;
     }
-    
     .gallery {
         gap: 20px;
     }
