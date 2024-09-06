@@ -2009,5 +2009,8 @@ nav {
     .hero-text-education h2{
         padding-bottom: 12px;
     }
+    blockquote p {
+        padding-bottom: 8px;
+    }
 }
 
