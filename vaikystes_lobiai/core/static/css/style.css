@@ -1386,7 +1386,7 @@ nav {
         padding-bottom: 60px !important;
     }
     .hero-education-menas{
-        padding-top: 20px !important;
+        padding-top: 40px !important;
         padding-bottom: 40px !important;
     }
     .hero-text-education h2, .quad-text h1, .video-header{
@@ -1395,6 +1395,9 @@ nav {
         font-family: 'Public Sans', sans-serif;
         color: #F04B32;
         padding-bottom: 20px;
+    }
+    .quad-text h1 {
+        padding-bottom: 0px;
     }
     .video-header {
         padding-bottom: 0px;
@@ -1463,9 +1466,6 @@ nav {
     .team-container div h2 {
         padding-bottom: 20px;
     }
-    .team {
-        padding-top: 20px !important;
-    }
     .footer-block1 li {
         font-size: 15px;
         text-align: left;
@@ -1514,6 +1514,9 @@ nav {
     }
     .register-form {
         padding: 40px 84px !important;
+    }
+    .grid-item {
+        height: 347px;
     }
     .grid-item4 {
         background-color: #FAF0FA;
@@ -1578,7 +1581,16 @@ nav {
     }
     .custom-div-header {
         height: 80px;
-        padding: 0px 42px 0px 26px;
+        padding: 0px 40px 0px 26px;
+    }
+    .main-hero-education {
+        align-items: flex-start;
+    }
+    .fizinis-aktyvumas h1{
+        padding-right: 20px;
+    }
+    .fizinis-aktyvumas p{
+        padding-right: 20px;
     }
     .header-logo {
         height: 60px;
@@ -1601,7 +1613,13 @@ nav {
         padding-bottom: 32px;
     }
     .vizija2, .vizija {
-        padding: 50px 40px;
+        padding: 0px;
+    }
+    .vizija2 {
+        padding-left: 20px;
+    }
+    .grupe h3 {
+        font-size: 28px !important;
     }
 
     #nav-menu.active {
@@ -1663,6 +1681,12 @@ nav {
         padding-left: 0px;
         padding-right: 16px;
     }
+    .nuolaideles p{
+        padding-right: 0px;
+    }
+    .hero-text-about p {
+        padding-right: 16px;
+    }
 }
 /* FOOTER */
 @media (max-width: 920px) {
@@ -1692,7 +1716,14 @@ nav {
         align-items: center;
     }
     header {
-        padding: 0px 20px;
+        padding: 0px 16px;
+        padding-left: 8px;
+    }
+    .navigation {
+        margin-top: 30px;
+    }
+    .testimonial-item {
+        padding: 0px;
     }
     .hero-main , .main-text-button, footer, .hero, .misija-vizija, .grupes, .team-container, .grid-education, .quad, .lankymo-kaina
     , .nuolaidos-container, .adaptacija, .prisiminkite, .gallery-images , .conact-desc-wrapper{
@@ -1805,7 +1836,7 @@ nav {
     .footer-block2, .footer-block1 {
         gap: 20px;
     }
-    .footer-section-middleleft ul, li {
+    .footer-section-middleleft ul li {
         text-align-last: center;
     }
     .mygtukeliai {
@@ -1850,7 +1881,7 @@ nav {
         margin-right: 0px;
     }
     .grupe h3 {
-        font-size: 20px;
+        font-size: 20px !important;
     }
     .grupes {
         gap: 0px;
@@ -1890,7 +1921,7 @@ nav {
         padding-bottom: 20px;
     }
     .register-red-header{
-        text-align: center;
+        text-align: left;
         margin-right: 40px;
     }
     .nutrition-navigation {
@@ -1923,7 +1954,7 @@ nav {
         padding-top: 0px;
     }
     .grid-wrapper-education p {
-        font-size: 15px;
+        font-size: 15px !important;
     }
     .hero-text{
         padding-top: 0px;
@@ -1955,6 +1986,12 @@ nav {
     }
     .gallery-images-division {
         grid-template-columns: 1fr;
+    }
+    .grid-wrapper-education h1{
+        font-size: 20px !important;
+    }
+    .hero-text-education h2{
+        padding-bottom: 12px;
     }
 }
 

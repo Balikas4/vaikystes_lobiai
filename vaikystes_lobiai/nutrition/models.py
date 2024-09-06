@@ -14,7 +14,7 @@ class WeeklyNutrition(models.Model):
     day = models.CharField(max_length=16, choices=[
         ('Pirmadienis', 'Pirmadienis'),
         ('Antradienis', 'Antradienis'),
-        ('Treciadienis', 'Trečiadienis'),
+        ('Trečiadienis', 'Trečiadienis'),
         ('Ketvirtadienis', 'Ketvirtadienis'),
         ('Penktadienis', 'Penktadienis'),
     ])
