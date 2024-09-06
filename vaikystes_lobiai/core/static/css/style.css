@@ -598,7 +598,7 @@ blockquote cite {
 
 }
 .vizija p , .vizija2 p{
-    margin-right: 52px;
+    margin-right: 40px;
 }
 
 .vizija2 {
@@ -1768,6 +1768,7 @@ nav {
     }
     .registracija-button {
         font-size: 20px;
+        margin-bottom: 20px;
     }
     .grid-wrapper-education p {
         padding-right: 40px;
