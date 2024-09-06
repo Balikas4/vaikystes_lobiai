@@ -147,7 +147,11 @@
 <div class="slight">
     <section class="hero-button">
         <div class="button-text">
-            <a href="{% url 'register'%}" class="registracija-button">Registracija</a>
+            <div class="wing-container">
+                <img src="{% static 'images/wing_left.png' %}" alt="Wing 1" class="left-wing">
+                <a href="{% url 'register'%}" class="registracija-button">Registracija</a>
+                <img src="{% static 'images/wing_right.png' %}" alt="Wing 2" class="right-wing">
+            </div>
             <p>Prisijunkite prie „Vaikystės lobių“!</p>
         </div>
     </section>
