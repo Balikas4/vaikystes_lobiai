@@ -1763,6 +1763,9 @@ nav {
     .registracija-button {
         font-size: 20px;
     }
+    .grid-wrapper-education p {
+        padding-right: 40px;
+    }
 }
 /* FOOTER */
 @media (max-width: 920px) {
