@@ -1862,6 +1862,9 @@ nav {
     .footer-image {
         display: none;
     }
+    .top-secc {
+        padding: 40px 16px !important;
+    }
     .miniatura{
         font-size: 13px !important;
     }
@@ -1958,12 +1961,6 @@ nav {
     }
     .hero-text{
         padding-top: 0px;
-    }
-    .main-hero-education {
-        padding-top: 16px !important;
-    }
-    .admissions-hero {
-        padding: 16px !important;
     }
     .nuolaidos-container , .conact-desc-wrapper, .aero {
         gap: 16px;
