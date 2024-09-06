@@ -110,7 +110,7 @@ p , h2{
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1); /* Adds a 4px shadow */
+    box-shadow: 0 4px 4px #FAE0F5; /* Adds a 4px shadow */
 }
 .custom-div-header {
     background-color: #FAE0F5; /* Light pink background */
@@ -1319,9 +1319,9 @@ nav {
 /* Style for gallery items */
 .gallery-item-part {
     overflow: hidden;
-    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    max-height: 300px;
 }
 .wing-container {
     display: flex;
@@ -1334,6 +1334,12 @@ nav {
     width: 50px;
     padding: 4px 16px 40px 16px;
 }
+.right-wing {
+    padding-bottom: 80px;
+}
+.left-wing {
+    padding-bottom: 60px;
+}
 
 /* Style for images */
 .gallery-item-part img {
@@ -1341,6 +1347,7 @@ nav {
     height: 100%; /* Stretch to cover the container height */
     object-fit: cover; /* Maintains aspect ratio while filling the container */
     display: block;
+    border-radius: 0px;
 }
 
 /* Style for descriptions */
@@ -1614,7 +1621,7 @@ nav {
         right: 0;
         background-color: #FAE0F5; /* Adjust based on your design */
         width: 100%;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 2px 4px #FAE0F5;
     }
     .footer-image {
         padding-bottom: 160px;
@@ -1716,6 +1723,9 @@ nav {
 
 /* Mobile styles (up to 600px) */
 @media (max-width: 600px) {
+    .footer-image {
+        padding-bottom: 20px;
+    }
     .custom-div-header {
         padding: 0px;
     }
@@ -1801,7 +1811,7 @@ nav {
         padding-bottom: 40px;
     }
     .testimonial-item {
-        padding: 38px 16px;
+        padding: 16px 16px;
         flex: 0 0 300px;
     }
     footer {
@@ -1870,9 +1880,6 @@ nav {
     }
     .footer-section-middleright h2{
         padding-bottom: 20px;
-    }
-    .footer-image {
-        display: none;
     }
     .top-secc {
         padding: 40px 16px !important;
