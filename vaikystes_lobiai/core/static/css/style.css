@@ -1428,6 +1428,15 @@ nav {
     .hero-text p {
         font-size: 15px;
     }
+    .tekstas-edukacija {
+        font-size: 17px;
+    }
+    .fizinis-aktyvumas p {
+        padding-right: 40px !important;
+    }
+    .pazinimo-dziaugsmas p {
+        padding-right: 40px !important;
+    }
     .grupe {
         padding-bottom: 20px;
     }
