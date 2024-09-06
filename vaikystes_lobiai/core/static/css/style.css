@@ -110,7 +110,7 @@ p , h2{
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 4px #FAE0F5; /* Adds a 4px shadow */
+    box-shadow: 0 4px 4px rgba(194, 74, 150, 0.1);
 }
 .custom-div-header {
     background-color: #FAE0F5; /* Light pink background */
@@ -1621,7 +1621,7 @@ nav {
         right: 0;
         background-color: #FAE0F5; /* Adjust based on your design */
         width: 100%;
-        box-shadow: 0 2px 4px #FAE0F5;
+        box-shadow: 0 4px 4px rgba(194, 74, 150, 0.1);
     }
     .footer-image {
         padding-bottom: 160px;
