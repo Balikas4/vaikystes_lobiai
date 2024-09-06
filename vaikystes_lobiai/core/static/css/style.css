@@ -875,6 +875,10 @@ form h5 {
     max-width: 30%; /* Ensures each item takes up a maximum of 30% of the row */
 }
 
+.button-text {
+    padding-bottom: 25px;
+}
+
 /* Image Styling */
 .gallery-item img {
     width: 100%;
@@ -1096,7 +1100,7 @@ iframe {
 .conact-desc-wrapper {
     display: flex;
     flex-direction: row;
-    gap: 52px;
+    gap: 100px;
 }
 
 .register-form {
@@ -1486,7 +1490,7 @@ nav {
         padding-bottom: 0px;
     }
     .grupele p{
-        max-width: 140px;
+        max-width: 180px;
     }
     .kaina p {
         padding-right: 40px;
@@ -1807,7 +1811,7 @@ nav {
 
     }
     .footer-section-left {
-        padding-right: 0px;
+        padding-right: 40px;
     }
     .footer-block1 {
         align-items: flex-start;
