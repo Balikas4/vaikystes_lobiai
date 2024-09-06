@@ -1433,6 +1433,10 @@ nav {
     }
     .team-description p {
         font-size: 17px;
+        padding-right: 0px;
+    }
+    .grid-wrapper-education {
+        padding-bottom: 0px;
     }
     .team-container div {
         max-width: 100%;
