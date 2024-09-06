@@ -330,11 +330,15 @@ footer {
 
 .adaptacija p , .adaptacija h1 {
     padding-right: 0px;
-    padding-left: 40px;
+    padding-left: 52px;
 }
 
 .prisiminkite p , .adaptacija p{
     padding-bottom: 20px;
+}
+
+.register-form-disclaimer {
+    padding-bottom: 40px;
 }
 
 .grupe {
@@ -358,7 +362,8 @@ footer {
     align-content: center;
 }
 .paddedas h1, .paddedas p{
-    padding-left: 40px;
+    padding-left: 52px;
+    padding-right: 0px;
 }
 
 .hero-photo img {
@@ -688,6 +693,9 @@ blockquote p {
 
 .team {
     padding: 52px;
+}
+.grupe p{
+    padding-right: 40px;
 }
 
 .video-section {
@@ -1551,6 +1559,10 @@ nav {
     .adaptacija-content p{
         padding-right: 20px;
     }
+    .register-form-disclaimer {
+        padding-bottom: 30px;
+    }
+    
     .gallery {
         gap: 20px;
     }
@@ -1653,6 +1665,10 @@ nav {
         width: 100%;
         box-shadow: 0 4px 4px rgba(194, 74, 150, 0.1);
     }
+    .register-form-disclaimer {
+        padding-bottom: 20px;
+    }
+    
     .footer-image {
         padding-bottom: 160px;
     }
