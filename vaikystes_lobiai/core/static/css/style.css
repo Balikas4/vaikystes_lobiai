@@ -1435,7 +1435,10 @@ nav {
         font-family: 'Work Sans', sans-serif;
     }
     .team-container{
-        gap: 20px;
+        gap: 40px;
+    }
+    .fizinis-aktyvumas p {
+        padding-right: 40px;
     }
     .hero-education{
         padding-top: 60px !important;
@@ -1739,13 +1742,16 @@ nav {
     }
     .grupe p {
         padding-left: 0px;
-        padding-right: 16px;
+        padding-right: 40px;
     }
     .nuolaideles p{
         padding-right: 0px;
     }
     .hero-text-about p {
-        padding-right: 16px;
+        padding-right: 40px;
+    }
+    .vizija2 p {
+        margin-right: 0px;
     }
     .footer-section-middleleft {
         padding-left: 10px;
@@ -1781,6 +1787,9 @@ nav {
     }
     .footer-block1 {
         align-items: flex-start;
+    }
+    .no-pad-zone2 {
+        padding-right: 0px !important;
     }
 }
 
