@@ -1,6 +1,17 @@
 /* Default styling */
-
- header {
+cite {
+    display: inline; /* Ensures it stays inline */
+    content: none;   /* Remove any added content like dashes */
+    margin: 0;       /* Reset margin */
+    padding: 0;      /* Reset padding */
+}
+cite::before {
+    content: none; /* Removes any content that might be added */
+}
+cite::before {
+    content: ''; /* Clear any before content like dashes */
+}
+header {
     background-color: #FAE0F5;
  }
 
@@ -1775,6 +1786,9 @@ nav {
     }
     .tekstas-edukacija  p{
         padding-right: 40px;
+    }
+    .quad{
+        padding-bottom: 0px !important;
     }
 }
 /* FOOTER */
