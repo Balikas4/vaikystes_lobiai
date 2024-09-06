@@ -1737,10 +1737,6 @@ nav {
     .mygtukeliai{
         align-items: center;
     }
-    .no-pad-zone {
-        padding-right: 0px !important;
-        padding-top: 0px !important;
-    }
     .grupe p {
         padding-left: 0px;
         padding-right: 16px;
@@ -1784,6 +1780,10 @@ nav {
 
 /* Mobile styles (up to 600px) */
 @media (max-width: 600px) {
+    .no-pad-zone {
+        padding-right: 0px !important;
+        padding-top: 0px !important;
+    }
     .footer-image {
         padding-bottom: 20px;
     }
