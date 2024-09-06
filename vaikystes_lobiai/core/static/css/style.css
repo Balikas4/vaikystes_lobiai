@@ -637,6 +637,9 @@ blockquote cite {
     margin-bottom: 20px;
     justify-content: center;
 }
+blockquote p {
+    padding-bottom: 40px;
+}
 
 .card-holder-routines {
     display: flex;
@@ -783,6 +786,10 @@ form h5 {
     text-align: center;
     justify-content: center;
 }
+.adaptacija-gylph {
+    padding-right: 0px;
+    padding-left: 0px;
+}
 .nutricija {
     padding: 40px 52px;
 }
@@ -871,7 +878,12 @@ form h5 {
     padding-right: 40px;
 }
 
-
+.vizija {
+    padding-left: 0px;
+}
+.nutrition-navigation {
+    padding-bottom: 40px ;
+}
 
 /* ADMISSION */
 .quad , .grid-education, .grid-vizija{
@@ -1036,7 +1048,9 @@ iframe {
     display: flex;
     flex-direction: column;
     width: 380px;
-    gap: 12px;
+}
+.button-text p {
+    margin-top: -20px;
 }
 /* REGISTER */
 
@@ -1364,6 +1378,9 @@ nav {
 
 /* Responsive styles */
 @media (max-width: 1400px) {
+    .button-text p {
+        margin-top: -36px;
+    }
     .gallery-item img {
         height: 422px;
     }
@@ -1497,7 +1514,7 @@ nav {
     .nutrition-navigation {
         justify-content: center;
         align-items: center;
-        padding-bottom: 10px;
+        padding-bottom: 20px;
     }
     .hero-text h1 {
         padding-right: 80px;
@@ -1705,6 +1722,22 @@ nav {
     .hero-text-about p {
         padding-right: 16px;
     }
+    .footer-section-middleleft {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .routines-section {
+        padding-top: 0px !important;
+    }
+    .hero-text-education p{
+        padding-right: 0px;
+    }
+    .adaptacija-gylph {
+        gap: 40px;
+    }
+    .registracija-button {
+        font-size: 20px;
+    }
 }
 /* FOOTER */
 @media (max-width: 920px) {
@@ -1716,8 +1749,7 @@ nav {
         padding-right: 0px;
     }
     .footer-block1 {
-        align-items: center;
-        text-align: center;
+        align-items: flex-start;
     }
 }
 
@@ -1789,6 +1821,9 @@ nav {
     }
     .registracija-button {
         font-size: 20px !important;
+    }
+    .nutrition-navigation {
+        padding-bottom: 20px ;
     }
     p {
         font-size: 15px !important;
@@ -1984,6 +2019,9 @@ nav {
     .nuolaidos-container , .conact-desc-wrapper, .aero {
         gap: 16px;
     }
+    .conact-desc-wrapper {
+        gap: 30px;
+    }
     .adaptacija-gylph {
         gap: 0px;
     }
@@ -2011,6 +2049,12 @@ nav {
     }
     blockquote p {
         padding-bottom: 8px;
+    }
+    nav ul li {
+        padding-left: 24px;
+    }
+    .register-red-header{
+        padding-left: 24px;
     }
 }
 
