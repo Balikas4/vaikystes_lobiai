@@ -1360,6 +1360,7 @@ nav {
 /* Container for the gallery section */
 .gallery-page-gallery {
     padding: 20px;
+    padding-bottom: 40px;
 }
 
 
