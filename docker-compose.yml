@@ -26,14 +26,14 @@ services:
     restart: always
     ports:
       - 80:80
-      - 443:443
+      # - 443:443
     links:
       - dev:kindergarten
     volumes:
       - ./vaikystes_lobiai/media:/app/media
       - ./vaikystes_lobiai/static_root:/app/static
-      - /etc/letsencrypt:/etc/letsencrypt
-      - /var/www/certbot:/var/www/certbot
+      # - /etc/letsencrypt:/etc/letsencrypt
+      # - /var/www/certbot:/var/www/certbot
 
   certbot:
     image: certbot/certbot
