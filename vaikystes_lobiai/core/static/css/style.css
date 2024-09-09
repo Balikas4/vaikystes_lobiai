@@ -644,6 +644,9 @@ blockquote cite {
     transition: transform 0.5s ease-in-out;
 }
 
+.footer-logo {
+    fill: white; /* This will apply white fill to the SVG */
+}
 .routines {
     background-color: #FAF0FA;
     padding: 52px;
@@ -2011,6 +2014,9 @@ nav {
     }
     .hero-text-about p , .hero-text-about h1, .grupe p, .team-description p, .hero-text h1, .hero-text p, .grid-wrapper-education p, .quad-text p{
         padding-right: 0px;
+    }
+    .testimonials {
+        padding-bottom: 36px !important;
     }
     .vizija h1 , .vizija2 h1{
         padding-top: 24px;
