@@ -37,7 +37,7 @@ SECRET_KEY = SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['176.118.198.148', 'localhost', 'vaikystelobiai.lt', 'www.vaikystelobiai.lt']
+ALLOWED_HOSTS = ['176.118.198.148', 'localhost', 'vaikysteslobiai.lt', 'www.vaikysteslobiai.lt']
 
 
 # Application definition
