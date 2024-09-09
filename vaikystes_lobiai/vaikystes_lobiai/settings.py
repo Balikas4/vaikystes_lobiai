@@ -39,6 +39,10 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['176.118.198.148', 'localhost', 'vaikysteslobiai.lt', 'www.vaikysteslobiai.lt']
 
+CSRF_TRUSTED_ORIGINS = ['https://vaikysteslobiai.lt', 'https://www.vaikysteslobiai.lt']
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 
 # Application definition
 
@@ -145,9 +149,10 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # SMTP Server Settings
 EMAIL_HOST = 'mail.vaikysteslobiai.lt'  # Replace with BaCloud SMTP server address
-EMAIL_PORT = 587  # Use 465 for SSL, 25 for non-encrypted, 587 for TLS
-EMAIL_USE_TLS = True  # Set to True if using port 587
-# EMAIL_USE_SSL = True  # Set this instead if using SSL (port 465)
+EMAIL_PORT = 465  # Use 465 for SSL, 25 for non-encrypted, 587 for TLS
+EMAIL_USE_SSL = True  # Set to True if using port 587
+EMAIL_USE_TLS = False
+
 
 # Authentication Settings
 EMAIL_HOST_USER = 'admin@vaikysteslobiai.lt'  # Your BaCloud email address
