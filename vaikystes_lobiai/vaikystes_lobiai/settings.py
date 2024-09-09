@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-from .local_settings import SECRET_KEY
+from .local_settings import SECRET_KEY, EMAIL_HOST_PASSWORD
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -139,3 +139,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Email Backend Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# SMTP Server Settings
+EMAIL_HOST = 'mail.vaikysteslobiai.lt'  # Replace with BaCloud SMTP server address
+EMAIL_PORT = 587  # Use 465 for SSL, 25 for non-encrypted, 587 for TLS
+EMAIL_USE_TLS = True  # Set to True if using port 587
+# EMAIL_USE_SSL = True  # Set this instead if using SSL (port 465)
+
+# Authentication Settings
+EMAIL_HOST_USER = 'admin@vaikysteslobiai.lt'  # Your BaCloud email address
+EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD  # Your BaCloud email password
+
+# Default 'From' Email Address
+DEFAULT_FROM_EMAIL = 'admin@vaikysteslobiai.lt'

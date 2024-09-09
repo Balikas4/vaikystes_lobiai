@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import EmailForm
 from django.contrib import messages
-from about_us.models import AboutUsPage, Grupe, Activity
+from about_us.models import AboutUsPage, Grupe, DailyRoutineActivity
 from gallery.models import GalleryCategory
 from main_page.models import MainReview, MainPage
 from nutrition.models import NutritionPage, WeeklyNutrition
@@ -10,6 +10,9 @@ from register.models import Registration
 from register.forms import RegistrationForm
 from django.db.models import Case, When, Value, IntegerField
 from contact.models import Contact
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse
+
 
 
 def home(request):
@@ -29,7 +32,14 @@ def about(request):
     for group in groups:
         group_routines = {day: None for day in days_of_week}
         for routine in group.routines.all():
-            group_routines[routine.day] = routine
+            # Fetch activities ordered by the 'order' field
+            activities = DailyRoutineActivity.objects.filter(dailyroutine=routine).order_by('order')
+            # Prepare a list of activity objects in the correct order
+            ordered_activities = [activity.activity for activity in activities]
+            group_routines[routine.day] = {
+                'routine': routine,
+                'activities': ordered_activities
+            }
         routine_data[group.id] = group_routines
 
     context = {
@@ -39,7 +49,6 @@ def about(request):
         'days_of_week': days_of_week,
     }
     return render(request, 'about.html', context)
-
 
 def education(request):
     return render(request, 'education.html')
@@ -99,15 +108,82 @@ def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            # Save form data to the Registration model
-            form.save()
+            registration = form.save()
 
-            # Display success message and redirect
-            messages.success(request, 'Sėkmingai pateikėte registracijos formą')
-            return redirect('register')
+            # Pr`epare admin email
+            admin_subject = 'Naujas registracijos pateikimas'
+            admin_message = f'''
+            Naujas registracijos įrašas buvo pateiktas su šiais duomenimis:
+
+            **Tėvų/Globėjų Informacija**
+            - Vardas: {registration.first_last_name}
+            - Kontaktinis Telefonas: {registration.contact_phone}
+            - El. Paštas: {registration.email}
+            - Namų Adresas: {registration.home_address}
+
+            **Dokumento ir Priėmimo Datos**
+            - Dokumento Data: {registration.document_date}
+            - Vaiko Vardas: {registration.child_first_last_name}
+            - Priėmimo Data: {registration.admission_date}
+
+            **Vaiko Informacija**
+            - Vaiko Vardas: {registration.child_first_name}
+            - Vaiko Pavardė: {registration.child_last_name}
+            - Vaiko Asmens Kodas: {registration.child_personal_code}
+            - Vaiko Namų Adresas: {registration.child_home_address}
+
+            **Tėvų Informacija**
+            - Tėčio Informacija: {registration.father_info}
+            - Mamos Informacija: {registration.mother_info}
+
+            **Vaiko Sveikatos ir Gebėjimų Informacija**
+            - Vaiko Sveikatos Informacija: {registration.child_health_info}
+            - Vaiko Talentai: {registration.child_talents}
+            '''
+            try:
+                # Send admin email
+                send_mail(
+                    admin_subject,
+                    admin_message,
+                    'admin@vaikysteslobiai.lt',
+                    ['registracija@vaikysteslobiai.lt'],
+                    fail_silently=False,
+                )
+
+                # Prepare welcome email
+                welcome_subject = 'Welcome to Our Service'
+                welcome_message = f'''
+                Dėkojame,
+
+                Jūsų prašymas buvo gautas, netrukus susisieksime
+
+                Pagarbiai "vaikystės lobiai" administracija
+
+                '''
+
+                # Send welcome email
+                if registration.email:
+                    send_mail(
+                        welcome_subject,
+                        welcome_message,
+                        'admin@vaikysteslobiai.lt',
+                        [registration.email],
+                        fail_silently=False,
+                    )
+
+                # Success message and redirect
+                messages.success(request, 'Sėkmingai pateikėte registracijos formą')
+                return redirect('register')
+
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            except Exception as e:
+                # Log the error message for further inspection
+                print(f"Error sending email: {e}")
+                messages.error(request, 'Įvyko klaida siunčiant el. laišką. Bandykite dar kartą.')
+
         else:
-            # Add an error message if the form is not valid
-            messages.error(request, 'Ivyko klaida registruojantis')
+            messages.error(request, 'Įvyko klaida registruojantis')
     else:
         form = RegistrationForm()
 

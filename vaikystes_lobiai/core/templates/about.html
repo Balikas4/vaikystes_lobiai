@@ -67,16 +67,18 @@
                                     <div class="card-routines">
                                         <h4>{{ day }}</h4>
                                         {% if routine %}
-                                            {% for activity in routine.activities.all %}
-                                                <li>
-                                                    {{ activity.name }}
-                                                    {% if activity.icon %}
-                                                        <img src="{{ activity.icon.url }}" alt="{{ activity.name }} icon">
-                                                    {% endif %}
-                                                </li>
-                                            {% empty %}
-                                                <li>No activities scheduled.</li>
-                                            {% endfor %}
+                                            <ul>
+                                                {% for activity in routine.activities %}
+                                                    <li>
+                                                        {{ activity.name }}
+                                                        {% if activity.icon %}
+                                                            <img src="{{ activity.icon.url }}" alt="{{ activity.name }} icon">
+                                                        {% endif %}
+                                                    </li>
+                                                {% empty %}
+                                                    <li>No activities scheduled.</li>
+                                                {% endfor %}
+                                            </ul>
                                         {% else %}
                                             <p>No routine for this day.</p>
                                         {% endif %}

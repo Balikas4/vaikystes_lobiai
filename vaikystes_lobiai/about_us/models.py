@@ -27,9 +27,25 @@ class Grupe(models.Model):
 
 class Activity(models.Model):
     name = models.CharField(max_length=100)
+    order = models.PositiveIntegerField(default=0)  # Field to set order
+
+    class Meta:
+        ordering = ['order']  # Order by 'order' field
 
     def __str__(self):
         return self.name
+
+class DailyRoutineActivity(models.Model):
+    activity = models.ForeignKey(Activity, on_delete=models.CASCADE)
+    dailyroutine = models.ForeignKey('DailyRoutine', on_delete=models.CASCADE)
+    order = models.PositiveIntegerField(default=0)  # Order activities within routine
+
+    class Meta:
+        ordering = ['order']
+        unique_together = ('activity', 'dailyroutine')
+
+    def __str__(self):
+        return f"{self.activity.name} in {self.dailyroutine.group.name} - {self.dailyroutine.day}"
 
 class DailyRoutine(models.Model):
     group = models.ForeignKey(Grupe, on_delete=models.CASCADE, related_name='routines')
@@ -40,7 +56,7 @@ class DailyRoutine(models.Model):
         ('Ketvirtadienis', 'Ketvirtadienis'),
         ('Penktadienis', 'Penktadienis'),
     ])
-    activities = models.ManyToManyField(Activity, related_name='routines')
+    activities = models.ManyToManyField(Activity, through='DailyRoutineActivity', related_name='routines')
 
     class Meta:
         unique_together = ('group', 'day')

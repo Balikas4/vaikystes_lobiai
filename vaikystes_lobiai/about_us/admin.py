@@ -1,35 +1,34 @@
 from django.contrib import admin
-from .models import DailyRoutine, Grupe, Activity, AboutUsPage
+from .models import DailyRoutine, Grupe, Activity, AboutUsPage, DailyRoutineActivity
 
-class ActivityInline(admin.TabularInline):
-    model = DailyRoutine.activities.through
+# Inline for managing activities within a DailyRoutine
+class DailyRoutineActivityInline(admin.TabularInline):
+    model = DailyRoutineActivity
     extra = 1
+    ordering = ['order']  # Order inline by the 'order' field
+    fields = ['activity', 'order']  # Show activity and order fields in the inline
 
 class DailyRoutineAdmin(admin.ModelAdmin):
     list_display = ('group', 'day')
-    filter_horizontal = ('activities',)
+    inlines = [DailyRoutineActivityInline]  # Add the inline here
 
-class DailyRoutineInline(admin.StackedInline):
+# Admin for Activity with ordering by 'order' field
+class ActivityAdmin(admin.ModelAdmin):
+    list_display = ('name', 'order')
+    ordering = ['order']
+
+# Inline for managing routines within Grupe
+class DailyRoutineInline(admin.TabularInline):
     model = DailyRoutine
     extra = 1
-    inlines = [ActivityInline]
 
-class GrupeInline(admin.StackedInline):
-    model = Grupe
-    extra = 1
-    inlines = [DailyRoutineInline]
-
-class ActivityAdmin(admin.ModelAdmin):
-    list_display = ('name',)
-    
-
+# Admin for Grupe to use routines inline
 class GrupeAdmin(admin.ModelAdmin):
     list_display = ('name', 'description')
-    inlines = [DailyRoutineInline]  # If you want to include routines here
+    inlines = [DailyRoutineInline]  # Include routines inline in Grupe admin
 
 class AboutUsPageAdmin(admin.ModelAdmin):
     list_display = ('about_us_title', 'about_us_description', 'hero_photo_display', 'team_photo_display', 'team_description')
-    inlines = [GrupeInline]
 
     def hero_photo_display(self, obj):
         if obj.hero_photo:

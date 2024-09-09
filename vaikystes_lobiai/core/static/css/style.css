@@ -130,7 +130,6 @@ p , h2{
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 36px 0px 8px;
 }
 nav {
     height: 100%;
