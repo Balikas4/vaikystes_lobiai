@@ -1991,6 +1991,9 @@ nav {
     .footer-block1 {
         gap: 10px;
     }
+    .gallery-page-gallery {
+        padding-bottom: 36px !important;
+    }
     .footer-section-middleright h2{
         padding-bottom: 20px;
     }
@@ -2058,6 +2061,10 @@ nav {
     .register-red-header{
         text-align: left;
         margin-right: 40px;
+    }
+    .big-icon {
+        height: 180px;
+        width: 180px;
     }
     .nutrition-navigation {
         padding-top: 40px;
