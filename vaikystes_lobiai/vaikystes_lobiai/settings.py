@@ -35,9 +35,9 @@ CKEDITOR_UPLOAD_PATH = 'uploads/'
 SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['176.118.198.148', 'localhost']
+ALLOWED_HOSTS = ['176.118.198.148', 'localhost', 'vaikystelobiai.lt', 'www.vaikystelobiai.lt']
 
 
 # Application definition
