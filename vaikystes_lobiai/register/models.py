@@ -29,3 +29,7 @@ class Registration(models.Model):
 
     def __str__(self):
         return f"{self.child_first_name} {self.child_last_name}"
+    
+    class Meta:
+        verbose_name = "Registracija"  # Singular name
+        verbose_name_plural = "Registracijos"  # Plural name

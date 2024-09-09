@@ -5,6 +5,10 @@ class GalleryCategory(models.Model):
 
     def __str__(self):
         return self.name
+    
+    class Meta:
+        verbose_name = "Galerijos kategorija"  # Singular name
+        verbose_name_plural = "Galerijos kategorijos"  # Plural name
 
 class GalleryImage(models.Model):
     category = models.ForeignKey(GalleryCategory, on_delete=models.CASCADE, related_name='images')
@@ -13,4 +17,8 @@ class GalleryImage(models.Model):
 
     def __str__(self):
         return self.description or 'No description'
+
+    class Meta:
+        verbose_name = "Galerijos nuotrauka"  # Singular name
+        verbose_name_plural = "Galerijos nuotraukos"  # Plural name
     

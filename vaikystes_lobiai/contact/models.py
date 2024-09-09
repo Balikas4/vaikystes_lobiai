@@ -8,3 +8,7 @@ class Contact(models.Model):
 
     def __str__(self):
         return "Contact Information"
+    
+    class Meta:
+        verbose_name = "Kontaktai"  # Singular name
+        verbose_name_plural = "Kontaktai"  # Plural name

@@ -12,6 +12,10 @@ class AboutUsPage(models.Model):
 
     def __str__(self):
         return self.about_us_title
+    
+    class Meta:
+        verbose_name = "Apie mus puslapis"  # Singular name
+        verbose_name_plural = "Apie mus puslapiai"  # Plural name
 
 class Grupe(models.Model):
     about_us_page = models.ForeignKey(
@@ -25,6 +29,10 @@ class Grupe(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = "Grupė"  # Singular name
+        verbose_name_plural = "Grupės"  # Plural name
+
 class Activity(models.Model):
     name = models.CharField(max_length=100)
     order = models.PositiveIntegerField(default=0)  # Field to set order
@@ -34,6 +42,10 @@ class Activity(models.Model):
 
     def __str__(self):
         return self.name
+    
+    class Meta:
+        verbose_name = "Užsiėmimas"  # Singular name
+        verbose_name_plural = "Užsiėmimai"  # Plural name
 
 class DailyRoutineActivity(models.Model):
     activity = models.ForeignKey(Activity, on_delete=models.CASCADE)
@@ -43,6 +55,8 @@ class DailyRoutineActivity(models.Model):
     class Meta:
         ordering = ['order']
         unique_together = ('activity', 'dailyroutine')
+        verbose_name = "Grupių rutinos"  # Singular name
+        verbose_name_plural = "Grupių rutinos"  # Plural name
 
     def __str__(self):
         return f"{self.activity.name} in {self.dailyroutine.group.name} - {self.dailyroutine.day}"
@@ -60,6 +74,8 @@ class DailyRoutine(models.Model):
 
     class Meta:
         unique_together = ('group', 'day')
+        verbose_name = "Rutina"  # Singular name
+        verbose_name_plural = "Rutinos"  # Plural name
 
     def __str__(self):
         return f"{self.group.name} - {self.day}"

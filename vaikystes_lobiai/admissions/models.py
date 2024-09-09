@@ -8,6 +8,10 @@ class LankymoKaina(models.Model):
 
     def __str__(self):
         return self.title
+    class Meta:
+        verbose_name = "Lankymo kaina"  # Singular name
+        verbose_name_plural = "Lankymo kainos"  # Plural name
+
 
 class NuolaidosIrKompensacijos(models.Model):
     title = models.CharField(max_length=255)
@@ -16,3 +20,7 @@ class NuolaidosIrKompensacijos(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = "Nuolaidos is kompensacijos"  # Singular name
+        verbose_name_plural = "Nuolaidos is kompensacijos"  # Plural name

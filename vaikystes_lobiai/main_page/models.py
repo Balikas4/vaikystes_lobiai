@@ -4,6 +4,10 @@ class MainPage(models.Model):
     # Fields for MainPage
     pass
 
+    class Meta:
+        verbose_name = "Pagrindinis puslapis"  # Singular name
+        verbose_name_plural = "Pagrindiniai puslapiai"  # Plural name
+
 class Hero(models.Model):
     main_page = models.OneToOneField(MainPage, on_delete=models.CASCADE, related_name='hero')
     hero_title = models.CharField(max_length=255)
