@@ -149,9 +149,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # SMTP Server Settings
 EMAIL_HOST = 'mail.vaikysteslobiai.lt'  # Replace with BaCloud SMTP server address
-EMAIL_PORT = 465  # Use 465 for SSL, 25 for non-encrypted, 587 for TLS
-EMAIL_USE_SSL = True  # Set to True if using port 587
-EMAIL_USE_TLS = False
+EMAIL_PORT = 587  # Use 465 for SSL, 25 for non-encrypted, 587 for TLS
+EMAIL_USE_SSL = False  # Set to True if using port 587
+EMAIL_USE_TLS = True
 
 
 # Authentication Settings
