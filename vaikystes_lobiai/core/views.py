@@ -12,7 +12,6 @@ from django.db.models import Case, When, Value, IntegerField
 from contact.models import Contact
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
 
 
 
@@ -105,7 +104,6 @@ def contact(request):
     }
     return render(request, 'contact.html', context)
 
-@csrf_exempt
 def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
