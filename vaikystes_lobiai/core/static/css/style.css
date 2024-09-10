@@ -134,6 +134,7 @@ p , h2{
 nav {
     height: 100%;
     align-content: center;
+    place-content: center;
 }
 
 nav ul {
