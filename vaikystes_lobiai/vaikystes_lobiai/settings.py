@@ -148,15 +148,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # SMTP Server Settings
-EMAIL_HOST = 'mail.vaikysteslobiai.lt'  # Replace with BaCloud SMTP server address
+EMAIL_HOST = 'smtp.gmail.com'  # Replace with BaCloud SMTP server address
 EMAIL_PORT = 465  # Use 465 for SSL, 25 for non-encrypted, 587 for TLS
 EMAIL_USE_SSL = True  # Set to True if using port 587
 EMAIL_USE_TLS = False
 
 
 # Authentication Settings
-EMAIL_HOST_USER = 'admin@vaikysteslobiai.lt'  # Your BaCloud email address
+EMAIL_HOST_USER = 'balikas4@gmail.com'  # Your BaCloud email address
 EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD  # Your BaCloud email password
 
 # Default 'From' Email Address
-DEFAULT_FROM_EMAIL = 'admin@vaikysteslobiai.lt'
+DEFAULT_FROM_EMAIL = 'balikas4@gmail.com'
