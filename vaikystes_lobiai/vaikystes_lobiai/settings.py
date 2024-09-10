@@ -35,7 +35,7 @@ CKEDITOR_UPLOAD_PATH = 'uploads/'
 SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['176.118.198.148', 'localhost', 'vaikysteslobiai.lt', 'www.vaikysteslobiai.lt']
 
@@ -43,8 +43,6 @@ CSRF_TRUSTED_ORIGINS = ['https://vaikysteslobiai.lt', 'https://www.vaikysteslobi
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Application definition
 
