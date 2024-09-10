@@ -132,9 +132,9 @@ p , h2{
     justify-content: space-between;
 }
 nav {
-    height: 100%;
     align-content: center;
     place-content: center;
+    margin: auto 0px;
 }
 
 nav ul {
