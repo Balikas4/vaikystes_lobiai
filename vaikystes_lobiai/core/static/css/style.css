@@ -1881,6 +1881,7 @@ nav {
     }
     .button-text {
         width: 250px;
+        margin: 40px 0px 20px 0px;;
     }
     .hero-text-main {
         width: auto;
