@@ -13,6 +13,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
     <link rel="manifest" href="{% static 'images/site.webmanifest' %}">
     <!-- Add any additional CSS files or meta tags here -->
+    <meta name="description" content="Vaikystės lobiai – vaikų darželis, kuriame ypatingas dėmesys skiriamas ugdymui.">
+    <meta name="keywords" content="darželio, darželis, darželį, ugdymas, vaikų, registracija, priėmimas, vaikystės, lobiai">
+    {% block meta_tags %}{% endblock %}
     <title>{% block title %}Vaikystės lobiai{% endblock %}</title>
 </head>
 <body>
@@ -26,7 +29,7 @@
                         <img src="{% static 'images/x-button.svg' %}" alt="Close Menu" id="close-icon" class="toggle-icon hidden">
                     </div>
                     <ul id="nav-menu">
-                        <li><a href="{% url 'about' %}">Apie Mus</a></li>
+                        <li><a href="{% url 'about' %}">Apie mus</a></li>
                         <li><a href="{% url 'education' %}">Ugdymas</a></li>
                         <li><a href="{% url 'nutrition' %}">Maitinimas</a></li>
                         <li><a href="{% url 'admissions' %}">Priėmimo tvarka</a></li>
@@ -52,7 +55,7 @@
                     <div class="footer-section footer-section-middleleft">
                         <ul>
                             <li><a href="{% url 'home' %}">Pagrindinis</a></li>
-                            <li><a href="{% url 'about' %}">Apie Mus</a></li>
+                            <li><a href="{% url 'about' %}">Apie mus</a></li>
                             <li><a href="{% url 'education' %}">Ugdymas</a></li>
                             <li><a href="{% url 'nutrition' %}">Maitinimas</a></li>
                             <li><a href="{% url 'admissions' %}">Priėmimo tvarka</a></li>
@@ -77,7 +80,7 @@
                     </div>
                     <div class="footer-section footer-section-right">
                         <img src="{% static 'images/kuriame_lietuvos_ateiti.png' %}" alt="Footer Image" class="footer-image">
-                        <p class="miniatura"><a href="https://www.facebook.com/vaikysteslobiai" target="_blank" class="social-link">
+                        <p class="miniatura"><a href="https://www.facebook.com/vaikysteslobiai" target="_blank" rel="noopener" class="social-link">
                                 <i class="fab fa-facebook-square social-icon"></i> Sekite naujienas Facebook
                         </a></p>
                         <p class="miniatura">&copy;Vaikystės lobiai 2024. Visos teises saugomos</p>

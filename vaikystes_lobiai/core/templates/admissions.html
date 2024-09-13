@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block meta_tags %}
+<meta name="description" content="Informacija apie priėmimą į Vaikystės lobiai darželį. Sužinokite apie mūsų ugdymo programas ir kaip patekti į darželį.">
+{% endblock %}
+
 {% block title %}Priėmimo tvarka{% endblock %}
 
 {% block content %}
@@ -12,7 +16,7 @@
             <h1>Priėmimas į darželį</h1>
             <div class="admissions-hero-div">
                 <div class="grupele">
-                    <p>Prašymas stojimui vykdomas internetu</p>
+                    <p>Prašymas stojimui teikiamas internetu</p>
                     <img src="{% static 'images/rodykle.png' %}">
                 </div>
                 <a href="{% url 'register' %}" class="register-red">Registracija</a>
@@ -20,7 +24,7 @@
         </div>
         <div class="hero-photo main-round-admissions">
             <!-- Add a hero photo here -->
-            <img src="{% static 'images/Priėmimas_į_darželį.jpg' %}" alt="Hero Photo" class="main-round">
+            <img src="{% static 'images/Priėmimas_į_darželį.png' %}" alt="Hero Photo" class="main-round">
         </div>
     </section>
 </div>
@@ -97,7 +101,7 @@
     <section class="misviz">
         <div class="adaptacija rereverse adaptacija-gylph">
             <div class="hero-photo widerson">
-                <img src="{% static 'images/Adaptacija.JPG' %}" alt="Hero Photo" class="main-round">
+                <img src="{% static 'images/Adaptacija.png' %}" alt="Hero Photo" class="main-round">
             </div>
             <div class="hero-text widerson adaptacija-gylph">
                 <h1>Adaptacija</h1>
