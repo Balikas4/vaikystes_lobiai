@@ -1124,16 +1124,22 @@ form {
 .form-group label {
     display: none;
 }
+
+.form-group textarea {
+    padding: 0px 4px;
+    width: -webkit-fill-available;
+}
+
 .form-group input {
     padding: 0px 4px;
 }
 
 form input[type="text" i]{
-    width: 100%;
+    width: -webkit-fill-available;
 }
 
 form input[type="email" i]{
-    width: 100%;
+    width: -webkit-fill-available;
 }
 
 form textarea {
