@@ -12,7 +12,11 @@ from django.db.models import Case, When, Value, IntegerField
 from contact.models import Contact
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
-
+from django.core.mail import EmailMessage
+from django.core.files import File
+from docx import Document
+from django.utils import timezone
+import os
 
 
 def home(request):
@@ -104,13 +108,36 @@ def contact(request):
     }
     return render(request, 'contact.html', context)
 
+def replace_placeholders(doc, replacements):
+    """Replace placeholders in the document with actual form data and optionally bold specific text."""
+
+    for paragraph in doc.paragraphs:
+        for placeholder, value in replacements.items():
+            if placeholder in paragraph.text:
+                for run in paragraph.runs:
+                    if placeholder in run.text:
+                        # Replace the text
+                        run.text = run.text.replace(placeholder, value)
+
+
+    for table in doc.tables:
+        for row in table.rows:
+            for cell in row.cells:
+                for placeholder, value in replacements.items():
+                    if placeholder in cell.text:
+                        for run in cell.paragraphs[0].runs:
+                            if placeholder in run.text:
+                                # Replace the text
+                                run.text = run.text.replace(placeholder, value)
+
+
 def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
             registration = form.save()
 
-            # Pr`epare admin email
+            # Prepare admin email
             admin_subject = 'Naujas registracijos pateikimas'
             admin_message = f'''
             Naujas registracijos įrašas buvo pateiktas su šiais duomenimis:
@@ -140,39 +167,76 @@ def register(request):
             - Vaiko Sveikatos Informacija: {registration.child_health_info}
             - Vaiko Talentai: {registration.child_talents}
             '''
+
+            # Load the existing document template
+            template_path = '/app/register/word/Registracija.docx'
+            doc = Document(template_path)
+
+            # Define replacements based on form data
+            replacements = {
+                '{{first_last_name}}': registration.first_last_name,
+                '{{contact_phone}}': registration.contact_phone,
+                '{{email}}': registration.email,
+                '{{home_address}}': registration.home_address,
+                '{{document_date}}': str(registration.document_date),
+                '{{child_first_last_name}}': registration.child_first_last_name,
+                '{{admission_date}}': str(registration.admission_date),
+                '{{child_first_name}}': registration.child_first_name,
+                '{{child_last_name}}': registration.child_last_name,
+                '{{child_personal_code}}': registration.child_personal_code,
+                '{{child_home_address}}': registration.child_home_address,
+                '{{father_info}}': registration.father_info,
+                '{{mother_info}}': registration.mother_info,
+                '{{child_health_info}}': registration.child_health_info,
+                '{{child_talents}}': registration.child_talents,
+            }
+
+            # Replace placeholders with actual data
+            replace_placeholders(doc, replacements)
+
+            # Save the modified document to a temporary file
+            doc_filename = f'Registracija_{timezone.now().strftime("%Y%m%d_%H%M%S")}.docx'
+            doc_path = os.path.join('/tmp', doc_filename)
+            doc.save(doc_path)
+
+            # Save the document to the model
+            with open(doc_path, 'rb') as doc_file:
+                registration.document.save(doc_filename, File(doc_file), save=True)
+
+            # Optionally delete the temporary file
+            # Ensure this file is removed after it's used to avoid clutter
             try:
-                # Send admin email
-                send_mail(
-                    admin_subject,
-                    admin_message,
-                    'admin@vaikysteslobiai.lt',
-                    ['registracija@vaikysteslobiai.lt'],
-                    fail_silently=False,
+                # Prepare admin email with attachment
+                email = EmailMessage(
+                    subject=admin_subject,
+                    body=admin_message,
+                    from_email='vaikysteslobiaiweb@gmail.com',
+                    to=['vaikysteslobiaiweb@gmail.com'],
                 )
 
+                # Attach the document
+                email.attach_file(doc_path)
+                email.send()
+
                 # Prepare welcome email
-                welcome_subject = 'Welcome to Our Service'
-                welcome_message = f'''
-                Dėkojame,
+                welcome_email = EmailMessage(
+                    subject='Jūsų prašymas buvo gautas - Vaikystės lobiai',
+                    body=(
+                        'Dėkojame,\n\n'
+                        'Jūsų prašymas buvo gautas, netrukus susisieksime.\n\n'
+                        'Pagarbiai,\n'
+                        '"vaikystės lobiai" administracija'
+                    ),
+                    from_email='vaikysteslobiaiweb@gmail.com',
+                    to=[registration.email],
+                )
+                welcome_email.send()
 
-                Jūsų prašymas buvo gautas, netrukus susisieksime
-
-                Pagarbiai "vaikystės lobiai" administracija
-
-                '''
-
-                # Send welcome email
-                if registration.email:
-                    send_mail(
-                        welcome_subject,
-                        welcome_message,
-                        'admin@vaikysteslobiai.lt',
-                        [registration.email],
-                        fail_silently=False,
-                    )
+                # Optionally delete the temporary file
+                os.remove(doc_path)
 
                 # Success message and redirect
-                messages.success(request, 'Sėkmingai pateikėte registracijos formą')
+                messages.success(request, 'Sėkmingai užpildėte registracijos prašymą.')
                 return redirect('register')
 
             except BadHeaderError:
@@ -183,7 +247,7 @@ def register(request):
                 messages.error(request, 'Įvyko klaida siunčiant el. laišką. Bandykite dar kartą.')
 
         else:
-            messages.error(request, 'Įvyko klaida registruojantis')
+            messages.error(request, 'Įvyko klaida registruojantis.')
     else:
         form = RegistrationForm()
 

@@ -27,6 +27,9 @@ class Registration(models.Model):
     child_health_info = models.TextField(verbose_name='Duomenys apie vaikučio sveikatą', blank=False, null=True)
     child_talents = models.TextField(verbose_name='Vaikučio išskirtiniai gebėjimai, talentai, pomėgiai', blank=True, null=True)
 
+    # WORD
+    document = models.FileField(upload_to='register/', null=True, blank=True)
+
     def __str__(self):
         return f"{self.child_first_name} {self.child_last_name}"
     

@@ -155,8 +155,8 @@ EMAIL_USE_TLS = False
 
 
 # Authentication Settings
-EMAIL_HOST_USER = 'balikas4@gmail.com'  # Your BaCloud email address
+EMAIL_HOST_USER = 'vaikysteslobiaiweb@gmail.com'  # Your BaCloud email address
 EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD  # Your BaCloud email password
 
 # Default 'From' Email Address
-DEFAULT_FROM_EMAIL = 'balikas4@gmail.com'
+DEFAULT_FROM_EMAIL = 'vaikysteslobiaiweb@gmail.com'
