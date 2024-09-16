@@ -1,5 +1,6 @@
 # register/models.py
 from django.db import models
+from django.utils import timezone
 
 class Registration(models.Model):
     # Parent/Guardian Information
@@ -9,9 +10,9 @@ class Registration(models.Model):
     home_address = models.CharField(max_length=255, blank=True, null=True, verbose_name='Namų adresas')
 
     # Document and Admission Dates
-    document_date = models.DateField(blank=True, null=True, verbose_name='Dokumento data')
+    document_date = models.DateField(default=timezone.now, verbose_name='Dokumento data')
     child_first_last_name = models.CharField(max_length=100, blank=True, null=True, verbose_name='Vaiko vardas ir pavarde')
-    admission_date = models.DateField(blank=True, null=True, verbose_name='Priėmimo data')
+    admission_date = models.DateField(default=timezone.now, verbose_name='Priėmimo data')
 
     # Child Information (Mandatory Fields)
     child_first_name = models.CharField(max_length=100, verbose_name='Vaiko vardas')
