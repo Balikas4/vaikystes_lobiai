@@ -1124,6 +1124,9 @@ form {
 .form-group label {
     display: none;
 }
+.form-group input {
+    padding: 0px 4px;
+}
 
 form input[type="text" i]{
     width: 100%;
