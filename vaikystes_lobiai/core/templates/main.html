@@ -125,6 +125,8 @@
         let totalSlides = Math.ceil(galleryItems.length / itemsPerView);
         let currentIndex = 0;
         let autoSlideInterval;
+        let startX = 0; // For swipe detection
+        let endX = 0;
     
         // Function to update the gallery layout
         function updateGalleryLayout() {
@@ -180,9 +182,34 @@
             updateGallery();
         }
     
+        // Function to go to the previous slide
+        function goToPreviousSlide() {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides; // Loop back to the last slide
+            updateGallery();
+        }
+    
+        // Swipe Detection for Gallery
+        gallery.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+    
+        gallery.addEventListener('touchmove', (e) => {
+            endX = e.touches[0].clientX;
+        });
+    
+        gallery.addEventListener('touchend', () => {
+            const swipeDistance = endX - startX;
+            if (swipeDistance > 50) { // Swipe right
+                goToPreviousSlide();
+            } else if (swipeDistance < -50) { // Swipe left
+                goToNextSlide();
+            }
+            resetAutoSlide(); // Reset auto slide timer when user interacts
+        });
+    
         // Function to start auto-slide
         function startAutoSlide() {
-            autoSlideInterval = setInterval(goToNextSlide, 4000); // Auto-slide every 3 seconds
+            autoSlideInterval = setInterval(goToNextSlide, 4000); // Auto-slide every 4 seconds
         }
     
         // Function to stop auto-slide
@@ -221,11 +248,13 @@
         const nextButton = document.querySelector('.nav-button.next');
         const totalItems = items.length;
         let currentIndex = 0;
-        let autoSlideInterval; // Variable to store the interval for auto-sliding
+        let autoSlideInterval;
+        let startX = 0; // For swipe detection
+        let endX = 0;
     
         // Function to get the correct item width based on screen size
         function getItemWidth() {
-            return window.innerWidth <= 600 ? 320 : 620; // 300px for mobile, 600px for desktop
+            return window.innerWidth <= 600 ? 320 : 620; // 320px for mobile, 620px for desktop
         }
     
         // Set the wrapper and items' widths based on screen size
@@ -251,7 +280,7 @@
         prevButton.addEventListener('click', () => {
             goToPrev();
         });
-
+    
         // Function to go to the next slide
         function goToNext() {
             if (currentIndex < totalItems - 1) {
@@ -261,7 +290,7 @@
             }
             updateCarousel();
         }
-
+    
         // Function to go to the previous slide
         function goToPrev() {
             if (currentIndex > 0) {
@@ -272,30 +301,49 @@
             updateCarousel();
         }
     
+        // Swipe Detection for Testimonials
+        wrapper.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+    
+        wrapper.addEventListener('touchmove', (e) => {
+            endX = e.touches[0].clientX;
+        });
+    
+        wrapper.addEventListener('touchend', () => {
+            const swipeDistance = endX - startX;
+            if (swipeDistance > 50) { // Swipe right
+                goToPrev();
+            } else if (swipeDistance < -50) { // Swipe left
+                goToNext();
+            }
+            resetAutoSlide(); // Reset auto slide timer when user interacts
+        });
+    
         // Function to start auto-slide
         function startAutoSlide() {
-            autoSlideInterval = setInterval(goToNext, 4000); // Change every 3 seconds
+            autoSlideInterval = setInterval(goToNext, 4000); // Change every 4 seconds
         }
     
         // Function to stop auto-slide
         function stopAutoSlide() {
             clearInterval(autoSlideInterval);
         }
-
+    
         // Initialize carousel
         setCarouselWidths();
     
         // Adjust carousel on window resize
         window.addEventListener('resize', setCarouselWidths);
-
+    
         // Start auto-slide
         startAutoSlide();
-
+    
         // Stop auto-slide on user interaction (clicks) and restart after some time
         nextButton.addEventListener('click', stopAutoSlide);
         prevButton.addEventListener('click', stopAutoSlide);
         wrapper.addEventListener('mouseover', stopAutoSlide);
         wrapper.addEventListener('mouseleave', startAutoSlide);
-    });
+    });     
 </script>
 {% endblock %}
