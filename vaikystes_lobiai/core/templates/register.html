@@ -2,6 +2,10 @@
 
 {% block title %}Register{% endblock %}
 
+{% block meta_tags %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+{% endblock  %}
+
 {% block content %}
 <!-- Display success messages -->
 {% if messages %}
@@ -162,4 +166,19 @@
         </form>
     </section>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/l10n/lt.js"></script>
+<script>
+    // Initialize flatpickr for admission_date
+    flatpickr("#id_admission_date", {
+        dateFormat: "Y-m-d",  // Adjust this to your preferred format
+        locale: "lt"          // Set to Lithuanian or another language as needed
+    });
+
+    // Initialize flatpickr for document_date
+    flatpickr("#id_document_date", {
+        dateFormat: "Y-m-d",
+        locale: "lt"
+    });
+</script>
 {% endblock %}

@@ -53,7 +53,10 @@ header {
     height: 100%; /* Adjust the height as needed */
     display: flex; /* Optional: Adjusts the content inside */
 }
-
+input#id_document_date , input#id_admission_date {
+    width: 80px;
+    text-align: center;
+}
 .slight-sleft2{
     background: linear-gradient(to right, #FFFFFF 50%, #FAE0F5 50%);
     /* Ensure the div takes the full width of its container */
