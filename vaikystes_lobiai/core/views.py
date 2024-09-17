@@ -211,7 +211,7 @@ def register(request):
                     subject=admin_subject,
                     body=admin_message,
                     from_email='vaikysteslobiaiweb@gmail.com',
-                    to=['vaikysteslobiaiweb@gmail.com'],
+                    to=['registracija@vaikysteslobiai.lt'],
                 )
 
                 # Attach the document
