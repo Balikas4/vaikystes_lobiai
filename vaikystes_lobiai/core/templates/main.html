@@ -14,7 +14,9 @@
             <h1>{{ main_page.hero.hero_title }}</h1>
             <div class="main-text-button">
                 <p>{{ main_page.hero.hero_description }}</p>
-                <a href="{{ main_page.hero.hero_button_url }}" class="white-register-link">{{ main_page.hero.hero_button_text }}</a>
+                {% if main_page.hero.is_button_enabled %}
+                    <a href="{{ main_page.hero.hero_button_url }}" class="white-register-link">{{ main_page.hero.hero_button_text }}</a>
+                {% endif %}
             </div>
         </div>
         {% if main_page.hero.hero_photo %}
