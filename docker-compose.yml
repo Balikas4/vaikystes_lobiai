@@ -39,6 +39,7 @@ services:
     build:
       context: ./certbot
       dockerfile: Dockerfile
+    user: "${DOCKER_GID}:${DOCKER_GID}"
     image: certbot/certbot
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt
