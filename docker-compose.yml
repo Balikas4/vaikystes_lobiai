@@ -37,8 +37,8 @@ services:
 
   certbot:
     build:
-    context: ./certbot
-    dockerfile: Dockerfile
+      context: ./certbot
+      dockerfile: Dockerfile
     image: certbot/certbot
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt
