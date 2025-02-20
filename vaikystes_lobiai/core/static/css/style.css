@@ -1756,7 +1756,7 @@ nav {
         align-items: flex-start;
     }
     .grupele img {
-        transform: rotate(90deg);
+        display: none;
     }
     .register-red-header {
         padding: 0px;

@@ -225,7 +225,7 @@ def register(request):
                         'Dėkojame,\n\n'
                         'Jūsų prašymas buvo gautas, netrukus susisieksime.\n\n'
                         'Pagarbiai,\n'
-                        '"vaikystės lobiai" administracija'
+                        '"Vaikystės lobiai" administracija'
                     ),
                     from_email='vaikysteslobiaiweb@gmail.com',
                     to=[registration.email],
