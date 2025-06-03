@@ -1,8 +1,12 @@
 # register/forms.py
 from django import forms
 from .models import Registration
+from django_recaptcha.fields import ReCaptchaField
+from django_recaptcha.widgets import ReCaptchaV2Checkbox
 
 class RegistrationForm(forms.ModelForm):
+    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox)
+
     class Meta:
         model = Registration
         fields = [

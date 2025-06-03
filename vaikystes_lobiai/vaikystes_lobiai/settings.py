@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-from .local_settings import SECRET_KEY, EMAIL_HOST_PASSWORD
+from .local_settings import SECRET_KEY, EMAIL_HOST_PASSWORD, RECAPTCHA_PUBLIC_KEY, RECAPTCHA_PRIVATE_KEY
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -47,6 +47,7 @@ SESSION_COOKIE_SECURE = True
 # Application definition
 
 INSTALLED_APPS = [
+    'django_recaptcha',
     'core',
     'gallery',
     'main_page',
@@ -160,3 +161,8 @@ EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD  # Your BaCloud email password
 
 # Default 'From' Email Address
 DEFAULT_FROM_EMAIL = 'vaikysteslobiaiweb@gmail.com'
+
+# Recaptcha Settings
+RECAPTCHA_PUBLIC_KEY = RECAPTCHA_PUBLIC_KEY
+RECAPTCHA_PRIVATE_KEY = RECAPTCHA_PRIVATE_KEY
+RECAPTCHA_USE_SSL = False

@@ -1434,6 +1434,10 @@ nav {
     grid-template-columns: repeat(3, 1fr);
 }
 
+div#id_captcha {
+    place-items: center;
+}
+
 /* Responsive styles */
 @media (max-width: 1400px) {
     .button-text p {

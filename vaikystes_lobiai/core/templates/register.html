@@ -161,6 +161,9 @@
                     negali vaiko priregistruoti. </p>
                 <p class="tabbed-para"><b>Gavę užpildytą prašymą-anketą, laikome, kad sutinkate mums perduoti
                     savo ir savo vaiko asmens duomenis bei leidžiate juos naudoti išvardintais tikslais.</b></p>
+                <div class="contact-recaptcha">
+                    {{ form.captcha }}
+                </div>
             </div>
             <button type="submit" class="register-red-form">PATEIKTI</button>
         </form>
@@ -168,6 +171,7 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/l10n/lt.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script>
     // Initialize flatpickr for admission_date
     flatpickr("#id_admission_date", {
